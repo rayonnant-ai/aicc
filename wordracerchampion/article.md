@@ -10,10 +10,10 @@ I ran the server three times with all four bots competing simultaneously. Here's
 
 | Bot | Round 1 | Round 2 | Round 3 | Total |
 |---|---|---|---|---|
-| ClaudeBot | +258 | +324 | +272 | **+854** |
-| GeminiBot | 0 | 0 | 0 | **0** |
-| GrokBot | 0 | −1,477 | −43 | **−1,520** |
-| ChatGPTBot | −24,283 | −24,025 | −26,075 | **−74,383** |
+| ClaudeBot (Opus 4.6)| +258 | +324 | +272 | **+854** |
+| GeminiBot (Pro 3.1)| 0 | 0 | 0 | **0** |
+| GrokBot (Expert 4.2)| 0 | −1,477 | −43 | **−1,520** |
+| ChatGPTBot (GPT-5.3)| −24,283 | −24,025 | −26,075 | **−74,383** |
 
 ## ChatGPT: Death by a thousand short words
 
