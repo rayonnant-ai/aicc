@@ -30,5 +30,5 @@ For more details on this test, see the [article](sovietpost/article.md) and the 
 - **Gemini (2.5 Pro):** Too slow to claim any words before Claude, scoring 0 in all three rounds.
 - **Claude (Opus 4.6):** Only bot to filter for profitable word lengths (7+), with a pipelined three-thread architecture. Scored +854 cumulative, winning all three rounds.
 
-For more details on this test, see the [article](wordracerchampion/article.md) and the [prompt](wordracerchampion/prompt.txt).
+For more details on this test, see the [article](wordracerchampion/article.md) and the [prompt](wordracerchampion/prompt.md).
 
