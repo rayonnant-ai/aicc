@@ -20,3 +20,15 @@ This project aims to benchmark various Large Language Models (LLMs) by giving th
 
 For more details on this test, see the [article](sovietpost/article.md) and the [prompt](sovietpost/prompt.md).
 
+### 2. Word Racer Champion (`wordracerchampion/`)
+
+**Task:** Write a Python 3.10 client that connects to a TCP server, receives a 15×15 letter grid, and races to find and submit valid dictionary words traced adjacently on the grid. Scoring: `letters − 6`. Four bots compete simultaneously in a ten-second round.
+
+**Results:**
+- **ChatGPT:** Submitted thousands of valid but unprofitable short words, scoring −74,383 cumulative across three rounds.
+- **Grok:** Same short-word mistake but throttled by synchronous I/O, scoring −1,520 cumulative.
+- **Gemini (2.5 Pro):** Too slow to claim any words before Claude, scoring 0 in all three rounds.
+- **Claude (Opus 4.6):** Only bot to filter for profitable word lengths (7+), with a pipelined three-thread architecture. Scored +854 cumulative, winning all three rounds.
+
+For more details on this test, see the [article](wordracerchampion/article.md) and the [prompt](wordracerchampion/prompt.txt).
+

@@ -1,6 +1,6 @@
 # I pitted Claude, Gemini, ChatGPT, and Grok against each other in a real-time coding challenge. Claude won, and it wasn't close.
 
-I wanted to pit four frontier AI models against each other in a perfectly fair and completely objective coding competition — same prompt, same constraints, same ten-second clock. No human review, no subjective grading. Just a TCP server, a dictionary, and a scoreboard.
+I pitted four frontier AI models against each other in a perfectly fair and completely objective coding competition: same prompt, same constraints, same ten-second clock. No human review, no subjective grading. Just a TCP server, a dictionary, and a scoreboard.
 
 I designed a "Robot Word Racer" tournament. I gave Claude, Gemini, ChatGPT, and Grok the same prompt and asked each to write a complete Python 3.10 client using only the standard library. The four generated bots then connect simultaneously to a TCP server, receive a 15×15 letter grid, and compete to find and submit valid words before each other. Words must be traced adjacently on the grid (horizontally, vertically, or diagonally). No tile reused per word. Minimum three letters. Scoring is `letters − 6`, so short words cost you points and long ones pay off. The catch: submitting a word that isn't in the dictionary or isn't traceable on the grid results in instant disqualification. The entire round lasts ten seconds.
 
