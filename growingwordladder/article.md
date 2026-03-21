@@ -1,4 +1,4 @@
-# The Growing Word Ladder: Claude won 100 out of 100 rounds.
+# AI coding contest day 3: Claude wins the growing word ladder challenge
 
 I gave Claude, Gemini, ChatGPT, and Grok the same prompt and asked each to write a Python 3.10 client for a multi-round "Growing Word Ladder" tournament. Each round, a server sends a start word and a goal word, and the bots must find a path between them. Each step changes, adds, or removes exactly one letter, with every intermediate word in a million-word dictionary. First bot to submit a valid path wins the round. Any bot that fails to submit within five seconds of the winner is eliminated from the tournament.
 

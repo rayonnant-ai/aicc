@@ -1,608 +1,709 @@
---- ROUND 1: WYYITVZTNQAOCPYTSFWIEPNLPLRWSROKGZGWZNOXO -> OALOMQIYDNPNCAURFRSMYEQIBXQZMLKTPODOILVDTZLW ---
-  claude_bot           WINNER (+1)    | time:    159.7ms | path: 294 steps | total: 1
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    230.4ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    233.5ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    234.9ms | path: 294 steps | total: 0
+--- ROUND 1: GTABFVYFYTUAGGOMQJEQQAVNBHQFLPABEWTZEAVGQHHSRMGSXRCURWMQL -> FYEDKYMIWPWTFNBUVLUFUTEZPAAIBCAHGJLJBCLAJXSJJ ---
+  claude_bot           WINNER (+1)    | time:    232.6ms | path: 295 steps | total: 1
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    317.7ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    325.5ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    333.8ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    308.9ms | path: 295 steps | total: 0
 
---- ROUND 2: DDIISTNMGMCSVWIFQCFKVEBMIPGNQZEYRVYZBOSJWFWWCXRAZ -> IBBYINLTJDJJXJVFSACWAZOGGADEQTNNJUWXFQRJ ---
-  claude_bot           WINNER (+1)    | time:    194.4ms | path: 298 steps | total: 2
-  grok_bot             SURVIVED (+0)  | time:    261.5ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    267.4ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    271.2ms | path: 298 steps | total: 0
+--- ROUND 2: FSRHDMHWNQXYMQNYENRHEZXMSVDAKNCNFPFCMVCNZ -> OTHOQSTHEPXOBTDPKGFHQVDXFQGNIQAGXPPYKFRHMOY ---
+  claude_bot           WINNER (+1)    | time:    198.9ms | path: 295 steps | total: 2
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    254.6ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    262.9ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    260.5ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    256.2ms | path: 295 steps | total: 0
 
---- ROUND 3: MEXVBLUSAGIROYKXSHRNULQEXSZALCOKZTSMLZKUWAJBVOYK -> AALNMAOUHRLKSOJDCQOIABIYLRIRDQXUKFVUHWRNKOU ---
-  claude_bot           WINNER (+1)    | time:    166.6ms | path: 296 steps | total: 3
-  gpt5_3_bot           SURVIVED (+0)  | time:    235.2ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    236.1ms | path: 296 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    239.5ms | path: 296 steps | total: 0
+--- ROUND 3: RUBTEDUOBIYCDHYJRAQALZBAUASQXRLUDHFKFPPDYPKAFJLC -> TOJDQHFJNQMHBBLANDHVJLNSJYVQSXQJNIVZTYVMLIRUAYJH ---
+  claude_bot           WINNER (+1)    | time:    227.6ms | path: 293 steps | total: 3
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    308.2ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    305.2ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    311.3ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    303.4ms | path: 293 steps | total: 0
 
---- ROUND 4: ZJDXUATJSJSDOFVYDXOGXLQKGFFCXOOSYPRXZTZRAAMM -> NNSOFWRBMZTYMATOOWNYYTSUPFIRBXIZXJBGSBWFFZJGG ---
-  claude_bot           WINNER (+1)    | time:    187.1ms | path: 294 steps | total: 4
-  grok_bot             SURVIVED (+0)  | time:    262.7ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    263.8ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    265.4ms | path: 294 steps | total: 0
+--- ROUND 4: OMRXNDBUMKIXPQMNQDCRSTREHHTBOQPRGHOSNECLOPHFAPVK -> OEBCSNZAAPXLRMWBPZZQLAMQXTTQAGKXTVBRNCRRP ---
+  claude_bot           WINNER (+1)    | time:    213.1ms | path: 297 steps | total: 4
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    288.8ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    291.2ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    292.7ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    285.0ms | path: 297 steps | total: 0
 
---- ROUND 5: IMBCKWVOYNAGDQAMPWTFJEAHFBZKMQIAHGLIWQJJOOCIKQEQTT -> LSRXYFFKSZYPLVJSUAEGDNFXCIXWKLNHAYSSUQNYVYENMDOS ---
-  claude_bot           WINNER (+1)    | time:    155.8ms | path: 285 steps | total: 5
-  grok_bot             SURVIVED (+0)  | time:    221.7ms | path: 285 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    221.8ms | path: 285 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    223.0ms | path: 285 steps | total: 0
+--- ROUND 5: QJWVUZNKCFONMQVBURHFEOVNOMLPOJJLLWKWXDICDSGVKWTRTWQ -> JKUWYHUAWQVPCPHXSVOVDINIXCSFIXSPSFWIIDVRIYRRGBBUMKWWBMDRTMU ---
+  claude_bot           WINNER (+1)    | time:    197.8ms | path: 293 steps | total: 5
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    280.1ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    282.7ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    278.5ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    270.7ms | path: 293 steps | total: 0
 
---- ROUND 6: FPKIGICTXYXFXQJGEXHGZKDBLKVPHBIDKCZNNZRKMT -> WCFTEDHYGVEFWMPPCGPZLZDEKWZFNOKVDZYZOYOJMZL ---
-  claude_bot           WINNER (+1)    | time:    173.5ms | path: 293 steps | total: 6
-  grok_bot             SURVIVED (+0)  | time:    247.4ms | path: 293 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    247.7ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    256.5ms | path: 293 steps | total: 0
+--- ROUND 6: NVDHQNHSVZQJHYDROMCZVZDXZLHPTCCAOTJYCKPXRRCDVVENRHUFVHK -> HIEPQTFSZJLMFLSGQAXPLMECJZKYPKUWQBFAGQJCEFYSUOENZRWZ ---
+  claude_bot           WINNER (+1)    | time:    240.9ms | path: 297 steps | total: 6
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    336.7ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    344.6ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    341.0ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    334.3ms | path: 297 steps | total: 0
 
---- ROUND 7: ERVBSLQMGWHLHLFFYTWLETORWYXKDVSLCOMYEXPJPDFPMJLJQ -> XRLVLPVRZWECSWCBFWQNXJBBMQHINRDUNSDPOHPSGHE ---
-  claude_bot           WINNER (+1)    | time:    154.0ms | path: 292 steps | total: 7
-  grok_bot             SURVIVED (+0)  | time:    222.0ms | path: 292 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    225.8ms | path: 292 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    235.5ms | path: 292 steps | total: 0
+--- ROUND 7: CVARBUPZETDYPPRTKZXHYMWXXPGNAKLUTYERNGFT -> UEOHQHCPDSXKNHXRKCFHDZUHJYMJLIJVHJDTESGXB ---
+  claude_bot           WINNER (+1)    | time:    197.0ms | path: 282 steps | total: 7
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    265.9ms | path: 282 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    262.3ms | path: 282 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    267.2ms | path: 282 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    268.7ms | path: 282 steps | total: 0
 
---- ROUND 8: YBTISPKQLDRQYVGADZSNJYFGCZWEKOZQWDUKKUDBPELSDFARBDQVTRSJCMSD -> ZUWLPUSQGXFNQHNJARLMWCYKZNUWKYHUVHZLXWMFVENWVLKVEEFWI ---
-  claude_bot           WINNER (+1)    | time:    203.0ms | path: 294 steps | total: 8
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    289.2ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    292.5ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    300.3ms | path: 294 steps | total: 0
+--- ROUND 8: SKKYMCJNCAXPZDEVGOQNHTDSZXLIJCURUJKTMXICW -> MPOEFXCNRUARXWSXRDOGTXBAMQVCDMLIFLNDFCNQBMGYQNOUWURWJSRJ ---
+  claude_bot           WINNER (+1)    | time:    222.7ms | path: 294 steps | total: 8
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    308.9ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    305.3ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    302.2ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    319.4ms | path: 294 steps | total: 0
 
---- ROUND 9: NCBBXYQSTYZUWFNLITVUPTPLWQNWDQHUGLHKMVATGUSLHALYPMTNFDPM -> KAFXZVCBCRVUHNTOXTBLMFFRJXBDHTOAXNPEPMSNOZVHBJAELEFPAG ---
-  claude_bot           WINNER (+1)    | time:    204.2ms | path: 289 steps | total: 9
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    291.7ms | path: 289 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    295.7ms | path: 289 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    306.3ms | path: 289 steps | total: 0
+--- ROUND 9: QKMSYVIVBIPVEYSUTNVHQJHXXROQUMRSSITGTHGXPXNBWY -> DYKHPIYRBKQIVTVPKHPWMFFSLXRTFRALJOAKCIYFY ---
+  claude_bot           WINNER (+1)    | time:    195.4ms | path: 289 steps | total: 9
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    272.8ms | path: 289 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    285.0ms | path: 289 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    268.7ms | path: 289 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    276.1ms | path: 289 steps | total: 0
 
---- ROUND 10: LOIROPHBTMMYKQAGPYXTJANGWSEHPKOLYKXWXHUUXPSIUYMRICERCK -> RWLFLLHJCQPQSEKXYTAZCTZUTUMFLUZIEJUQRRZNOSKLZHHG ---
-  claude_bot           WINNER (+1)    | time:    178.6ms | path: 297 steps | total: 10
-  grok_bot             SURVIVED (+0)  | time:    254.6ms | path: 297 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    266.8ms | path: 297 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    267.2ms | path: 297 steps | total: 0
+--- ROUND 10: KQTSRCMHPKQSFMOEBWOWHYACBKROQURZCERUKNXANHYABSIC -> YSPBPCARKIUGLZKKIWPZVDVUMPFZPYPPJDOMKQZNEKIWIFTNPBFCTRMZNK ---
+  claude_bot           WINNER (+1)    | time:    209.2ms | path: 293 steps | total: 10
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    288.5ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    287.1ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    285.2ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    280.8ms | path: 293 steps | total: 0
 
---- ROUND 11: ZBEXNOKQMVMFTCZHEAAUMSPMFDLFUOWPAJCSIKGCZPLLWAFKEAUKMNDW -> NXZKDFUVLTJYRAQZTKYIMHNRAFCBLGQEUMTBMKSQCWYQEAZOOKXTJTET ---
-  claude_bot           WINNER (+1)    | time:    196.9ms | path: 298 steps | total: 11
-  grok_bot             SURVIVED (+0)  | time:    277.6ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    280.4ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    284.9ms | path: 298 steps | total: 0
+--- ROUND 11: BCZJBPQUOSEBRCBXXFRUUDCYQUQEDDIEIADXHDIUYPQCBGHDE -> ELYXEFUNIMLZWQFXHMUVXTUPPPMMGJEVNUKQJHYIBMTWOPNCAFUIROD ---
+  claude_bot           WINNER (+1)    | time:    247.0ms | path: 292 steps | total: 11
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    329.7ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    335.6ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    322.9ms | path: 292 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    324.6ms | path: 292 steps | total: 0
 
---- ROUND 12: MYMDXOFUQJZPEONIQBEUYBKDYMHWQRTGKFDQVHDDQXMUHBIJVRC -> GZYRSVYBQKLIGPUMAJIMHUSEOLLBUYYGBKLBCEVHDVOWZBYYOPJIVRT ---
-  claude_bot           WINNER (+1)    | time:    193.4ms | path: 294 steps | total: 12
-  grok_bot             SURVIVED (+0)  | time:    276.6ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    298.1ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    309.5ms | path: 294 steps | total: 0
+--- ROUND 12: LPPTLWDAXXGZVMHLNDPDNFDQAFUADBABQBKIDIVITPVUC -> SDFCOIQYDOMVIIBWISTCRPZCQHISZVMXCQRHJCPSVE ---
+  claude_bot           WINNER (+1)    | time:    197.8ms | path: 289 steps | total: 12
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    298.4ms | path: 289 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    284.7ms | path: 289 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    290.6ms | path: 289 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    293.8ms | path: 289 steps | total: 0
 
---- ROUND 13: SPGCNGYFZQCHTNSLPDDVZOGCTJGNEUFJQUHJYVZGZ -> GLBYZVFLIXSIORXVZZJWHDIEDBWKHJEOBBVAODUVJF ---
-  claude_bot           WINNER (+1)    | time:    164.2ms | path: 295 steps | total: 13
-  grok_bot             SURVIVED (+0)  | time:    226.7ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    229.8ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    245.2ms | path: 295 steps | total: 0
+--- ROUND 13: LGZAJSXVYUHSBHCVOZKPFZSYMFLYZPKMHLIERDDUPQJEQLRHSWTDUAEEOSKJ -> SDYIZCZSWRRUDECSSOUZSPMAJDMQCSVHUXQEOHGVYKQXZUMHIGHZKXULXD ---
+  claude_bot           WINNER (+1)    | time:    244.4ms | path: 299 steps | total: 13
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    335.5ms | path: 299 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    337.2ms | path: 299 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    333.2ms | path: 299 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    340.6ms | path: 299 steps | total: 0
 
---- ROUND 14: STAWLKYBVDAWAQPBZSTEGJPEKSTWXJASGGHTUDRJVTNFIJTUOLTHDVUKJEN -> RGFWUNWVFXNVFBDHTKBVNTSJNZVQHLZRGCPMMYNWB ---
-  claude_bot           WINNER (+1)    | time:    190.1ms | path: 293 steps | total: 14
-  grok_bot             SURVIVED (+0)  | time:    262.6ms | path: 293 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    265.4ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    267.6ms | path: 293 steps | total: 0
+--- ROUND 14: ICJMLJDIAWNZZVWMFWMXXGECSHWUHZZJZWZKWQBDEPIIUBXIZKSPGUO -> EQUVDSXRXNVOKCXQTMZJSUBMJIJRHAQRDXEGKVCFUNTPLXFVSVXLO ---
+  claude_bot           WINNER (+1)    | time:    196.6ms | path: 294 steps | total: 14
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    274.2ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    298.2ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    271.3ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    292.9ms | path: 294 steps | total: 0
 
---- ROUND 15: WQOZIAQMMBMXTFSBOFIGVYXSTZBVGZDINOEOCAXEPHARZGWKCHEZJEWOBTA -> HGWVCBKLXAPZPTFFJIEQEOBOJUUBTQWMEDJOEEOMZKTYLFVOW ---
-  claude_bot           WINNER (+1)    | time:    168.5ms | path: 295 steps | total: 15
-  grok_bot             SURVIVED (+0)  | time:    237.0ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    238.9ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    240.4ms | path: 295 steps | total: 0
+--- ROUND 15: YQVTILKJNCTXUOQPIUITRCWPALHGHXOSNGCBEULRPNVCRUNUGYW -> SXROJWBHYZTOCAKIHVCOHDBFEBVSGUZXPNKZQLQFR ---
+  claude_bot           WINNER (+1)    | time:    201.4ms | path: 301 steps | total: 15
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    385.5ms | path: 301 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    277.9ms | path: 301 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    284.2ms | path: 301 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    377.5ms | path: 301 steps | total: 0
 
---- ROUND 16: WMDSFLSLJQYFQXLMKPSQBVSYVJBZMVVHNQQPGSXCASTGGI -> WPRUKDMGKGFUTMUJYOFNYKVOHXYRVDSOJOERFDVJM ---
-  claude_bot           WINNER (+1)    | time:    159.7ms | path: 291 steps | total: 16
-  grok_bot             SURVIVED (+0)  | time:    223.5ms | path: 291 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    223.6ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    226.3ms | path: 291 steps | total: 0
+--- ROUND 16: FYYQSMVIPAAGJVRQOOILUGGMTREKRYXBGAZFBMUYUZNFWYELNCPIIXUBLX -> CULJVAFQCTPGWMAISYOINMNPLOQTKPQWDQJHISZNIDUVAWBIIUXM ---
+  claude_bot           WINNER (+1)    | time:    244.9ms | path: 297 steps | total: 16
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    339.6ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    341.2ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    337.3ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    335.4ms | path: 297 steps | total: 0
 
---- ROUND 17: TPZRYIODSQWERPKHRRWJHZKPTXWUOSNMWQCSFYYJTABPCVJPSBJBXB -> BWKCTCYFYLMRVOIIIPPHCZGCQQHIAOBJOEUDGKVOVO ---
-  claude_bot           WINNER (+1)    | time:    170.7ms | path: 297 steps | total: 17
-  gpt5_3_bot           SURVIVED (+0)  | time:    239.2ms | path: 297 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    241.1ms | path: 297 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    244.8ms | path: 297 steps | total: 0
+--- ROUND 17: KMQTPVXDDSPRIVUPNLCCYWTLJUMWCVSSMHETSWQXHKREEKYMLOU -> DKLXNGWVQEARGDBOFSWOPZYBEAHERHZDNFNPWMFPVRDFUQHGLKONNGJ ---
+  claude_bot           WINNER (+1)    | time:    235.1ms | path: 294 steps | total: 17
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    294.7ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    316.6ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    296.6ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    293.0ms | path: 294 steps | total: 0
 
---- ROUND 18: PRBODORVHITSEVJKCYASBLNVTGLKRZIEBLRJSZLOILTYKXHFETKLLBDA -> OAXZWHGATHNFKPJMUBYQRWLHGSLQTSRVOSWMFYHXOXQYEEDFQKBIH ---
-  claude_bot           WINNER (+1)    | time:    198.1ms | path: 296 steps | total: 18
-  grok_bot             SURVIVED (+0)  | time:    277.7ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    283.9ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    284.7ms | path: 296 steps | total: 0
-
---- ROUND 19: JLWUMIUUQUYOLOJGMKAVLZZXNJSKWGRLDLBMZATJRHGEBECNZHBPHAG -> HRUVSGXRMTWQWIMBYXWAEUJNCYTSGLUQTBMONLQIXJPIU ---
-  claude_bot           WINNER (+1)    | time:    165.7ms | path: 295 steps | total: 19
-  grok_bot             SURVIVED (+0)  | time:    235.9ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    237.3ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    237.9ms | path: 295 steps | total: 0
-
---- ROUND 20: UBZAFGAKBMPXKTOJJIQLVVGELEQEHSTJNDLCOASOBELQGPSKVVZJNHF -> FWYDEPXASQAJYGWPQXOFGSJBTMBMMXZZRUCKYQNWCVVLXDKXD ---
-  claude_bot           WINNER (+1)    | time:    165.5ms | path: 297 steps | total: 20
-  grok_bot             SURVIVED (+0)  | time:    235.8ms | path: 297 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    237.2ms | path: 297 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    242.5ms | path: 297 steps | total: 0
-
---- ROUND 21: DJDQVMOOSBCQPUWSPUSRTMXGFLSFQINKIFSFUHATJ -> TROOMAVBAQVTBITMKESFMABXAGZXPHBXQTXOUTVGMENZTTXYJGPHELAMGE ---
-  claude_bot           WINNER (+1)    | time:    181.9ms | path: 295 steps | total: 21
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    257.3ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    258.1ms | path: 295 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    258.7ms | path: 295 steps | total: 0
-
---- ROUND 22: FRLAOHWJRVTQKYZWVEJMQYMWMKKWBNPRKJYJGSZJSXMTZKLDFFALGOAJNTZ -> HUMLSDFELFZVBETATWMFWESEUDDEOPRHIXJNARCPVSFVXZ ---
-  claude_bot           WINNER (+1)    | time:    179.6ms | path: 296 steps | total: 22
-  grok_bot             SURVIVED (+0)  | time:    246.7ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    248.0ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    251.5ms | path: 296 steps | total: 0
-
---- ROUND 23: OMUNHVRIQOKNFTMUVBGZNQQJQVQILKQQSBCWGZOA -> UBFEYDGVQLPZLTWTUQTGYPTDDFVLRKPEXXQNAGTIYPSIBVXC ---
-  claude_bot           WINNER (+1)    | time:    173.4ms | path: 296 steps | total: 23
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    218.8ms | path: 296 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    221.4ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    243.0ms | path: 296 steps | total: 0
-
---- ROUND 24: MZIVSMEEJOGGVQGKMZDPYXTQKBEOETEZORRDAKCDQKMLGJ -> FZBKIHRNMNDWRWUDIOEKYAYLSWXNPZADHUDLAWXBYRORHAKRAQFIYO ---
-  claude_bot           WINNER (+1)    | time:    173.5ms | path: 288 steps | total: 24
-  grok_bot             SURVIVED (+0)  | time:    221.4ms | path: 288 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    224.7ms | path: 288 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    243.0ms | path: 288 steps | total: 0
-
---- ROUND 25: KFTWZVHVWGAJIRDYGDJKAGWJMIPQABZCEIOQXFPMNQNZNWFDVJXSASXAWE -> YQDAXSHDEEGREBFICGLYLHUCNHVCPPEXECUCREMBBOUIBOJSUDA ---
-  claude_bot           WINNER (+1)    | time:    162.6ms | path: 291 steps | total: 25
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    231.3ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    232.2ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    233.9ms | path: 291 steps | total: 0
-
---- ROUND 26: XZNNFRRHSMAKMRXCPCYHDIDJZIURTYTXVMRWYQRKHU -> SHTEEMYSUUBELASICBTHRIKSCNIHCMXOXIVOYYCUOGEOOUGXVCSCLYCULK ---
-  claude_bot           WINNER (+1)    | time:    173.7ms | path: 289 steps | total: 26
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    247.1ms | path: 289 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    248.7ms | path: 289 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    249.4ms | path: 289 steps | total: 0
-
---- ROUND 27: YVUEGMUKZUDYMAKFXNEVUHWRTOAIXEUBMRZYAQFAEFUXYNFEBZOVHAMFNRDP -> NWLZUWEYVKVKQZCEDFBWOQRPEATUKOKPDSTYOQSSYPTADLHT ---
-  claude_bot           WINNER (+1)    | time:    208.3ms | path: 298 steps | total: 27
-  grok_bot             SURVIVED (+0)  | time:    272.7ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    276.5ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    293.4ms | path: 298 steps | total: 0
-
---- ROUND 28: KBFIEGEGKGYKRTCTIQSWQIGDUAZOFRKTUTEUZWIAV -> ICEMMZQTRGLSIGCDGVCPNAAHSWHMERUTUKVMQKWEUZDMGBSUHYQ ---
-  claude_bot           WINNER (+1)    | time:    180.0ms | path: 292 steps | total: 28
-  gpt5_3_bot           SURVIVED (+0)  | time:    251.7ms | path: 292 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    257.4ms | path: 292 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    274.2ms | path: 292 steps | total: 0
-
---- ROUND 29: BUCPWJBXTISXHSNZMGVQJDWQORPFZBCQGMFUCHKSIMDHMJ -> JLKHJMYHRONPIITFCBXIQTIMUQJPQAURPWNMODNPGZTVMV ---
-  claude_bot           WINNER (+1)    | time:    163.2ms | path: 291 steps | total: 29
-  grok_bot             SURVIVED (+0)  | time:    229.5ms | path: 291 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    230.9ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    231.2ms | path: 291 steps | total: 0
-
---- ROUND 30: HKLJXVQPRCRSWLGEHBYERJDOCYBFBSYZIUOLSMIBFIGMFLVOMLFJY -> CXJZPTZKFHQVDRZGUMYYQNSDUENVSFVBIQIWDNWABSUSKRGJA ---
-  claude_bot           WINNER (+1)    | time:    201.8ms | path: 290 steps | total: 30
-  grok_bot             SURVIVED (+0)  | time:    286.0ms | path: 290 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    293.2ms | path: 290 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    293.2ms | path: 290 steps | total: 0
-
---- ROUND 31: BJTJNGVJVJECIABHYPVJBTAYDQSBWEHJKAMPLFVQOZBKF -> RBRRAZQBNBTSHAJUXRDDBRILEVTOHSIYYTCYGRXTHHTPJRDNCTUHBVL ---
-  claude_bot           WINNER (+1)    | time:    175.8ms | path: 294 steps | total: 31
-  gpt5_3_bot           SURVIVED (+0)  | time:    251.1ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    254.2ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    262.9ms | path: 294 steps | total: 0
-
---- ROUND 32: JUSCMDCTXLLTKAYBUZHWEUUEURCDVGNXEHJIEMCXZX -> ZWSZWEVTVMRKZERPHRMSVTKSAOKSGKSDLCEAFRTAYRW ---
-  claude_bot           WINNER (+1)    | time:    168.1ms | path: 283 steps | total: 32
-  gpt5_3_bot           SURVIVED (+0)  | time:    236.4ms | path: 283 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    236.6ms | path: 283 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    239.0ms | path: 283 steps | total: 0
-
---- ROUND 33: OSILKEEEKRYHQUSAQSJMOAGPBUVDOOHJESFNRLNX -> ZQKFQGOAOOPDXSWNBEFVILIXSQPBSMIXLXGYQTLCINUHMCQZONHI ---
-  claude_bot           WINNER (+1)    | time:    170.8ms | path: 292 steps | total: 33
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    245.5ms | path: 292 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    245.5ms | path: 292 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    247.5ms | path: 292 steps | total: 0
-
---- ROUND 34: OUSBEEIEPZNBAIPVZWWGJYSCDFUJNNMRYLJOEFBJWHNAHOQAXGGRM -> IKRSZTSOAFBFVOKKTYZBIJZSSKVACILWZMUPAAJOVS ---
-  claude_bot           WINNER (+1)    | time:    175.4ms | path: 291 steps | total: 34
-  grok_bot             SURVIVED (+0)  | time:    249.3ms | path: 291 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    251.4ms | path: 291 steps | total: 0
+--- ROUND 18: AAPAMIHJSNUDKDRLMXYNCEITLQKLGJGZTZWYQWFEBIQN -> ELORSULXGLCDVTSOUJOVBCDNIRYPMQHMWNFBURQJOTPYOWUGNEELHE ---
+  claude_bot           WINNER (+1)    | time:    173.6ms | path: 291 steps | total: 18
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    258.5ms | path: 291 steps | total: 0
   gpt5_3_bot           SURVIVED (+0)  | time:    254.5ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    267.8ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    262.2ms | path: 291 steps | total: 0
 
---- ROUND 35: GPRPFZFRZGHBNTBFZDUBVMBKMDCYIIOJYQGTNNUXYPSHCLMPRLU -> XYRXNUKNFEMFGQQQHJYPMGSUKAMACRCLUCDTOMXDWGXAUFDHDXNABNEP ---
-  claude_bot           WINNER (+1)    | time:    209.1ms | path: 299 steps | total: 35
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    295.7ms | path: 299 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    306.9ms | path: 299 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    315.5ms | path: 299 steps | total: 0
+--- ROUND 19: HLFHENYUBQZHKSUCAOPXEXCIPJAXMQWJKKFCGHMYEW -> MIXHVVPRSIBDGGOKNJXNDJAJYOQXTRZCPTFDOXUNXRNTT ---
+  claude_bot           WINNER (+1)    | time:    193.5ms | path: 293 steps | total: 19
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    265.3ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    262.7ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    264.0ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    261.2ms | path: 293 steps | total: 0
 
---- ROUND 36: RUQJLXIANQQACOFJHAEIYEFIUSKDBQJUWPBLYYFLWEYXRW -> QSSMJNXNROAOMOWOQPHCEWCAQTONIDLSYEGJTKWAWBVIZJNBJXSTQN ---
-  claude_bot           WINNER (+1)    | time:    191.3ms | path: 294 steps | total: 36
-  grok_bot             SURVIVED (+0)  | time:    265.6ms | path: 294 steps | total: 0
+--- ROUND 20: MSFAORCEBVKEDUUDOTEFJPNEZELFOYQIGXNQSMJPTWEZWERKPC -> BCBSXVNSMODZXHIEOBMIPFYOJEUMKSDPTXWIFRMOYVJTRXPDFFVILVQYD ---
+  claude_bot           WINNER (+1)    | time:    243.4ms | path: 296 steps | total: 20
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    337.6ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    325.6ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    335.9ms | path: 296 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    333.7ms | path: 296 steps | total: 0
+
+--- ROUND 21: TQJSLUNDEPYYGPVWOPZHFRQCGDRJCSEBPWTSOWADLBJFITOOZTHPJK -> PDUHYNBIFTQOLUYZIFNSQNWCTMCFVXNNOBWBDMBGSWMWHP ---
+  claude_bot           WINNER (+1)    | time:    196.6ms | path: 289 steps | total: 21
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    276.6ms | path: 289 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    279.7ms | path: 289 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    273.9ms | path: 289 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    281.2ms | path: 289 steps | total: 0
+
+--- ROUND 22: FPSIJCFBBSCYWYMTVJOBKGGXGIPSSKSPBVVFWKAFRX -> LHTUPQNKZRAHBUIIOSACAZPDOOVDSGZGTDFJDVTQFEV ---
+  claude_bot           WINNER (+1)    | time:    156.1ms | path: 292 steps | total: 22
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    221.7ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    220.1ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    223.0ms | path: 292 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    217.3ms | path: 292 steps | total: 0
+
+--- ROUND 23: VINJSDJOWNKLHNIYQSMZOEPSEWCNYUAQSIZCGWBWBONMWFOAXUHSYGQJULDB -> CDDBTTBFHTOXZXAGSRVEFTTMXDUMYRAMTPNVOBRAVEYPL ---
+  claude_bot           WINNER (+1)    | time:    237.8ms | path: 298 steps | total: 23
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    308.4ms | path: 298 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    316.3ms | path: 298 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    322.9ms | path: 298 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    306.4ms | path: 298 steps | total: 0
+
+--- ROUND 24: ZPBBLVCPXRLKJVRKFSXHQZWAIHKRFJGOBYCMMWVIEFJYDAMNIK -> LYBWUDRGGWJDRRZILLVPDCYBQJZIQGVNPREIFUVNOZALRMDXLITDQKSFUVPG ---
+  claude_bot           WINNER (+1)    | time:    254.0ms | path: 295 steps | total: 24
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    352.2ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    347.6ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    365.7ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    367.6ms | path: 295 steps | total: 0
+
+--- ROUND 25: UAUFTLIWBWLAZHHNKNYGXWLIMFTEKBJEUCLFTBCC -> OUJLWKXOUXMHAQRUUBPCVBCQDZRYVZIZKIYZYBTRDKYZ ---
+  claude_bot           WINNER (+1)    | time:    220.4ms | path: 296 steps | total: 25
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    304.3ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    309.4ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    291.7ms | path: 296 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    317.0ms | path: 296 steps | total: 0
+
+--- ROUND 26: KSZVCCJALVWPMCOVGXIAWXNDIMAJPQPTDVNRWBGMATBOUQNJYH -> COIGRAYEUMLXSCWJLNYSCREBGHESFJPZHOLLTAYMZCKIYHLJMJROTPRNKI ---
+  claude_bot           WINNER (+1)    | time:    235.5ms | path: 293 steps | total: 26
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    318.3ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    336.9ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    326.3ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    316.0ms | path: 293 steps | total: 0
+
+--- ROUND 27: JGAPKTQLZVWRLTWLULFYNPJUYUITYPQFLNBWIHKFHNRSF -> POKJHCQMHBPRDHNFEWPDTDEMXTLVHWHGRVSTANTZQCOXLIEYZHHUD ---
+  claude_bot           WINNER (+1)    | time:    213.0ms | path: 299 steps | total: 27
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    293.0ms | path: 299 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    296.6ms | path: 299 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    311.2ms | path: 299 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    309.7ms | path: 299 steps | total: 0
+
+--- ROUND 28: UXZSPNUFNAUECVVNOJVALZEAICQZXOQIZZCTEUMSSSJUMRWXBZL -> VLDJHEXLBSRZSZNHOCGBLBOIKQRAFYWJCHGMVAYWHXVA ---
+  claude_bot           WINNER (+1)    | time:    222.1ms | path: 295 steps | total: 28
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    289.6ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    288.2ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    283.1ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    292.8ms | path: 295 steps | total: 0
+
+--- ROUND 29: NCMADWNVEPJGJCAZDFRKZMWITOLCERHLGNOOOVBTUAUSZQZRCVVMTYVHQME -> FKEBPNVZQTFXKFXXQTEFAMMKKNXXCCHHFDVDBVGUOQPMXPFXQJIVS ---
+  claude_bot           WINNER (+1)    | time:    174.1ms | path: 294 steps | total: 29
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    251.2ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    258.1ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    254.7ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    256.6ms | path: 294 steps | total: 0
+
+--- ROUND 30: FLCDUCSZLLPQREZEFYIZQRKXAFARAPIWQEBDZKRMDNSFSBXJJW -> GDIYCQQYYBAXWHMBPLSJRJBSEZZVLDNSZHHLLILAXIGSTRAGSLYKOYLBDZLO ---
+  claude_bot           WINNER (+1)    | time:    229.4ms | path: 291 steps | total: 30
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    323.9ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    320.8ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    315.4ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    318.3ms | path: 291 steps | total: 0
+
+--- ROUND 31: YTDCSTCSPUFWNHZAZHLPMUFEKGTLKOTRHSPEAPLTBUETNHO -> SKJWVEPDRVGLXSEWCHNRMLTRYBHAEFWROBEDGBIMXGXQBXHPQ ---
+  claude_bot           WINNER (+1)    | time:    177.1ms | path: 290 steps | total: 31
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    250.0ms | path: 290 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    252.4ms | path: 290 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    253.7ms | path: 290 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    371.2ms | path: 290 steps | total: 0
+
+--- ROUND 32: NBSKXBAQPQRZYMTHUQFEGVSHYCVQKZIYFQHLAXREXBMOGP -> WJQRCGSXRZQVESWOFUIRJLNMXPVODNTDVVVGGZFLAPBCXUINAJKXXCHPU ---
+  claude_bot           WINNER (+1)    | time:    239.9ms | path: 296 steps | total: 32
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    339.4ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    328.3ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    316.4ms | path: 296 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    335.5ms | path: 296 steps | total: 0
+
+--- ROUND 33: BZKMKQEDKYCSERGGOIYNTEAEWDKAZBVIERVHFGPPHSIPW -> XYETDPLLDSCBPYCENKEISVVTSERPVPBJOWXGMPMALYAKZZYSFB ---
+  claude_bot           WINNER (+1)    | time:    227.5ms | path: 297 steps | total: 33
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    309.6ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    313.7ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    304.7ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    307.8ms | path: 297 steps | total: 0
+
+--- ROUND 34: DZDKKYSYAFVZBRYVSSECAHRPFAETYUNEHTAWRDCWXRYTTWHDOCAWLTVLOJBE -> YJPSRSRFACMDBOFFMFOZHDQXNLWVUEPTNTCPDWXFHXVMPVQUMJVET ---
+  claude_bot           WINNER (+1)    | time:    304.0ms | path: 297 steps | total: 34
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    367.7ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    388.1ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    378.1ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    383.8ms | path: 297 steps | total: 0
+
+--- ROUND 35: EOLYSXJVGLCLWSQVEQSRSBVPSMMCLLPGIEDASLNDWEMLTXLR -> DUWZSGYRBXGYSTDGDTOEYELIRGWYRNKWPOCUDDPJVOZRQBJSIPN ---
+  claude_bot           WINNER (+1)    | time:    226.1ms | path: 292 steps | total: 35
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    315.6ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    317.1ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    344.0ms | path: 292 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    306.4ms | path: 292 steps | total: 0
+
+--- ROUND 36: IMAYZPIMXAYKOKPGAJPZEQBJAMIZXRLOHTUIGZLUGOYBPV -> AWAJKHZDAPUEQTTWIXJXJNLLDUQIDOZLHSIMFFIPYULVSNBCB ---
+  claude_bot           WINNER (+1)    | time:    170.3ms | path: 285 steps | total: 36
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    248.6ms | path: 285 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    252.7ms | path: 285 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    275.1ms | path: 285 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    241.6ms | path: 285 steps | total: 0
+
+--- ROUND 37: MVAHPHOJXQGVPYQYWIEYKVFMFRJRUFCYZKSKBRVIKZQOLIMHSID -> EAZYPIPQDOWBDYAMZSADVXQCFZIZRKITTFTZXZGR ---
+  claude_bot           WINNER (+1)    | time:    244.9ms | path: 296 steps | total: 37
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    327.9ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    294.4ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    311.3ms | path: 296 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    292.8ms | path: 296 steps | total: 0
+
+--- ROUND 38: URJTGFUKMJHUBQHCWZKYKDRTIAGCGNHMZOHMHZUPL -> MRYQAAQIEZAPTXZCHPGGVUAOOEPRGLINLJQYNSYQPK ---
+  claude_bot           WINNER (+1)    | time:    229.0ms | path: 287 steps | total: 38
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    318.5ms | path: 287 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    287.6ms | path: 287 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    266.2ms | path: 287 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    311.8ms | path: 287 steps | total: 0
+
+--- ROUND 39: BZJCAIDFDLIKZQDSKWRUENNCFXRODOVEZSFLMLJXYEZLXRBJLHRR -> FOCCTRYJHJJEMLXTZGWIUXOGNJVCQKJBVGUGLOZDQRR ---
+  claude_bot           WINNER (+1)    | time:    229.5ms | path: 293 steps | total: 39
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    266.0ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    298.4ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    257.5ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    263.0ms | path: 293 steps | total: 0
+
+--- ROUND 40: SVVCZXDWKGLPIUTGUEDMGLCCDTXEGOFBDCBFEBGWMEBOHVGC -> OIOJVDKAFQJBYOXAUUJJIRDDGRDXAUZRFQCPOGTBECKHIDHLVCYWOYSS ---
+  claude_bot           WINNER (+1)    | time:    272.5ms | path: 298 steps | total: 40
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    313.2ms | path: 298 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    364.1ms | path: 298 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    289.9ms | path: 298 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    299.8ms | path: 298 steps | total: 0
+
+--- ROUND 41: JNKAYLXLHNKUAQNBCSMULDJHAWSBNHBKJIRIFUBWYYXWONDB -> CRVFDWGLTBOEHPPMAJAZSMLJDBGCFATMRIVATLIDUVTKLRXCC ---
+  claude_bot           WINNER (+1)    | time:    272.4ms | path: 293 steps | total: 41
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    437.4ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    332.1ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    441.2ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    342.8ms | path: 293 steps | total: 0
+
+--- ROUND 42: XBQNBRIXRMFVJEYQOKNYGPDESEKOTLBMOPVNMJMUSHRRRUII -> LYFUPWFPWXGYTOALHEOFMRRTCZBUOMXNJUNHJEVMUQCKSY ---
+  claude_bot           WINNER (+1)    | time:    230.4ms | path: 293 steps | total: 42
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    321.9ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    366.7ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    352.1ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    310.1ms | path: 293 steps | total: 0
+
+--- ROUND 43: AZASRUHSXHQYMMNEMSLQXELBJVGDNTMGWHOFQFJYIEVQQPPH -> NJXANJTGNCBNYLSZMAKXBWMCQGXCSICSHOYKERUONUQFEDPJWOACMCD ---
+  claude_bot           WINNER (+1)    | time:    246.4ms | path: 299 steps | total: 43
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    339.0ms | path: 299 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    334.8ms | path: 299 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    332.2ms | path: 299 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    327.0ms | path: 299 steps | total: 0
+
+--- ROUND 44: MADMDMDEOXFHWYQLNWRECPAILRHISGMCIFXFZQPKAIFVGCKWINIZBGYAZH -> BDVKGXPBTJXNTNRWHOTYRJKKMDFSISRALZCAWWDNPAWUEGQLE ---
+  claude_bot           WINNER (+1)    | time:    247.1ms | path: 297 steps | total: 44
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    367.6ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    355.9ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    363.2ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    349.8ms | path: 297 steps | total: 0
+
+--- ROUND 45: BSKKOATCWQCOSYHOWZKZOVXSOAHOBHVNTHOIUFEAUVUWJLJVBGCFHHKZ -> GMNBSSEYFRGGONXNCYXBONBYOQELHXDOFVQHPSHBKEZAUTJGIZ ---
+  claude_bot           WINNER (+1)    | time:    224.8ms | path: 291 steps | total: 45
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    418.1ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    423.2ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    322.9ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    319.9ms | path: 291 steps | total: 0
+
+--- ROUND 46: TBSBNSHYMVHQEBJWMJUKOPTQMEMCLORLQKTMXRIHPGQCXCPABVCQ -> KWNTHFDTOBXYWMNCHIPSILKEDMBNZVFUIQEMUJTGVJGLJGVFPFRHGBLXNQ ---
+  claude_bot           WINNER (+1)    | time:    250.3ms | path: 291 steps | total: 46
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    489.4ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    497.5ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    372.1ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    388.9ms | path: 291 steps | total: 0
+
+--- ROUND 47: EOAQBDWMBCHHXUZUMPWOBPFEYNUAGSBAWNXGCYMBYOWWU -> GGWDBHMXJKVDCCIHAPFUEYGOEROMYROXTANYBBLTUC ---
+  claude_bot           WINNER (+1)    | time:    183.9ms | path: 294 steps | total: 47
   gemini_3_1_pro_bot   SURVIVED (+0)  | time:    268.5ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    269.8ms | path: 294 steps | total: 0
-
---- ROUND 37: HQTHNGWUOWRMMPMQBLOICEHLYSGQMTLPKJLEABALERLUBSIETJYQQL -> DDKMRSIHTFLGAMCRFPEASCLTKPXVRGULONIHUGLGWHZIIAZY ---
-  claude_bot           WINNER (+1)    | time:    169.0ms | path: 291 steps | total: 37
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    241.4ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    248.2ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    255.5ms | path: 291 steps | total: 0
-
---- ROUND 38: EJXMUXEHVZQTNAJTKPJKCUFLLKQCNBGVUQKLYXDDYHICV -> ORINAKNHPENMLYLQXONLDHWICQSEHZUZBNYTYFHN ---
-  claude_bot           WINNER (+1)    | time:    163.5ms | path: 290 steps | total: 38
-  gpt5_3_bot           SURVIVED (+0)  | time:    232.2ms | path: 290 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    232.6ms | path: 290 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    234.5ms | path: 290 steps | total: 0
-
---- ROUND 39: DDHUSWPTNUBNRUBAVWOFEJWTEOCESJSGOZELTMLSKGYRQ -> FDIGBYMODRBYDPFNOERMHRLMIJWJVIAILTCKJQPPGCSMBMJLDREIYRNMN ---
-  claude_bot           WINNER (+1)    | time:    205.8ms | path: 295 steps | total: 39
-  grok_bot             SURVIVED (+0)  | time:    277.7ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    278.0ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    278.5ms | path: 295 steps | total: 0
-
---- ROUND 40: AEMJMRHIXAIQORACASMNNAXGRQMMQMCNBYMGWPPJHKRMCANLK -> BFUOCVCDVZQWTMLAZYHSDBEKWOQGFGYILKTFQFDKIIUYYS ---
-  claude_bot           WINNER (+1)    | time:    207.7ms | path: 284 steps | total: 40
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    266.5ms | path: 284 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    275.0ms | path: 284 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    286.2ms | path: 284 steps | total: 0
-
---- ROUND 41: ISMNGDYWBBUTKQBEZXULGWDRFWZIXKCKNGOAPBCIZFNUWSNGFXXHLFIVPWP -> ISHNNVTSONMCVAWFIWIFSHYIIUHKTYRZKYLYPIDTNNZUMXWQGSZTMV ---
-  claude_bot           WINNER (+1)    | time:    286.0ms | path: 296 steps | total: 41
-  grok_bot             SURVIVED (+0)  | time:    337.6ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    351.5ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    370.9ms | path: 296 steps | total: 0
-
---- ROUND 42: UOLOJJCNNBEMJNDVFZBWRJGUJWHHMFERWOXHZQPUYRJJTW -> PIHFGYUPEJFHLJMCGRYCVYDKFTMGMEYNHQPXCFEQZXRGZNFEBYRSSBPKNPS ---
-  claude_bot           WINNER (+1)    | time:    171.6ms | path: 289 steps | total: 42
-  gpt5_3_bot           SURVIVED (+0)  | time:    242.1ms | path: 289 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    242.1ms | path: 289 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    242.6ms | path: 289 steps | total: 0
-
---- ROUND 43: GYYGKTRUABPCUXKCQYVKUDMKUFILSCUELRLDODYSLKKJNSYOXUDTBC -> UZCFNHRXSYCJYOTSXZHGVXYGCMOVHMFOTHCMOCACQFHEOLYZGSYTBAMKZGVC ---
-  claude_bot           WINNER (+1)    | time:    246.7ms | path: 298 steps | total: 43
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    332.7ms | path: 298 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    335.3ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    341.0ms | path: 298 steps | total: 0
-
---- ROUND 44: HMVIZUCEAMQRAUSEHRMUZJRZXQZVYLZNSEKNRFHIDGFLFWU -> TOSKMRACXHWZAKSHAFEWAWBVGFPHGRAPORKYUWDBCFPN ---
-  claude_bot           WINNER (+1)    | time:    155.9ms | path: 293 steps | total: 44
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    219.6ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    226.1ms | path: 293 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    272.1ms | path: 293 steps | total: 0
-
---- ROUND 45: QTGWQWUSFZDJFCZJNUEHDPIOAXHQOTWNBIOXBDQWJQIENLLWLEAYWSAW -> YAULADVBEBYAYGFYSNLJSUAWEYMINCPLSPVHNEORWAXW ---
-  claude_bot           WINNER (+1)    | time:    206.5ms | path: 296 steps | total: 45
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    303.1ms | path: 296 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    304.6ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    324.5ms | path: 296 steps | total: 0
-
---- ROUND 46: PHENJTCFBMEYQYJWEDTYPBWBNRCKETXIASOCBYBDZC -> SVHWYCAPIEXCNEDPWCYQIYNPQGGCAKXKGJYWEPHNQVNTPKCKPAY ---
-  claude_bot           WINNER (+1)    | time:    240.3ms | path: 285 steps | total: 46
-  grok_bot             SURVIVED (+0)  | time:    317.6ms | path: 285 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    350.4ms | path: 285 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    352.2ms | path: 285 steps | total: 0
-
---- ROUND 47: BWDOUWCPWEJSIBSBHWMAQOBLFRJLATPQZJKQYMVKJVS -> DWJWTHYJMJQCRKAELIEFOGXXHHRNIOQPBOCHSFRV ---
-  claude_bot           WINNER (+1)    | time:    167.9ms | path: 290 steps | total: 47
-  gpt5_3_bot           SURVIVED (+0)  | time:    263.9ms | path: 290 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    269.7ms | path: 290 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    287.2ms | path: 290 steps | total: 0
-
---- ROUND 48: ZDEGSQSBWVSWXNBSSHHMAEGHDFWTQYBFVAFIPOYVMKXUSHEKNGZITPUAYDBO -> HAUFSIWWBNZUVJTVVHSXTXSYCNGJVXSTPRVZWVMEJNZQX ---
-  claude_bot           WINNER (+1)    | time:    257.6ms | path: 294 steps | total: 48
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    345.6ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    376.8ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    399.1ms | path: 294 steps | total: 0
-
---- ROUND 49: JONGKYUTAMWXQCTOETLVOIBNEQIYDBZSXPHQRKBSLXCEHFEKSE -> CJXRCXYXTVHUUPXTEKNKOILXZVFGFOCEAGSGKIBOUZLEABY ---
-  claude_bot           WINNER (+1)    | time:    177.3ms | path: 293 steps | total: 49
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    238.9ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    241.7ms | path: 293 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    246.5ms | path: 293 steps | total: 0
-
---- ROUND 50: GAKTOAOATXLRGUAOZGXTBBICATXPRVPVDXMZFFFQCYCBRCGF -> QNTEBVAVYHWQFLOBTGXPZVWCWJSRVBFDHPPRRCBWY ---
-  claude_bot           WINNER (+1)    | time:    158.6ms | path: 293 steps | total: 50
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    226.1ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    242.2ms | path: 293 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    243.2ms | path: 293 steps | total: 0
-
---- ROUND 51: NZUXRXYGCHNZKDIXCGNMGJOKRANBJVISNMYAMRKI -> DDFKRACIVSBDOBNPGZWDMSWIJHHSGODTFKQQGYCVKVXKOIBUM ---
-  claude_bot           WINNER (+1)    | time:    215.5ms | path: 295 steps | total: 51
-  grok_bot             SURVIVED (+0)  | time:    294.3ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    295.3ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    295.9ms | path: 295 steps | total: 0
-
---- ROUND 52: QRGUFZARWQIHANMGHKBPIEVISEGFFFJHHITANBMZMQDSA -> PZJWKGIDZEOKEGKLMOSAQNSLLDIKDROAZBIEAVPGUUQCWTHFLBFISDLOVS ---
-  claude_bot           WINNER (+1)    | time:    214.1ms | path: 298 steps | total: 52
-  grok_bot             SURVIVED (+0)  | time:    281.5ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    292.6ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    405.8ms | path: 298 steps | total: 0
-
---- ROUND 53: YXQPTZTFTKYFLCIICJAIXXPKMYWOUCOFBFINEIHURSTETWQXZCIZAGN -> WHQMGMEXEGFRPEXVUUOUKXRWKGSOGHFKKHGFLIZNAHNGHUPEFNHMSRYF ---
-  claude_bot           WINNER (+1)    | time:    213.0ms | path: 295 steps | total: 53
-  grok_bot             SURVIVED (+0)  | time:    276.7ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    281.4ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    294.6ms | path: 295 steps | total: 0
-
---- ROUND 54: IUKOCUAMMIHKQMOKFNFYEMHYDKNXPAEEEKECZAQWFI -> BSFSFTGLSILRKPCODJFQQLWPJQMLRDPUXSRZHGVNTMIMSELDGUI ---
-  claude_bot           WINNER (+1)    | time:    215.4ms | path: 297 steps | total: 54
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    251.3ms | path: 297 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    263.0ms | path: 297 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    288.0ms | path: 297 steps | total: 0
-
---- ROUND 55: RTNEELZFOILWGECAAGVIOUDIOFRRZLFYFQLRNMDOWJEREIR -> UENWXPBIFYRQQZVUXCVPAXMMOHWJXACPQFNHOQNQUQQR ---
-  claude_bot           WINNER (+1)    | time:    166.6ms | path: 290 steps | total: 55
-  grok_bot             SURVIVED (+0)  | time:    232.5ms | path: 290 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    233.2ms | path: 290 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    234.8ms | path: 290 steps | total: 0
-
---- ROUND 56: KXPKDXJKXBHTDXCWSQSDURZMQPCHBBBAHECNEWZCCSOC -> FRCNZYBMGWEIWGAYXXJQYIDWXESWPMXABIISKCWNSWJASHEAAYKUGNABFYZ ---
-  claude_bot           WINNER (+1)    | time:    168.4ms | path: 293 steps | total: 56
-  grok_bot             SURVIVED (+0)  | time:    234.4ms | path: 293 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    240.0ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    240.8ms | path: 293 steps | total: 0
-
---- ROUND 57: BXHQSVBMCRVKNRHABJBJHOKNSZHNRKPAQWGSASASJCIALLRCPQT -> UIZOUGMGKOBBDCWXXMBQIPZGDDVZHXMONAJZHHSFK ---
-  claude_bot           WINNER (+1)    | time:    162.2ms | path: 291 steps | total: 57
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    228.6ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    231.1ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    407.0ms | path: 291 steps | total: 0
-
---- ROUND 58: OKXQLRSCKOSENQDREJTWVURVECJRKQXEBFJVBIBPWVUYFFHSIIYFN -> XSIKLDMPWMHMEVORPGHQEVBALHPUULLFQMCLZMYDKMHXRLE ---
-  claude_bot           WINNER (+1)    | time:    180.6ms | path: 292 steps | total: 58
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    253.7ms | path: 292 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    255.9ms | path: 292 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    265.9ms | path: 292 steps | total: 0
-
---- ROUND 59: LXVACGGGZUWPHMGJCQSNRTXPNEHWCURQFABBWQBQCWQTUIQVQNLJM -> EIXSHXPFLGKCPLDPTVIHJFYIZIBOSZZITEZFAYBWVBOWJUWPDACMQ ---
-  claude_bot           WINNER (+1)    | time:    196.5ms | path: 294 steps | total: 59
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    251.0ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    254.2ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    270.2ms | path: 294 steps | total: 0
-
---- ROUND 60: HVMXODEDMOAAYRZDLBKTNQJWUDNVOPZBWJEXJNICS -> BJSTUFJSPUZXBQZXBEEUAOZISFUGGVWYKQPYEPGRCYWPM ---
-  claude_bot           WINNER (+1)    | time:    197.0ms | path: 294 steps | total: 60
-  grok_bot             SURVIVED (+0)  | time:    261.9ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    267.5ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    269.6ms | path: 294 steps | total: 0
-
---- ROUND 61: UKNDPCUYMAOMKSTMMDQNVXSYUFIEZOFYDFAUIFIEGUAXMP -> RMHWTNTVWCPFYNYCCAGRWGNXKHJQBAVWFYSWTJPG ---
-  claude_bot           WINNER (+1)    | time:    211.0ms | path: 299 steps | total: 61
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    262.7ms | path: 299 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    267.8ms | path: 299 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    278.4ms | path: 299 steps | total: 0
-
---- ROUND 62: TQGMGGQBHTGIOLYWMLGFUCENHBKDIFLYPPPTICENLOGEVASDHKRD -> BKOULHXTQRSPPTFIKVCIQZFEBTIMPIOCDBHHFAUY ---
-  claude_bot           WINNER (+1)    | time:    198.8ms | path: 293 steps | total: 62
-  grok_bot             SURVIVED (+0)  | time:    279.3ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    282.1ms | path: 293 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    315.7ms | path: 293 steps | total: 0
-
---- ROUND 63: KHMZEPMHDQQJUSVLNJTKLMBBOCUBTSWMLLCFJMTU -> VUYVKAVMCLOTRDVVZBFWAEXKFGWVWLJYVNUMPBGTOEJRYPAXAFXQRB ---
-  claude_bot           WINNER (+1)    | time:    176.0ms | path: 291 steps | total: 63
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    252.7ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    260.9ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    263.0ms | path: 291 steps | total: 0
-
---- ROUND 64: LSKRGZASZRHIUGYZHNCKJEPSXXUYDUQXWTFMGUQLPLFOHPGGWNGVCNQFT -> NSARZNTPXNFLRUJOWPANZLOLMQLYLNXHHSLXYTJVAQIICVAEPDTMFTD ---
-  claude_bot           WINNER (+1)    | time:    218.8ms | path: 298 steps | total: 64
-  grok_bot             SURVIVED (+0)  | time:    297.9ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    298.5ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    301.9ms | path: 298 steps | total: 0
-
---- ROUND 65: MWUNUHYJPXHTCPLGQBPOQOFKXBZWSDXLJFIWOGILEXAZXEHXG -> BLRPBESZZEYGTKAHLSWJMBYOLSKENRNDGGTZLODVIKKLAPTFODPSWJFGS ---
-  claude_bot           WINNER (+1)    | time:    201.6ms | path: 289 steps | total: 65
-  grok_bot             SURVIVED (+0)  | time:    283.7ms | path: 289 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    284.9ms | path: 289 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    286.6ms | path: 289 steps | total: 0
-
---- ROUND 66: TXNHSEQZWVIAKHFNAUZCZJIRXWLUNSVTBKTCWNMQOSCOLLFZKMZAZXLCWP -> QQDNEPSIALROXZTRQIYJBTODYTIDRBSOQSBOJYOWZAYGMLRODFO ---
-  claude_bot           WINNER (+1)    | time:    199.1ms | path: 294 steps | total: 66
-  grok_bot             SURVIVED (+0)  | time:    270.8ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    280.8ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    284.7ms | path: 294 steps | total: 0
-
---- ROUND 67: VDYABTFAAZVANRIPKKSWQUIWINOOVINBUGOLVXMDN -> DGPORFKJERNTZTOKFSRMAVISGLIDVBLTEJLPZLGALKBCQKKQ ---
-  claude_bot           WINNER (+1)    | time:    150.0ms | path: 292 steps | total: 67
-  grok_bot             SURVIVED (+0)  | time:    215.2ms | path: 292 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    228.3ms | path: 292 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    231.9ms | path: 292 steps | total: 0
-
---- ROUND 68: JDXYGFVXZVXKZCGHJFGNTXUVYHIRYIWFKDTSKHWRLCB -> FTGZESGEFTVTXUSDGZVYMCHOIAKGHGOVKTQIXEFHRMSFPK ---
-  claude_bot           WINNER (+1)    | time:    217.6ms | path: 294 steps | total: 68
-  gpt5_3_bot           SURVIVED (+0)  | time:    297.5ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    301.3ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    301.6ms | path: 294 steps | total: 0
-
---- ROUND 69: GXHXNJHEGJBTRPDTTZSNGMNHDAVDCXYVQCFHLUZFC -> LRNBERWYDYRNKMAOOJWIITNHBZAYJQIFDZPHCMZWSBCOYUGBAKVSEQ ---
-  claude_bot           WINNER (+1)    | time:    170.8ms | path: 293 steps | total: 69
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    239.0ms | path: 293 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    240.8ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    241.4ms | path: 293 steps | total: 0
-
---- ROUND 70: APXQIVSWMLVRGIMRINZEMWGAVYESTOYMYMTUKBPUWCURHOJ -> FFMLKJTNAJOMJKZISNBFFEBRDDZXXESPLPSPKHPBBHWFJOIGYTLCKXIQPETI ---
-  claude_bot           WINNER (+1)    | time:    185.6ms | path: 291 steps | total: 70
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    260.2ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    261.1ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    270.3ms | path: 291 steps | total: 0
-
---- ROUND 71: LRGNIEQUTQQTOAFEZXXAMPBHXEHOCYTQNGNOBZDOXZBJF -> CZXUMDYLZXZRDEFXKZTRLTQKHTPKWSFHOQVFNVAOEIMPBIVHGXK ---
-  claude_bot           WINNER (+1)    | time:    218.9ms | path: 290 steps | total: 71
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    297.2ms | path: 290 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    298.9ms | path: 290 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    304.6ms | path: 290 steps | total: 0
-
---- ROUND 72: XLJIYQHEKHXZDTDFYJHVWCJSNPNJEORNFDVMGIULTKRUSHKJNPFDKBTXFZ -> HVGRFLVBVZLTJUGMDGNIKDTJFSQACYTHUCKIFPOEVSWMJIQEJGMNVTN ---
-  claude_bot           WINNER (+1)    | time:    236.0ms | path: 298 steps | total: 72
-  grok_bot             SURVIVED (+0)  | time:    316.2ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    318.9ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    326.3ms | path: 298 steps | total: 0
-
---- ROUND 73: PBWDVWUMNMWIDZHKOQRUEXDZBDIFRQJNQEBGYFKRKAPQFOAPBIZ -> ZNVIDYFXCNCPDSGYPNFEXSITKIHXUFHTHWBJKSRV ---
-  claude_bot           WINNER (+1)    | time:    158.9ms | path: 289 steps | total: 73
-  grok_bot             SURVIVED (+0)  | time:    222.2ms | path: 289 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    238.4ms | path: 289 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    242.2ms | path: 289 steps | total: 0
-
---- ROUND 74: KAEGNIKQKIWVTLRPARPZNUTUTNZYCYFLVANFAHRBSXERAGNWKZPYFLXCEUG -> FAGZBWOZICKNPYOZAYNLFHBCMHYNESLGCVXJYGIYSNFFXGLBDPVY ---
-  claude_bot           WINNER (+1)    | time:    203.5ms | path: 294 steps | total: 74
-  grok_bot             SURVIVED (+0)  | time:    292.2ms | path: 294 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    295.9ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    296.6ms | path: 294 steps | total: 0
-
---- ROUND 75: QTOFPVLUYHQNLXSZSZULBYQWXIBWFJCXXODDFFDMHOTQ -> FABQXUHKTQYAUEKAEGJGQDTEMHOWKJCREILILUKHFPC ---
-  claude_bot           WINNER (+1)    | time:    166.9ms | path: 295 steps | total: 75
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    234.1ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    241.1ms | path: 295 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    242.3ms | path: 295 steps | total: 0
-
---- ROUND 76: AVKNSACCAOCOLIKYWCUQVYCAFLLGEAVIJLTVKNWGHV -> QXMWBZOIUTTYBZCMNDRFSSNCLRGCBAIKFJEUHRZJMAZFKRL ---
-  claude_bot           WINNER (+1)    | time:    186.5ms | path: 293 steps | total: 76
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    232.5ms | path: 293 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    234.0ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    260.8ms | path: 293 steps | total: 0
-
---- ROUND 77: ZQSSKYAQXNOXKHWBOSQKFQGGABAMBPPXFUYRKMBQSGGYIMZNIIIIP -> AESGKCSUJOPAKIFOBPOFOPDHIFTDCTPUQVVCFYYAKOD ---
-  claude_bot           WINNER (+1)    | time:    197.0ms | path: 288 steps | total: 77
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    274.6ms | path: 288 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    274.8ms | path: 288 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    283.6ms | path: 288 steps | total: 0
-
---- ROUND 78: USUYEEZQQQCNUHOVDUPQZKTMVBVLBXVRETFOGKOW -> SKNNUKZAKVGFFVMSEQJXZNLFLRWDBRHHLOMIEEYZDSAJNQLOEDQUZZW ---
-  claude_bot           WINNER (+1)    | time:    233.3ms | path: 295 steps | total: 78
-  grok_bot             SURVIVED (+0)  | time:    318.4ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    323.3ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    329.8ms | path: 295 steps | total: 0
-
---- ROUND 79: GZXWVTKMBDAJYTNXRRXGYBBHOIYKWYSWADKISRKPFBMMVPWSPVJCBMBHRUMM -> WGACNQAADZKKHHDGJUYIHNJNBPPYLKARZALSKWJMKJUWEMEOGXAXHK ---
-  claude_bot           WINNER (+1)    | time:    212.6ms | path: 297 steps | total: 79
-  gpt5_3_bot           SURVIVED (+0)  | time:    310.4ms | path: 297 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    324.6ms | path: 297 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    373.7ms | path: 297 steps | total: 0
-
---- ROUND 80: BKDGNBSIZFEGFECRJBHOEEIUWLLMDVCMFWAYEAYHYS -> ISXODHEAPPDXGIIGXRNWUOSMFGXIZUAAMWATPWQGBSJIGCXTUQBYXVAK ---
-  claude_bot           WINNER (+1)    | time:    192.6ms | path: 301 steps | total: 80
-  grok_bot             SURVIVED (+0)  | time:    267.6ms | path: 301 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    270.6ms | path: 301 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    272.7ms | path: 301 steps | total: 0
-
---- ROUND 81: DUDFUJUGHBPRFNEJBKKVZWFGTCSZLALLIPMNJPENERWPNCBZ -> DMXJHFFVJSFKEJOJWDMHWQTEGUNSIHNIPYQDYDOKBJIPRTZYAJPL ---
-  claude_bot           WINNER (+1)    | time:    207.0ms | path: 295 steps | total: 81
-  gpt5_3_bot           SURVIVED (+0)  | time:    271.5ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    279.0ms | path: 295 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    280.7ms | path: 295 steps | total: 0
-
---- ROUND 82: CESVBCYDUONEGBMSSNQCQHEIUEGHLCLQCXGCKGZDOBEOBVIQC -> FRMLBDMWAWTKKCJCDYMHYOQUNHQMPWHQRVCHNCRYZXOLBWKHVC ---
-  claude_bot           WINNER (+1)    | time:    197.4ms | path: 297 steps | total: 82
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    274.4ms | path: 297 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    281.3ms | path: 297 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    289.5ms | path: 297 steps | total: 0
-
---- ROUND 83: PXRNFEANGVUBUJFZPVWLGWETZLERGHHFIJXWJBDP -> DCURHJUTAGPGNEAJUUOFPRSWBORSTZFKLFKMFXRUJZJHOIXTUWDQZYKO ---
-  claude_bot           WINNER (+1)    | time:    214.7ms | path: 293 steps | total: 83
-  grok_bot             SURVIVED (+0)  | time:    275.4ms | path: 293 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    281.1ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    316.7ms | path: 293 steps | total: 0
-
---- ROUND 84: RAYEVGXZHCCSUZEHAQTHJNSOGPYKBMOCLRAVFRKFDMSLTMKAUJDJCPA -> AAZRYVRMVTFCTDTPKIWYWOIKLBILIHSBZDDVSXDRSVH ---
-  claude_bot           WINNER (+1)    | time:    203.0ms | path: 290 steps | total: 84
-  grok_bot             SURVIVED (+0)  | time:    283.8ms | path: 290 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    292.6ms | path: 290 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    294.8ms | path: 290 steps | total: 0
-
---- ROUND 85: KAWIXLJXUVNNGREFVJKFLNPOYHYOCSTNUSWGPLVARCKCWHKHNUTETIUHBGQ -> EYJLLEMFRJOKOJAPBYUAHHCSPRHCQBKJTKMFVWHNQOQPZBYPIWWHZOUGWFR ---
-  claude_bot           WINNER (+1)    | time:    215.4ms | path: 292 steps | total: 85
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    297.3ms | path: 292 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    297.5ms | path: 292 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    305.1ms | path: 292 steps | total: 0
-
---- ROUND 86: RUKDVKMFGCVXNTBBRWYXHWUZGHKFQHRTPCPPXYCVRAPTGFNSGTENXRCRXFBL -> HNSYQTVQIJDYRXUJMIHWSRLXIEYZMXZZWGOLMRVWSPF ---
-  claude_bot           WINNER (+1)    | time:    242.2ms | path: 295 steps | total: 86
-  grok_bot             SURVIVED (+0)  | time:    322.6ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    329.1ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    333.2ms | path: 295 steps | total: 0
-
---- ROUND 87: TODGIGSKAJDQFSSYORNWCTHTYHBLDBUSWPERNNUNTSU -> HIWGKVEXOOBGDUUAPXUJFHGMDCMWVIQISWXGQTROYXQVSCEAHVHVA ---
-  claude_bot           WINNER (+1)    | time:    212.8ms | path: 295 steps | total: 87
-  grok_bot             SURVIVED (+0)  | time:    282.8ms | path: 295 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    284.2ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    286.4ms | path: 295 steps | total: 0
-
---- ROUND 88: OXXJCSIVLJXKJUOXEOKVPPMBRWTNOYIMQUQPPUXVBUVJQ -> TCDCDDWYNJDHTKTHKARCAJFKXBPNNPZSETMCTJTINI ---
-  claude_bot           WINNER (+1)    | time:    190.2ms | path: 291 steps | total: 88
-  gpt5_3_bot           SURVIVED (+0)  | time:    265.3ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    269.3ms | path: 291 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    276.5ms | path: 291 steps | total: 0
-
---- ROUND 89: RWLZOYTGZIKFBQDUFRILFTHMAVALIXOTETPSKROJ -> XVUZYPSHVCTDAYRTGBWKOEPYTVXOSQTBAUWZOURYADLUFVXN ---
-  claude_bot           WINNER (+1)    | time:    177.9ms | path: 293 steps | total: 89
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    249.0ms | path: 293 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    257.8ms | path: 293 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    259.7ms | path: 293 steps | total: 0
-
---- ROUND 90: UIFZZXSAHJMZSVBSGPQGZPKMLFMNOMDFAKNYBTSMABEQDR -> POCYPTMBXADTEZEOVQZRCDOSSVAXQETJJMTUPXLKPSXOWLFLM ---
-  claude_bot           WINNER (+1)    | time:    164.8ms | path: 291 steps | total: 90
-  grok_bot             SURVIVED (+0)  | time:    225.8ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    233.9ms | path: 291 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    235.2ms | path: 291 steps | total: 0
-
---- ROUND 91: DYNDRNMERLTLOXTYQKFUVJOBPHNGWIQTHJBZJRGEVMDUCBNWQRAW -> ZDTWGMUSVWNJHILSIUHKCRUJLGCQZJPXHSTQZEKFKXICHLDMUUDUDLTIA ---
-  claude_bot           WINNER (+1)    | time:    202.3ms | path: 298 steps | total: 91
-  grok_bot             SURVIVED (+0)  | time:    266.4ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    270.6ms | path: 298 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    270.7ms | path: 298 steps | total: 0
-
---- ROUND 92: RTSWEKYVFVNHMIADAIMEUSTTHBGWUNSGDLZFAGYWVOAUAAQNY -> ZDZUOBWQDTJURDUAIUEBDLADNFNIFMCFUGSWKEIFQ ---
-  claude_bot           WINNER (+1)    | time:    178.8ms | path: 291 steps | total: 92
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    249.7ms | path: 291 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    249.8ms | path: 291 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    259.0ms | path: 291 steps | total: 0
-
---- ROUND 93: OCDYVAEFUPKFHZQCLQPWFUARTVXZELMGOJHDKEOAS -> XOBPEWPWNSMYBSGQBBLZDQCAVAYQFAFXORGQVDSUUTUNHZFOLUMFAYSA ---
-  claude_bot           WINNER (+1)    | time:    184.1ms | path: 287 steps | total: 93
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    245.2ms | path: 287 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    254.0ms | path: 287 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    258.7ms | path: 287 steps | total: 0
-
---- ROUND 94: PJVZBOGFVUBWBXBDHWNQXCVYMTEEUOGKQEQPBFCETIGWSY -> LZTSXYCCOSPUDHPZRJJXMMKGDDIIFULJITZVNYYTNNOAWKKNRBRI ---
-  claude_bot           WINNER (+1)    | time:    221.4ms | path: 297 steps | total: 94
-  grok_bot             SURVIVED (+0)  | time:    299.1ms | path: 297 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    299.5ms | path: 297 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    303.0ms | path: 297 steps | total: 0
-
---- ROUND 95: SSVBEBHVWUPTQKIQZYXJKHGJOKZVUMAERIFWSSQSFCQQZQUOCAKGNEH -> JEKGUYXVUVZYKGRMYMZDMAZNPSNSHPZTHMAPEEYNLNDAOZVAVIKKVYPV ---
-  claude_bot           WINNER (+1)    | time:    206.8ms | path: 296 steps | total: 95
-  grok_bot             SURVIVED (+0)  | time:    295.9ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    297.5ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    302.7ms | path: 296 steps | total: 0
-
---- ROUND 96: ZZVAXNHHOUNYCKGJZVIJSHWMDSQDVJGGXLXNEHBETKHHANFMF -> AEGDCZTQCREIWFUCOEOOBFBDWPWCUBWYBOQTGZINMWUTBKHVL ---
-  claude_bot           WINNER (+1)    | time:    219.0ms | path: 296 steps | total: 96
-  grok_bot             SURVIVED (+0)  | time:    294.3ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    305.0ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    307.8ms | path: 296 steps | total: 0
-
---- ROUND 97: DLQVPIGYTBIXDOZBMBEFADOABRWPPEDLOLNZJYHGE -> MFIKFOLKDFTXDUDPCCUIXMRQYJVWWHZOOTAANUPIIFCCN ---
-  claude_bot           WINNER (+1)    | time:    196.5ms | path: 298 steps | total: 97
-  gpt5_3_bot           SURVIVED (+0)  | time:    262.1ms | path: 298 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    262.4ms | path: 298 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    273.1ms | path: 298 steps | total: 0
-
---- ROUND 98: KEMVJARHVTCPCUHAAUQNHWAIAGZDVOWZRYFQDILKAVAXMQ -> RHFDJIZIIKIMLXWOLWBZSALETEKQBLUKXROIZBZCFUTMQMD ---
-  claude_bot           WINNER (+1)    | time:    233.0ms | path: 294 steps | total: 98
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    317.7ms | path: 294 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    320.9ms | path: 294 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    335.3ms | path: 294 steps | total: 0
-
---- ROUND 99: RNGZDOAVRKKQAVYDYLYFZTPWVMXIYJCTVFJFIWVENGT -> FTCUQKUVRXFLIXWCLMJLYIMIXPHOTNXYCRBLGNLFKNPXUDOQET ---
-  claude_bot           WINNER (+1)    | time:    205.8ms | path: 295 steps | total: 99
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    273.5ms | path: 295 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    275.2ms | path: 295 steps | total: 0
-  grok_bot             SURVIVED (+0)  | time:    281.4ms | path: 295 steps | total: 0
-
---- ROUND 100: VWRKKDEDGMYJKUELAKNQFRBJWDUSZHSHQVELIZXULMGNCTSSHRENMTTXDA -> SYBAOULHFGMIMQUILGOBRSZKKVFHOUZBJORQUIAAHARPJRMOZKUZBZ ---
-  claude_bot           WINNER (+1)    | time:    241.3ms | path: 296 steps | total: 100
-  grok_bot             SURVIVED (+0)  | time:    321.4ms | path: 296 steps | total: 0
-  gpt5_3_bot           SURVIVED (+0)  | time:    325.0ms | path: 296 steps | total: 0
-  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    332.1ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    272.6ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    271.0ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    265.7ms | path: 294 steps | total: 0
+
+--- ROUND 48: AFTZAPYOXMSVKPQAWCNXJRPEEOUVQPSRNMXCFPBEVIJRSJTIZN -> CDBSLVFDPLFXUEFYVPCEITQBTDROPNPGSOSGLZYZ ---
+  claude_bot           WINNER (+1)    | time:    203.7ms | path: 290 steps | total: 48
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    293.6ms | path: 290 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    304.9ms | path: 290 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    300.5ms | path: 290 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    279.7ms | path: 290 steps | total: 0
+
+--- ROUND 49: DKQQBOKIDFZXDLMBJYDEEQXGHETMJBRJFCVXMBUSFMDCNYXNENJQIPYO -> FRDRITCAGLBXQYVMFJTYNUGBCWBPRSIMHOSZACEMIIMONLWFHLJCXPRR ---
+  claude_bot           WINNER (+1)    | time:    250.0ms | path: 293 steps | total: 49
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    342.8ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    348.9ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    339.6ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    336.9ms | path: 293 steps | total: 0
+
+--- ROUND 50: ZBOHYRDGPTLZOZJLMGRGNAKHLRLXSPQGEZESQBEDTUJOPJCKF -> MQNMTQBWEGMTZCLCUXXMNANRBJHVUWKKVSWGLYHFDOCUGMBW ---
+  claude_bot           WINNER (+1)    | time:    259.1ms | path: 296 steps | total: 50
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    455.2ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    447.9ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    442.7ms | path: 296 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    444.8ms | path: 296 steps | total: 0
+
+--- ROUND 51: MGYMTGDIPVDNNYAQSDUSTXEEXBTYZCFIBILSYFVVSGAOOFQJZHIQVNMRE -> YCMPCXYRRKDNBIIWQRUWAPIFPLLXCZVEUVDYSITNLMBYEDDIAPAKR ---
+  claude_bot           WINNER (+1)    | time:    246.8ms | path: 289 steps | total: 51
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    313.6ms | path: 289 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    332.0ms | path: 289 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    318.8ms | path: 289 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    311.8ms | path: 289 steps | total: 0
+
+--- ROUND 52: JKXQCJJFOSEHGCNAYKQHJYHIBEOWKCZOZFASZPSUZZHEN -> XJHJXBHAZDXPGXNPOLAZJSBYMDJRBHONFCADXLNLORGDUEIFQRO ---
+  claude_bot           WINNER (+1)    | time:    191.4ms | path: 291 steps | total: 52
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    277.8ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    279.3ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    275.0ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    270.4ms | path: 291 steps | total: 0
+
+--- ROUND 53: EPNQIMMJTEGKNFZKXBMMEUOBLGYSKSOOEBJQYXZXJXMKHF -> IXXOOWPZERIDBFYSKWKQGPQZJKGFIQEIXMEZKBSUXASGVKRPEX ---
+  claude_bot           WINNER (+1)    | time:    246.5ms | path: 300 steps | total: 53
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    321.1ms | path: 300 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    328.7ms | path: 300 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    325.7ms | path: 300 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    317.4ms | path: 300 steps | total: 0
+
+--- ROUND 54: PORZEDBMJOOYOLAYQZHWYZEMUTRQLZHJSCIYNKGJNAEZZCPLHTJHEXAQ -> SMQURKLPBIIWCQHLRTKTVJGWMOVIZVGWKMMZZTMVHTNSYIRXNF ---
+  claude_bot           WINNER (+1)    | time:    224.8ms | path: 295 steps | total: 54
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    322.4ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    326.1ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    318.0ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    316.2ms | path: 295 steps | total: 0
+
+--- ROUND 55: WBMMHMYASJLANOXXBSKTIGEWUXKFFQDLQFFGATMPVBYZPEBYHB -> FTQUWOQETBUPMEKKATYTOHJUUHGGINHGZKWOIGCGHC ---
+  claude_bot           WINNER (+1)    | time:    247.8ms | path: 291 steps | total: 55
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    326.1ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    330.2ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    334.6ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    323.1ms | path: 291 steps | total: 0
+
+--- ROUND 56: MKMRQCLLMXAHJXKKBJAZMIBGAYIIOEJDMFJAATFEHTLSRKNKFAZIUMVWAQ -> YXDCGLNMAGCKPCHFXWUBPDUGFOHWMCYZYTYMKUWBYFKBQIVMCUTACY ---
+  claude_bot           WINNER (+1)    | time:    217.1ms | path: 288 steps | total: 56
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    299.3ms | path: 288 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    300.8ms | path: 288 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    294.5ms | path: 288 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    297.0ms | path: 288 steps | total: 0
+
+--- ROUND 57: HJOGENJLTMKCVOWMALTLNLSGOFYLZCRWSWNYELJILPTYHHRYICO -> SBUNBUZWJADBNDEGLQVDMRUJTCUJYZADFTBNBBFF ---
+  claude_bot           WINNER (+1)    | time:    204.7ms | path: 293 steps | total: 57
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    325.1ms | path: 293 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    374.6ms | path: 293 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    273.0ms | path: 293 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    297.7ms | path: 293 steps | total: 0
+
+--- ROUND 58: URQJOKBOZGQNVHWDSFRHJGOISWTGBLMWFVXBIKFESBUVDYRPXLSSMDHEVYZ -> GUCNAYCRAQZENNFNSJTUXWYEJJRTTGSRRPJZXVFGTHJMWVHWGACQUYIWK ---
+  claude_bot           WINNER (+1)    | time:    241.2ms | path: 295 steps | total: 58
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    334.9ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    340.2ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    333.3ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    329.8ms | path: 295 steps | total: 0
+
+--- ROUND 59: JISFEBIZUDTRVKDCHOOWDVZUKUMSVTGQIPLEIJULSBTCASWVQBEEICECXO -> RTDSLOWFVZZWFOJXMKORRXGLDAOEFZKGWKVIKSEUXOB ---
+  claude_bot           WINNER (+1)    | time:    245.2ms | path: 294 steps | total: 59
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    319.0ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    323.5ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    329.7ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    325.0ms | path: 294 steps | total: 0
+
+--- ROUND 60: QSKPMFGINETNRTVKYJYRRFQHYTSDJZBKZNEKUVMEMGMSR -> CESDPHGYWLCWPKQGADBTEZFCXMDHBULXZXZIQHLYWSNNDIFEFZ ---
+  claude_bot           WINNER (+1)    | time:    181.9ms | path: 299 steps | total: 60
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    253.7ms | path: 299 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    302.0ms | path: 299 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    298.0ms | path: 299 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    250.3ms | path: 299 steps | total: 0
+
+--- ROUND 61: TLWSSDLJKGDQYANEREPIKGCAAOHRJRQYVAEAHBEEHGTUKASBYODZOOVFYK -> PRZMWVXVRYTNCJCTAHZFNFCPMCJPMFIHQTEVAJKXMNANKZIXPXFS ---
+  claude_bot           WINNER (+1)    | time:    229.0ms | path: 291 steps | total: 61
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    311.0ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    312.6ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    316.2ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    314.7ms | path: 291 steps | total: 0
+
+--- ROUND 62: TZGETHDRCBEELTZXVLNVVBTDJDFMUQPVQBWAGVGTXGNWDANKOM -> SFJBYUESHLGTHDAVLCYWEWNDLSKSTAGTKOEDDOAKQCAWIIXGDGPSYTYU ---
+  claude_bot           WINNER (+1)    | time:    228.7ms | path: 297 steps | total: 62
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    365.1ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    308.3ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    306.3ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    341.7ms | path: 297 steps | total: 0
+
+--- ROUND 63: RWFCFUONCVMULADIOYQWWNSHKEAUIZJTDDPIRSEQGNRIGC -> FAETPFTNWHJPVMYZREXTAOLTVRMUYQYQXDVZDCCBOZE ---
+  claude_bot           WINNER (+1)    | time:    204.6ms | path: 295 steps | total: 63
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    330.0ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    306.7ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    286.1ms | path: 295 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    338.2ms | path: 295 steps | total: 0
+
+--- ROUND 64: WOHSASVUHGCHDLLUNKZJIIUMEVIZKOAXNKUSXOBYCQP -> GEYZKCLWOAJMCPYQTPNTWWGIZTRTWIFJCQRXZMQPCVNCJHVIYYLYFD ---
+  claude_bot           WINNER (+1)    | time:    201.1ms | path: 291 steps | total: 64
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    284.2ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    320.6ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    322.0ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    274.5ms | path: 291 steps | total: 0
+
+--- ROUND 65: KDRMGOHDYFCIZPDERXIPCTSNXKFPIUPDVKWPTFJNRGUI -> DZROWKIGLGFPBLHZAJUWEQLOKVWEVXSXHYKSYGSGHYOKQEMBXNYLLKIHPBV ---
+  claude_bot           WINNER (+1)    | time:    211.0ms | path: 292 steps | total: 65
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    310.4ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    270.5ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    278.8ms | path: 292 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    276.9ms | path: 292 steps | total: 0
+
+--- ROUND 66: LBHGKZGWBCZRILFHZYVJSDAHISGLWUDUFRGAWLASGTVWMGUPJBLVD -> UJZXPQGKARJMGSKUDMXGTDMDGXZENHAUSNUKQYZXKXSGJDHBO ---
+  claude_bot           WINNER (+1)    | time:    184.2ms | path: 294 steps | total: 66
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    346.6ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    272.1ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    344.6ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    267.2ms | path: 294 steps | total: 0
+
+--- ROUND 67: PMWOJLVSFXMVTEJSGFWIHXWTTNRNBRJWBSNIUNOPUHEOWNHCZA -> LQWUGCAVRKXGOTWTYWHVPXLOYRUAVZWWXOBXFBHLBMAPQNOJRRYB ---
+  claude_bot           WINNER (+1)    | time:    218.5ms | path: 294 steps | total: 67
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    320.4ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    307.4ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    303.5ms | path: 294 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    309.4ms | path: 294 steps | total: 0
+
+--- ROUND 68: YSRXGZSNJMJKQBULDEACMFVTCTOXCAKXBATZFRWALEJIVPDGKZMGSEZ -> SORSXRZBMTRPZZWUAFJJSLQSJYOKVXBACQFCMPWRUDCTJYZ ---
+  claude_bot           WINNER (+1)    | time:    286.0ms | path: 291 steps | total: 68
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    384.8ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    445.8ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    458.9ms | path: 291 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    396.6ms | path: 291 steps | total: 0
+
+--- ROUND 69: MVPYWIAGNYLAQOXEFFGVZNKPSZDDFHEZMHHNABBKVQCUOMU -> MCLZVJVHGBETNEAOOTMVWZVYQQTDGXDHJTZAEDVWUKKSZZNG ---
+  claude_bot           WINNER (+1)    | time:    228.0ms | path: 297 steps | total: 69
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    311.3ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    315.8ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    303.8ms | path: 297 steps | total: 0
+  mimo_bot             SURVIVED (+0)  | time:    307.3ms | path: 297 steps | total: 0
+
+--- ROUND 70: GCXVXXKSQXPLCMBKWQFFEQPOGETHLRLSLFVOIBJQHMPOXPTKGJVU -> OZZIFEEXXMQGBJZATUMRXANPTJVAISDEJSSCZJYYBWGYAHOT ---
+  claude_bot           SURVIVED (+0)  | time:    320.7ms | path: 288 steps | total: 69
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    363.9ms | path: 288 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    335.2ms | path: 288 steps | total: 0
+  grok_bot             WINNER (+1)    | time:    315.4ms | path: 288 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    325.7ms | path: 288 steps | total: 0
+
+--- ROUND 71: TSTCUEHWAYTAQTPKYZQVMHJIOKHVICYZMFJJVKSRRNBKXKSGGOS -> LOKOYPPRYQOBYBSPZXXWXMMQKPMWYEYYJEJKABMFPFNYNMFSVOLAPQSQGS ---
+  claude_bot           WINNER (+1)    | time:    227.6ms | path: 291 steps | total: 70
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    322.0ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    325.2ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    316.7ms | path: 291 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    323.7ms | path: 291 steps | total: 0
+
+--- ROUND 72: KBFATUDGURDKYGPZGCBMBDCMPCXMLKXDBRFUMWDWSJGPPXQJOSMAIAOKW -> FYLQBLCKADJKCDEUAPISDAAOWUUTBYPOAFXXMVXDSOW ---
+  claude_bot           WINNER (+1)    | time:    225.7ms | path: 294 steps | total: 71
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    313.3ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    315.4ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    317.0ms | path: 294 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    305.0ms | path: 294 steps | total: 0
+
+--- ROUND 73: GXWYJYHYNYYTPSAQUYVGHMDCNDJFWKQWXVAAZFOIPVFDUZFSYVMCZNRZNN -> INKUCOATOZGAAIZJQGCYKNCCNRZBCVZGLDOGAEVUE ---
+  claude_bot           WINNER (+1)    | time:    245.5ms | path: 290 steps | total: 72
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    345.1ms | path: 290 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    461.1ms | path: 290 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    491.0ms | path: 290 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    489.4ms | path: 290 steps | total: 0
+
+--- ROUND 74: XBEWABSZKUQVFEPWPCKOZGMKIHRPDOIMXPYHGYEWABZFIYW -> RUSOWGQLBEQTFYTUOWBTDIYIONKPMWAMACEOCYTJZYQXMBDHAFDCOUDI ---
+  claude_bot           WINNER (+1)    | time:    280.2ms | path: 296 steps | total: 73
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    334.0ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    338.2ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    435.1ms | path: 296 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    321.2ms | path: 296 steps | total: 0
+
+--- ROUND 75: RVOEFCTZFVTSSUQLPNKFHOUDSEXTNGCDGGFFMVVLYRMGHMG -> WVFJALLDIFOWFOWVPNRGVOHGNESEPUHIAWJLDQGDRE ---
+  claude_bot           WINNER (+1)    | time:    283.7ms | path: 295 steps | total: 74
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    409.6ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    337.7ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    405.3ms | path: 295 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    387.4ms | path: 295 steps | total: 0
+
+--- ROUND 76: WHAEDPALILSRQOEYWLYIWEAFHHAPQAXTUNUCOZRMYS -> KWZQUXEAJKBXRAHPEDFIKIPDOQGZWTKKHSNUAGYOFCRJ ---
+  claude_bot           WINNER (+1)    | time:    203.2ms | path: 291 steps | total: 75
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    293.5ms | path: 291 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    274.7ms | path: 291 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    405.2ms | path: 291 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    273.3ms | path: 291 steps | total: 0
+
+--- ROUND 77: PBGJBCGUIYOAQWNXLCIZFGAMQVDVUMCHMFMMZMYPOI -> UUHJVONVTJRLDSGJZZHXFJANARITXEACLAZFGJMAGKBMUQOTWUZXCUSHPM ---
+  claude_bot           WINNER (+1)    | time:    220.8ms | path: 297 steps | total: 76
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    303.7ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    300.5ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    302.2ms | path: 297 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    298.3ms | path: 297 steps | total: 0
+
+--- ROUND 78: RCBKQQROLWHQFDZJOYMCEWIIDNXTUPOBPSAYXKWIXGHBEAKUNFKGQE -> QQUZKKOVPKZYEEDMZYNJUOSFULYGNKLIYMKUNIRCAF ---
+  claude_bot           WINNER (+1)    | time:    211.1ms | path: 290 steps | total: 77
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    309.2ms | path: 290 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    287.4ms | path: 290 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    283.8ms | path: 290 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    299.4ms | path: 290 steps | total: 0
+
+--- ROUND 79: JYRULNWXVLXNTKBFJSREVWSCPTTDJRARJFTSIMWCZQCYGVMBWSJQTHISA -> UDXNHYPEWSPLSJQJMONRGTPKIWFAQRCRVKNVUOIAXENVKKKDXGFCUADO ---
+  claude_bot           WINNER (+1)    | time:    245.4ms | path: 294 steps | total: 78
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    348.1ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    349.8ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    335.5ms | path: 294 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    338.6ms | path: 294 steps | total: 0
+
+--- ROUND 80: KNXJKAWIAPNYIXIPPRKLVMUDWASFSNRGTGHICXTA -> EKRFTNXHGIOYABTETZWKTMHWPTCHIOTHVDJFNORDFMY ---
+  claude_bot           WINNER (+1)    | time:    168.5ms | path: 292 steps | total: 79
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    267.3ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    269.7ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    240.6ms | path: 292 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    281.6ms | path: 292 steps | total: 0
+
+--- ROUND 81: ZUZWYPYIXJUBHTVQUVGCQFWDJDVKXJEPLBEMQRNR -> GGGXJTYDUIIDOICCGCJGZDOIVMWHEXQUDNIXMNCYLWJUU ---
+  claude_bot           WINNER (+1)    | time:    187.9ms | path: 289 steps | total: 80
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    248.0ms | path: 289 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    259.6ms | path: 289 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    249.7ms | path: 289 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    253.7ms | path: 289 steps | total: 0
+
+--- ROUND 82: GQLSIQTMQBSQGKULJOXTCZLMEQVIHWCYOHLFMFAVYRUHOPIAWKIHSQZIGUBA -> SZQBXRVOYOMAETLVJFSBFNDZRREFOQHBJSBPPJHIKCMUPZIHW ---
+  claude_bot           WINNER (+1)    | time:    230.4ms | path: 295 steps | total: 81
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    314.1ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    366.3ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    316.8ms | path: 295 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    360.8ms | path: 295 steps | total: 0
+
+--- ROUND 83: QAITHVAKKRAJFWZGOXYKNGKEARAXWBRMOSWFTAVPRZRSNJDEZGQ -> NLSIWJUOBGMFURMAWDWTQELLQYVEEKZDKXTIOABUMPBPFXJVSVZOKRIKT ---
+  claude_bot           WINNER (+1)    | time:    223.8ms | path: 292 steps | total: 82
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    305.9ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    310.6ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    301.3ms | path: 292 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    303.0ms | path: 292 steps | total: 0
+
+--- ROUND 84: QMQANNTIJUCTTMIMCNRRXZNOKLFGPRMYDXFEURMVWYPSR -> XQAPIXUYUWHDSIRRIKFVYHMTERIFXHHFTNLGUSWYCEDXRKZMENY ---
+  claude_bot           WINNER (+1)    | time:    237.1ms | path: 296 steps | total: 83
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    330.7ms | path: 296 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    327.3ms | path: 296 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    312.2ms | path: 296 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    318.2ms | path: 296 steps | total: 0
+
+--- ROUND 85: OEIPMFNYYHDRSWMICXKRTZJPUBWYDJPKQWXNWLNIMXHRXUVFMIDWQLZSAW -> QVNRAAIVFVZWOQSMTOKTVDWPZKXINRERKQWPCFLXCXFZXKEGNJWM ---
+  claude_bot           WINNER (+1)    | time:    189.4ms | path: 292 steps | total: 84
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    280.7ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    275.9ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    278.0ms | path: 292 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    269.0ms | path: 292 steps | total: 0
+
+--- ROUND 86: XJEWABSZKUQLFEPEPCKOWZGMBKIQHVPADOIMXPYHGYEWABZFIYW -> WIXZWFCJLEXOQXSQSWPZDYGXCFNVKAEMMFBKRFJPHJFLTTQ ---
+  claude_bot           WINNER (+1)    | time:    194.9ms | path: 292 steps | total: 85
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    274.4ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    270.9ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    358.4ms | path: 292 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    267.5ms | path: 292 steps | total: 0
+
+--- ROUND 87: KPEWYJATUJBNJPSKQXZTODCGRSNYDUYWRNKTKLSZTS -> SPPRNROABWBATVRIUXBWUYZOWUDXXKYDIBLPDPLWR ---
+  claude_bot           WINNER (+1)    | time:    219.8ms | path: 290 steps | total: 86
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    276.8ms | path: 290 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    295.4ms | path: 290 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    275.3ms | path: 290 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    273.8ms | path: 290 steps | total: 0
+
+--- ROUND 88: SGHMAGACQSXGSUGFXLSUXZTNZMNKVNXDVXRFAGQMVHCMKMDBWDJBO -> DQZGHPGESTAFWKTQLRVSYEVCXHASZRNTSWKEXSXXSUNSPAMAAXNFGKVHRK ---
+  claude_bot           WINNER (+1)    | time:    248.7ms | path: 295 steps | total: 87
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    307.6ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    341.5ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    303.5ms | path: 295 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    309.5ms | path: 295 steps | total: 0
+
+--- ROUND 89: SETZIVSZFUDAYDQGNZFTZSOORLQEPMSHZYKMIZEBRWRGXIJATDA -> CFWFPDPOTNTDBIMNKNYUNKGDBPGZJZOXJDQSNOJXOZFD ---
+  claude_bot           WINNER (+1)    | time:    205.5ms | path: 286 steps | total: 88
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    277.2ms | path: 286 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    282.4ms | path: 286 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    273.2ms | path: 286 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    269.1ms | path: 286 steps | total: 0
+
+--- ROUND 90: ZSIEUDJECBEBGCZMFXFEOOAQVPPIEDYOVDZHSLQOJ -> TXEJQNDCQPZEWGLKXXAJXXLLDSFLLBNLZNBWISKODR ---
+  claude_bot           WINNER (+1)    | time:    211.6ms | path: 294 steps | total: 89
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    349.4ms | path: 294 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    307.4ms | path: 294 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    319.8ms | path: 294 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    304.1ms | path: 294 steps | total: 0
+
+--- ROUND 91: ZNTBNJDUJWBFKGADMYHCIFLWNSUHARREMZHNMMZXBNDAATCQLHOVIO -> FITDJTCRQGKEGUGRURRKGBPGHIETFDBVUEXYSXBH ---
+  claude_bot           WINNER (+1)    | time:    210.2ms | path: 295 steps | total: 90
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    297.1ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    305.2ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    292.2ms | path: 295 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    295.3ms | path: 295 steps | total: 0
+
+--- ROUND 92: MEVCJYMGTBAZYPUNZNMJLEURZBPWXTCUWAKXEFDNLLYGVPKALUZGQR -> YLDZHURHZCQXRBEENJFHZFRDEMYHICHAFWTJTRGNDFDIGTCVC ---
+  claude_bot           WINNER (+1)    | time:    252.3ms | path: 295 steps | total: 91
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    347.1ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    360.8ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    340.8ms | path: 295 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    339.1ms | path: 295 steps | total: 0
+
+--- ROUND 93: OVICRSLFXMCIBQNWKARKLOBBJXIRZIDBQVZWVJMKVSVKOROVTTBWDALVLVM -> VSMNCDVIVDCEKBPAWWHGRQWTYFVZQFUZCGDNSLBPYCJYOFGYGEGLJLNXQMV ---
+  claude_bot           WINNER (+1)    | time:    257.4ms | path: 295 steps | total: 92
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    350.7ms | path: 295 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    358.3ms | path: 295 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    345.8ms | path: 295 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    348.9ms | path: 295 steps | total: 0
+
+--- ROUND 94: CFJOCPHTTIOEJNBTIFEABBPMDNQGWNDTMAJKMGSDDDFBNIKGGCXTHFW -> QMLYFXOWMOFQAVWYMBLFCSPRQCBTOJKCSTFAOLOCADZXG ---
+  claude_bot           WINNER (+1)    | time:    221.7ms | path: 292 steps | total: 93
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    266.1ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    267.9ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    263.1ms | path: 292 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    288.9ms | path: 292 steps | total: 0
+
+--- ROUND 95: FURYFHIBRUTWLTURROTPRNKDFBHWDAEZXDXYWLVCGPEFXMNKCUVJ -> DTSWGBXGCFVSGEUCPGNZKMXXVHXBTYOYJZGQDODMSDMLJTJCARXUNLT ---
+  claude_bot           WINNER (+1)    | time:    236.4ms | path: 292 steps | total: 94
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    328.7ms | path: 292 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    330.2ms | path: 292 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    327.2ms | path: 292 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    319.0ms | path: 292 steps | total: 0
+
+--- ROUND 96: MJLRYQLPWUACDOHFAPLGFRGMNMFEPNKMBOMNBRDDNNQKRV -> MOFLMCYKZPKMNBKETVPIBVHBIAUAPUFYDVQFQRTNHMPEQRXOXZWCIBI ---
+  claude_bot           WINNER (+1)    | time:    224.4ms | path: 298 steps | total: 95
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    300.0ms | path: 298 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    302.9ms | path: 298 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    308.6ms | path: 298 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    307.2ms | path: 298 steps | total: 0
+
+--- ROUND 97: QBDNXUGXCVRQAVBSTMFNLSTQFYCKKIMYQVUUEFVA -> INJFABZKABFBAAPAUUJKZQNDEWHMKQALJJJLUGWS ---
+  claude_bot           WINNER (+1)    | time:    226.7ms | path: 288 steps | total: 96
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    277.0ms | path: 288 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    300.4ms | path: 288 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    278.9ms | path: 288 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    281.9ms | path: 288 steps | total: 0
+
+--- ROUND 98: HFBLRYFDSZQILLODHBAWQYUVJUCZTENBVMNYMZITXOKOHMFA -> VGEQYPOWWABFYRLHVPNBXSKTUOJNMPOAAPSCOQUFOQFSD ---
+  claude_bot           WINNER (+1)    | time:    193.6ms | path: 299 steps | total: 97
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    265.4ms | path: 299 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    268.4ms | path: 299 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    259.3ms | path: 299 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    261.9ms | path: 299 steps | total: 0
+
+--- ROUND 99: UBZSKORWBBLVRXVUVPVRRRLAJWGIGFPKVGZBJWTYLHINEHUDMVNIKS -> UKIRHHKGOYHQILHALVSBMNIUBOLJKOXRKIQTOHPWLGMMGZES ---
+  claude_bot           WINNER (+1)    | time:    217.8ms | path: 290 steps | total: 98
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    299.5ms | path: 290 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    295.9ms | path: 290 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    476.4ms | path: 290 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    297.5ms | path: 290 steps | total: 0
+
+--- ROUND 100: LQYSUJXILJUSQVQHVKRHMOVILRPULPJJYUVZYLQNLJLTVDYZ -> EOJAEFSLDIRNOUQTJOWKXQXJLUFHGTCLDMKGJWVEPYPZNCDDTFGCUTIXKFL ---
+  claude_bot           WINNER (+1)    | time:    237.0ms | path: 297 steps | total: 99
+  gemini_3_1_pro_bot   SURVIVED (+0)  | time:    319.5ms | path: 297 steps | total: 0
+  gpt5_3_bot           SURVIVED (+0)  | time:    335.0ms | path: 297 steps | total: 0
+  grok_bot             SURVIVED (+0)  | time:    449.2ms | path: 297 steps | total: 1
+  mimo_bot             SURVIVED (+0)  | time:    322.5ms | path: 297 steps | total: 0
 
 
 ============================================================
 FINAL TOURNAMENT RESULTS
 ============================================================
- 1. claude_bot           : 100 Points
- 2. gemini_3_1_pro_bot   : 0 Points
- 3. grok_bot             : 0 Points
- 4. gpt5_3_bot           : 0 Points
+ 1. claude_bot           : 99 Points
+ 2. grok_bot             : 1 Points
+ 3. mimo_bot             : 0 Points
+ 4. gemini_3_1_pro_bot   : 0 Points
+ 5. gpt5_3_bot           : 0 Points

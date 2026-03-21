@@ -144,15 +144,21 @@ class TournamentServer:
         
         self.game_phase = "ENDED"
         print("\n--- END ---")
-        
+
         # Final leaderboard logic
-        results = [c for c in self.clients.values() if not c['disqualified']]
-        results.sort(key=lambda x: x['score'], reverse=True)
-        
+        all_results = list(self.clients.values())
+        all_results.sort(key=lambda x: x['score'], reverse=True)
+
         print("\nLEADERBOARD:")
-        for i, r in enumerate(results):
-            print(f"{i+1}. {r['name']}: {r['score']} pts")
-        
+        with open('results.log', 'a', encoding='utf-8') as log:
+            log.write(f"--- GRID: {self.grid[:20]}... ---\n")
+            for i, r in enumerate(all_results):
+                dq = " (DQ)" if r['disqualified'] else ""
+                line = f"{i+1}. {r['name']}: {r['score']} pts{dq}"
+                print(line)
+                log.write(line + "\n")
+            log.write("\n")
+
         server.close()
 
 if __name__ == "__main__":
