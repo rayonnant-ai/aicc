@@ -106,54 +106,103 @@ def parse_log(log_path, round_num):
 
 
 def layout_stations(network):
-    """Compute (x, y) positions for each station using a force-directed-ish layout."""
+    """Compute (x, y) positions for each station — subway map style.
+    Each line runs in one of 4 directions: horizontal, vertical, 45° diagonal.
+    Lines alternate directions to minimize overlap."""
     positions = {}
     lines = network["lines"]
-
-    # Layout each line as a horizontal/angled strip
     n_lines = len(lines)
-    total_h = 600
-    line_spacing = total_h / (n_lines + 1)
 
+    # Assign each line a direction: H, V, diag-down, diag-up
+    # Cycle through directions to spread lines out
+    directions = [
+        (1, 0),    # horizontal
+        (1, 1),    # diagonal down-right
+        (0, 1),    # vertical
+        (1, -1),   # diagonal up-right
+    ]
+
+    SPACING = 30  # pixels per segment unit
+    GRID_W = 800
+    GRID_H = 600
+
+    # First pass: lay out each line in its assigned direction
     for li, line in enumerate(lines):
         stations = line["stations"]
         segments = line["segments"]
-        n = len(stations)
+        dx, dy = directions[li % len(directions)]
 
-        # Cumulative x from segments
-        cum = [0]
-        for s in segments:
-            cum.append(cum[-1] + s)
-        total_len = cum[-1]
+        # Starting position — spread lines across the canvas
+        row = li // 2
+        col = li % 2
+        start_x = MARGIN + col * GRID_W // 2 + 50
+        start_y = MARGIN + row * (GRID_H // max(1, (n_lines + 1) // 2)) + 50
 
-        # Spread across width
-        y_base = MARGIN + (li + 1) * line_spacing
-        # Slight angle per line for visual variety
-        angle = (li - n_lines / 2) * 0.05
-
+        cx, cy = start_x, start_y
         for si, st in enumerate(stations):
             if st not in positions:
-                frac = cum[si] / max(total_len, 1)
-                x = MARGIN + frac * 700
-                y = y_base + angle * (frac - 0.5) * 200
-                positions[st] = (x, y)
+                positions[st] = (cx, cy)
+            if si < len(segments):
+                step = segments[si] * SPACING / 10
+                cx += dx * step
+                cy += dy * step
 
-    # Pull transfer hubs together
-    for _ in range(50):
+    # Second pass: pull transfer hub pairs together
+    # For each transfer, move both stations toward their midpoint
+    for iteration in range(80):
         for t in network["transfers"]:
             s1, s2 = t[0], t[1]
             if s1 in positions and s2 in positions:
                 x1, y1 = positions[s1]
                 x2, y2 = positions[s2]
                 mx, my = (x1 + x2) / 2, (y1 + y2) / 2
-                positions[s1] = (x1 * 0.9 + mx * 0.1, y1 * 0.9 + my * 0.1)
-                positions[s2] = (x2 * 0.9 + mx * 0.1, y2 * 0.9 + my * 0.1)
+                # Move toward midpoint
+                alpha = 0.15
+                positions[s1] = (x1 + alpha * (mx - x1), y1 + alpha * (my - y1))
+                positions[s2] = (x2 + alpha * (mx - x2), y2 + alpha * (my - y2))
+
+    # Third pass: snap to nearest grid point (multiples of SPACING/2)
+    # to keep lines looking clean
+    grid = SPACING / 2
+    for st in positions:
+        x, y = positions[st]
+        positions[st] = (round(x / grid) * grid, round(y / grid) * grid)
 
     return positions
 
 
+def subway_path(x1, y1, x2, y2):
+    """Create a subway-style path between two points using H/V/45° segments.
+    Goes horizontal first, then diagonal or vertical to reach the target."""
+    dx = x2 - x1
+    dy = y2 - y1
+
+    if abs(dx) < 2 and abs(dy) < 2:
+        return [(x1, y1), (x2, y2)]
+
+    # If already on a cardinal or 45° direction, go straight
+    if dx == 0 or dy == 0 or abs(dx) == abs(dy):
+        return [(x1, y1), (x2, y2)]
+
+    # Otherwise: go horizontal first, then 45° diagonal to target
+    if abs(dx) > abs(dy):
+        # Horizontal segment, then diagonal
+        diag = abs(dy)
+        sign_x = 1 if dx > 0 else -1
+        sign_y = 1 if dy > 0 else -1
+        mid_x = x2 - sign_x * diag
+        return [(x1, y1), (mid_x, y1), (x2, y2)]
+    else:
+        # Vertical segment, then diagonal
+        diag = abs(dx)
+        sign_x = 1 if dx > 0 else -1
+        sign_y = 1 if dy > 0 else -1
+        mid_y = y2 - sign_y * diag
+        return [(x1, y1), (x1, mid_y), (x2, y2)]
+
+
 def draw_network(draw, network, positions, hub_set, w, h):
-    """Draw the base subway map."""
+    """Draw the base subway map with H/V/45° lines."""
     # Draw lines
     for li, line in enumerate(network["lines"]):
         color = LINE_COLORS[li % len(LINE_COLORS)]
@@ -163,15 +212,17 @@ def draw_network(draw, network, positions, hub_set, w, h):
             if s1 in positions and s2 in positions:
                 x1, y1 = positions[s1]
                 x2, y2 = positions[s2]
-                draw.line([(x1, y1), (x2, y2)], fill=color, width=3)
+                path = subway_path(x1, y1, x2, y2)
+                for j in range(len(path) - 1):
+                    draw.line([path[j], path[j+1]], fill=color, width=4)
 
-    # Draw transfer connections
+    # Draw transfer connections (dashed style — short gray line)
     for t in network["transfers"]:
         s1, s2 = t[0], t[1]
         if s1 in positions and s2 in positions:
             x1, y1 = positions[s1]
             x2, y2 = positions[s2]
-            draw.line([(x1, y1), (x2, y2)], fill=(150, 150, 150), width=2)
+            draw.line([(x1, y1), (x2, y2)], fill=(180, 180, 180), width=2)
 
     # Draw stations
     for li, line in enumerate(network["lines"]):
@@ -180,9 +231,10 @@ def draw_network(draw, network, positions, hub_set, w, h):
             if st in positions:
                 x, y = positions[st]
                 r = HUB_R if st in hub_set else STATION_R
-                draw.ellipse([x - r, y - r, x + r, y + r], fill=(255, 255, 255), outline=color, width=2)
+                draw.ellipse([x - r, y - r, x + r, y + r],
+                            fill=(255, 255, 255), outline=color, width=2)
 
-    # Station labels (small, offset)
+    # Station labels
     for st, (x, y) in positions.items():
         draw.text((x + STATION_R + 2, y - 5), st, fill=(80, 80, 80))
 
@@ -211,28 +263,7 @@ def make_animation(network, solutions, scores, output_path):
 
     frames = []
 
-    # Title frame
-    for _ in range(FPS * 2):
-        img = Image.new('RGB', (W, H), (255, 255, 255))
-        draw = ImageDraw.Draw(img)
-        draw_network(draw, network, positions, hub_set, W, H)
-
-        n_stations = sum(len(l["stations"]) for l in network["lines"])
-        draw.text((10, 5), f"Subway Speedrun — {len(network['lines'])} lines, {n_stations} stations, {len(network['transfers'])} transfers",
-                  fill=(0, 0, 0))
-
-        # Legend
-        ly = H - 70
-        for bi, name in enumerate(bots):
-            color = BOT_COLORS[bi % len(BOT_COLORS)]
-            dur = scores.get(name, "?")
-            draw.ellipse([10, ly - 5, 22, ly + 7], fill=color)
-            draw.text((26, ly - 5), f"{name} ({dur}min)", fill=color)
-            ly += 18
-
-        frames.append(img)
-
-    # Animation frames: step through routes
+    # Animation frames: step through routes (starts immediately)
     for step in range(max_steps):
         img = Image.new('RGB', (W, H), (255, 255, 255))
         draw = ImageDraw.Draw(img)
@@ -257,17 +288,20 @@ def make_animation(network, solutions, scores, output_path):
             route = solutions[name]["route"]
             trail_color = (color[0] // 3 + 170, color[1] // 3 + 170, color[2] // 3 + 170)
 
-            # Draw trail
+            # Draw trail following subway-style paths
             for i in range(min(step, len(route) - 1)):
                 s1 = route[i]
                 s2 = route[i + 1]
                 if s1 in positions and s2 in positions:
                     x1, y1 = positions[s1]
                     x2, y2 = positions[s2]
-                    # Offset slightly per bot to avoid overlap
                     off = (bi - len(bots) / 2) * 3
-                    draw.line([(x1 + off, y1 + off), (x2 + off, y2 + off)],
-                              fill=trail_color, width=2)
+                    path = subway_path(x1, y1, x2, y2)
+                    for j in range(len(path) - 1):
+                        px1, py1 = path[j]
+                        px2, py2 = path[j + 1]
+                        draw.line([(px1 + off, py1 + off), (px2 + off, py2 + off)],
+                                  fill=trail_color, width=2)
 
             # Draw current position
             if step < len(route):
@@ -285,9 +319,8 @@ def make_animation(network, solutions, scores, output_path):
         frames.append(frames[-1].copy())
 
     # Save
-    durations = [200] * len(frames)  # 200ms per frame = 5fps
-    durations[:FPS * 2] = [500] * (FPS * 2)  # title frames slower
-    durations[-FPS * 3:] = [500] * (FPS * 3)  # hold last frames
+    durations = [200] * len(frames)
+    durations[-FPS * 3:] = [500] * min(FPS * 3, len(durations))  # hold last frames
 
     frames[0].save(
         output_path,

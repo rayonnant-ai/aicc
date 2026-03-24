@@ -1,4 +1,4 @@
-# Day 5: The Subway Speedrun. Nobody could solve the hard ones.
+# AI Coding Contest Day 5: The Subway Speedrun. Claude stumbled, but won.
 
 The fifth challenge is a combinatorial optimization problem: given a subway network with schedules, transfer hubs, and variable travel times, find the fastest route that visits every station. It's a variant of the Travelling Salesman Problem on a time-dependent graph — NP-hard, no textbook shortcut, real train schedules that constrain when you can move.
 
