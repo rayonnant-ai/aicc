@@ -2,9 +2,9 @@
 
 This is a rerun of the original Day 1 challenge ("sovietpost"), where every model scored zero across all rounds. In that version, the bots were given reference images of the digit glyphs but no structured data — they had to reverse-engineer the 52-dot grid font from pixel images they couldn't actually see. Every model invented wrong digit templates (7-segment displays, rectangle-and-diagonal models, hardcoded bitmaps) because LLMs cannot do spatial reasoning on pixel data.
 
-For this rerun, the prompt was redesigned: instead of reference images, the bots receive the normalized (x, y) coordinates of all 52 dots and the complete stroke sequences for all 10 digits as text. The bots don't need to reverse-engineer the font — they have the blueprint.
+For this rerun, the prompt was redesigned: instead of reference images, the bots receive the normalized (x, y) coordinates of all 52 dots and the complete stroke sequences for all 10 digits as text. The bots don't need to reverse-engineer the font. They have the blueprint.
 
-The task itself is unchanged: read six-digit Soviet postal codes from noisy bitmap images, using only Python's standard library. No PIL, no OpenCV, no numpy. The digits are drawn on a 52-dot grid by connecting dots with straight lines — a glyph system that no model has seen before. The images have 5% pixel noise, progressive scaling (±0% to ±10%), and progressive rotation (±0° to ±10°). Each bot receives the image as ASCII PPM data over TCP and must reply with six digits within 10 seconds.
+The task itself is unchanged: read six-digit Soviet postal codes from noisy bitmap images, using only Python's standard library. No PIL, no OpenCV, no numpy. The digits are drawn on a 52-dot grid by connecting dots with straight lines, a glyph system no model has seen before. The images have 5% pixel noise, progressive scaling (±0% to ±10%), and progressive rotation (±0° to ±10°). Each bot receives the image as ASCII PPM data over TCP and must reply with six digits within 10 seconds.
 
 Six bots competed across 100 rounds. Only one scored a single point.
 
@@ -35,25 +35,25 @@ Claude sent `000000` in all 100 rounds. Its digit recognition was never reached.
 
 ## Gemini: Right data, wrong metric
 
-Gemini was the only bot besides Grok that used the dot coordinates and stroke sequences from the prompt to build templates. It rendered all 10 digit templates at 15×25 pixels using Bresenham line drawing — a reasonable approach.
+Gemini was the only bot besides Grok that used the dot coordinates and stroke sequences from the prompt to build templates. It rendered all 10 digit templates at 15×25 pixels using Bresenham line drawing, a reasonable approach.
 
-The failure was in the matching. Gemini used the template pixel grids directly, scoring each cell by counting how many template pixels overlapped with dark image pixels. The digit 8 has the most strokes (a full rectangle plus a crossbar). On any noisy image, 8 will always have the highest overlap because it covers the most area. Every cell matched to 8. Every round.
+The failure was in the matching. Gemini used the template pixel grids directly, scoring each cell by counting how many template pixels overlapped with dark image pixels. The digit 8 has the most strokes, a full rectangle plus a crossbar. On any noisy image, 8 will always have the highest overlap because it covers the most area. Every cell matched to 8. Every round.
 
 Gemini sent `888888` in all 100 rounds. A normalized cross-correlation or a penalty for ink in unexpected positions would have fixed this.
 
 ## MiMo: Varied but wrong
 
-MiMo's bot produced different answers each round — unlike Claude's constant `000000` or Gemini's constant `888888`, MiMo's pipeline actually ran. It parsed the PPM, found dark pixels, estimated rotation angle, derotated the image, segmented cells, and scored digits using the provided stroke sequences.
+MiMo's bot produced different answers each round. Unlike Claude's constant `000000` or Gemini's constant `888888`, MiMo's pipeline actually ran. It parsed the PPM, found dark pixels, estimated rotation angle, derotated the image, segmented cells, and scored digits using the provided stroke sequences.
 
-The scoring function samples points along each digit's strokes and counts how many hit dark pixels. In theory, this is the right idea. In practice, the cell segmentation was off — it assumed fixed 16px gaps and divided the remaining width by 6, which doesn't account for noise-induced boundary errors or rotation. The cells were misaligned, so the stroke sampling checked the wrong regions.
+The scoring function samples points along each digit's strokes and counts how many hit dark pixels. In theory, this is the right idea. In practice, the cell segmentation was off. It assumed fixed 16px gaps and divided the remaining width by 6, which doesn't account for noise-induced boundary errors or rotation. The cells were misaligned, so the stroke sampling checked the wrong regions.
 
 MiMo scored 0 but showed partial signal: its answers often contained 1-2 correct digits (e.g., `401800` for `550049`, `108800` for `567557`). With better cell localization, this bot could have competed.
 
 ## Grok: 8 points, the only scorer
 
-Grok was the only bot that scored, and it wasn't luck — it had the best algorithm in the field.
+Grok had the best algorithm in the field, and the 8 points showed it.
 
-Grok's approach was unique among the competitors: instead of rendering templates and doing pixel-level matching, it used the dot coordinates to directly probe the image. The pipeline:
+Its approach was unique among the competitors: instead of rendering templates and doing pixel-level matching, it used the dot coordinates to directly probe the image. The pipeline:
 
 1. **Parse and binarize** the PPM (threshold at 50% of max value).
 2. **Find cells** using column projection — count dark pixels per column, find contiguous runs above 25% of the peak, reject runs narrower than 30px.
@@ -77,27 +77,27 @@ Grok's 8 correct rounds were: 3, 6, 7, 9, 16, 20, 78, and 80. It also had many n
 
 Eight more rounds where a single digit was off. If scoring were per-digit instead of all-or-nothing, Grok would have scored significantly higher.
 
-But Grok also had a failure mode: when `find_cells` couldn't locate 6 cells (usually because noise or rotation blurred the column projections), the bot sent `000000`. This happened in roughly 40% of rounds. The cell segmentation was the weakest link — the alignment and scoring logic worked when it had the right input.
+But Grok also had a failure mode: when `find_cells` couldn't locate 6 cells (usually because noise or rotation blurred the column projections), the bot sent `000000`. This happened in roughly 40% of rounds. The cell segmentation was the weakest link. The alignment and scoring logic worked when it had the right input.
 
 ## What went wrong across the board
 
-Every model was given the same advantage: the 52 dot coordinates and all 10 digit stroke sequences, as text in the prompt. The correct approach — map the dot positions onto the image, check which connections have ink — was right there in the data. Grok was the only model that fully implemented it.
+Every model was given the same advantage: the 52 dot coordinates and all 10 digit stroke sequences, as text in the prompt. The correct approach, mapping the dot positions onto the image and checking which connections have ink, was right there in the data. Grok was the only model that fully implemented it.
 
-The failure modes fell into three categories:
+The failure modes split three ways:
 
 1. **Ignored the provided data** (Claude). Built a 7-segment model from scratch instead of using the dot coordinates and stroke sequences that were literally in the prompt. The digit model happened to be correct, but the image processing pipeline was tuned blind and destroyed all signal.
 
-2. **Used the data but botched the matching** (Gemini, MiMo). Both built templates from the provided strokes but failed at the matching step — Gemini by not penalizing unexpected ink, MiMo by misaligning cells.
+2. **Used the data but botched the matching** (Gemini, MiMo). Both built templates from the provided strokes but failed at the matching step. Gemini didn't penalize unexpected ink. MiMo misaligned its cells.
 
 3. **Never got to processing** (GPT, Nemotron). Crashed on I/O before reading a single image.
 
-The challenge exposed a fundamental limitation: LLMs can write image processing code, but they can't debug it without seeing the images. Every model made pipeline decisions (erosion strength, binarization threshold, cell segmentation heuristics) that required visual feedback to tune. Without being able to look at a sample image and check if their cells were aligned or their templates matched, they were coding blind.
+What connected all the failures was that LLMs can write image processing code but they can't debug it without seeing the images. Every model made pipeline decisions (erosion strength, binarization threshold, cell segmentation heuristics) that required visual feedback to tune. Without being able to look at a sample image and check whether their cells were aligned or their templates matched, they were coding blind.
 
 ## The Verdict
 
-Grok won with 8 points, and it earned them. Its required-vs-forbidden stroke scoring was the most sophisticated recognition approach in the field, and its alignment search over scale/rotation/position was the right way to handle the image distortions. The fact that it got 5-of-6 digits right in eight more rounds shows the algorithm works — it just needed more robust cell segmentation.
+Grok won with 8 points and earned them. Its required-vs-forbidden stroke scoring was the most sophisticated recognition approach in the field, and its alignment search over scale, rotation, and position was the right way to handle image distortions. Getting 5-of-6 digits right in eight additional rounds shows the algorithm works. It just needed more robust cell segmentation.
 
-Everyone else scored zero. Claude had the right idea but the wrong erosion parameters. Gemini had the right data but the wrong matching metric. MiMo had the right pipeline but the wrong cell boundaries. GPT and Nemotron never started. This was the hardest challenge of the contest — the only one where the majority of bots scored nothing at all.
+Claude had the right digit model but the wrong erosion parameters. Gemini had the right data but the wrong matching metric. MiMo had the right pipeline structure but the wrong cell boundaries. GPT and Nemotron never started. This was the hardest challenge of the contest, and it wasn't particularly close.
 
 ---
 
