@@ -1,12 +1,8 @@
 # LLM Comparison (`llmcomp`)
 
-A repository for evaluating AI frontier models on simple programming tasks to see how well they perform in practice.
+Six frontier LLMs. Six programming challenges. Each bot gets the same prompt, connects to the same server, and has 10 seconds per response. Standard library Python only, no numpy, no PIL. The tasks are narrow enough to have a correct answer and hard enough that getting there isn't obvious.
 
-## Overview
-
-This project aims to benchmark various Large Language Models (LLMs) by giving them specific, well-defined programming challenges. The goal is to see if they can produce valid, working, and correct code for tasks that require a bit more than just basic syntax knowledge.
-
-## Tests
+## Challenges
 
 ### 1. Noisy Soviet Postcodes (`noisy_numbers/`)
 
@@ -76,16 +72,39 @@ For more details on this test, see the [article](amazed/article.md) and the [pro
 
 For more details on this test, see the [article](subwayspeedrun/article.md) and the [prompt](subwayspeedrun/prompt.md).
 
+### 6. Blurry Image Reveal (`blurryimagereveal/`)
+
+**Task:** Write a Python 3.10 client that identifies images from progressively deblurred pixel data. Each round, the server sends 10 reference images at full 512×512 resolution, then reveals a mystery image through 8 stages of decreasing Gaussian blur (radius 64 → 0). Guess early for more points (100 at max blur, 1 at sharp). Wrong guess = -10 points. 10 rounds. Standard library only.
+
+**Results:**
+- **Gemini (Pro 3.1):** 760 points (1st). 8×8 spatial color fingerprint in 147 lines — the simplest and fastest bot. Scored in 8 of 10 rounds, never guessed wrong.
+- **Grok (Expert 4.2):** 260 points (2nd). Multi-resolution MSE matching with conservative confidence thresholds. Only scored in 3 of 10 rounds.
+- **Claude (Opus 4.6):** 200 points (3rd). Multi-scale sparse sampling with the most sophisticated matching strategy. Scored in rounds 1-2, then timed out for the rest.
+- **ChatGPT (GPT 5.3):** 0 points. Timed out every round (PPM parsing too slow).
+- **MiMo:** 0 points. Timed out every round (box blur simulation too slow).
+- **Nemotron:** 0 points. Timed out every round (nested list allocation too slow).
+
+For more details on this test, see the [article](blurryimagereveal/article.md) and the [prompt](blurryimagereveal/prompt.md).
+
 ## Medal Tally
 
-| Model | Postcodes | Word Racer | Word Ladder | Maze | Subway | Gold | Silver | Bronze |
-|---|---|---|---|---|---|---|---|---|
-| **Claude (Opus 4.6)** | — | Gold | Gold | Gold | Gold | **4** | 0 | 0 |
-| **Grok (Expert 4.2)** | Gold | — | Silver | Silver | — | **1** | **2** | 0 |
-| **Gemini (Pro 3.1)** | — | — | Bronze | DQ | Silver | 0 | **1** | **1** |
-| **MiMo** | — | Silver | DNP | DQ | DQ | 0 | **1** | 0 |
-| **Nemotron** | DQ | DNP | DNP | DNP | Bronze | 0 | 0 | **1** |
-| **ChatGPT (GPT 5.3)** | DQ | — | — | DQ | DQ | 0 | 0 | 0 |
+| Challenge | Gold | Silver | Bronze |
+|---|---|---|---|
+| **1. Noisy Postcodes** | Grok | — | — |
+| **2. Word Racer** | Claude | MiMo | — |
+| **3. Word Ladder** | Claude | Grok | Gemini |
+| **4. Teleportal Maze** | Claude | Grok | — |
+| **5. Subway Speedrun** | Claude | Gemini | Nemotron |
+| **6. Blurry Image Reveal** | Gemini | Grok | Claude |
 
-*DQ = disqualified (crashed, invalid output, or eliminated early). DNP = did not participate. — = finished but did not medal. Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze awarded). Subway: Gemini and Nemotron tied on 6 points, but Gemini won 2 rounds vs 0, taking silver.*
+| Model | Gold | Silver | Bronze | Total |
+|---|---|---|---|---|
+| **Claude (Opus 4.6)** | **4** | 0 | **1** | 5 |
+| **Grok (Expert 4.2)** | **1** | **3** | 0 | 4 |
+| **Gemini (Pro 3.1)** | **1** | **1** | **1** | 3 |
+| **MiMo** | 0 | **1** | 0 | 1 |
+| **Nemotron** | 0 | 0 | **1** | 1 |
+| **ChatGPT (GPT 5.3)** | 0 | 0 | 0 | 0 |
+
+*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal).*
 
