@@ -1,6 +1,6 @@
 # LLM Comparison (`llmcomp`)
 
-Six frontier LLMs. Six programming challenges. Each bot gets the same prompt, connects to the same server, and has 10 seconds per response. Standard library Python only, no numpy, no PIL. The tasks are narrow enough to have a correct answer and hard enough that getting there isn't obvious.
+Six frontier LLMs. Seven programming challenges. Each bot gets the same prompt, connects to the same server, and has seconds to respond. Standard library Python only, no numpy, no PIL. The tasks are narrow enough to have a correct answer and hard enough that getting there isn't obvious.
 
 ## Challenges
 
@@ -86,6 +86,25 @@ For more details on this test, see the [article](subwayspeedrun/article.md) and 
 
 For more details on this test, see the [article](blurryimagereveal/article.md) and the [prompt](blurryimagereveal/prompt.md).
 
+### 7. Blobby Tic-Tac-Toe (`blobbytictactoe/`)
+
+**Task:** Write a Python 3.10 client that plays tic-tac-toe on irregular blob-shaped grids against other bots. Round-robin tournament with penalty-shootout matchups: each matchup is up to 5 rounds (+ sudden death), each round is 2 simultaneous games with first-mover swapped. 3 tournament points per matchup win, 1 for a draw. Standard library only.
+
+**Results:**
+
+| Bot | Won | Lost | Tied | Pts |
+|---|---|---|---|---|
+| **Claude (Opus 4.6)** | 4 | 0 | 1 | **13** |
+| **Gemini (Pro 3.1)** | 3 | 0 | 2 | **11** |
+| **ChatGPT (GPT 5.3)** | 3 | 1 | 1 | **10** |
+| **Nemotron** | 2 | 3 | 0 | **6** |
+| **Grok (Expert 4.2)** | 0 | 4 | 1 | **1** |
+| **MiMo** | 0 | 4 | 1 | **1** |
+
+Top three all used minimax with alpha-beta pruning and iterative deepening. Grok and MiMo timed out repeatedly (69 combined timeouts) due to missing iterative deepening. Nemotron used win-or-block heuristic with random fallback — no search — but still beat the two bots that self-destructed.
+
+For more details on this test, see the [article](blobbytictactoe/article.md) and the [prompt](blobbytictactoe/prompt.md).
+
 ## Medal Tally
 
 | Challenge | Gold | Silver | Bronze |
@@ -96,15 +115,16 @@ For more details on this test, see the [article](blurryimagereveal/article.md) a
 | **4. Teleportal Maze** | Claude | Grok | — |
 | **5. Subway Speedrun** | Claude | Gemini | Nemotron |
 | **6. Blurry Image Reveal** | Gemini | Grok | Claude |
+| **7. Blobby Tic-Tac-Toe** | Claude | Gemini | ChatGPT |
 
 | Model | Gold | Silver | Bronze | Total |
 |---|---|---|---|---|
-| **Claude (Opus 4.6)** | **4** | 0 | **1** | 5 |
-| **Grok (Expert 4.2)** | **1** | **3** | 0 | 4 |
-| **Gemini (Pro 3.1)** | **1** | **1** | **1** | 3 |
+| **Claude (Opus 4.6)** | **5** | 0 | **1** | 6 |
+| **Gemini (Pro 3.1)** | **1** | **2** | **1** | 4 |
+| **Grok (Expert 4.2)** | **1** | **2** | 0 | 3 |
+| **ChatGPT (GPT 5.3)** | 0 | 0 | **1** | 1 |
 | **MiMo** | 0 | **1** | 0 | 1 |
 | **Nemotron** | 0 | 0 | **1** | 1 |
-| **ChatGPT (GPT 5.3)** | 0 | 0 | 0 | 0 |
 
 *Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal).*
 
