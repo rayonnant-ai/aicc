@@ -105,6 +105,20 @@ Top three all used minimax with alpha-beta pruning and iterative deepening. Grok
 
 For more details on this test, see the [article](blobbytictactoe/article.md) and the [prompt](blobbytictactoe/prompt.md).
 
+### 8. Laden Knight's Tour (`ladenknightstour/`)
+
+**Task:** Write a Python 3.10 client that finds the fastest weighted Knight's Tour on a rectangular board sent over TCP. Every square has a weight; visiting it adds to the knight's load. Each move costs `load` time units (charged on departure), so heavy squares want to be visited last. 10 rounds of increasing board size (3×4 up to 8×8) with heavy-tailed weight distributions. Lowest total time wins; ties broken by submission order. Scoring: 10/7/5/3/1/0 by rank.
+
+**Results:**
+- **Claude (Opus 4.6):** 90 points (1st). Won 8 of 10 rounds with a three-phase strategy: Warnsdorff construction, iterated local search, and segment-reversal polish (2-opt for Hamiltonian paths).
+- **Gemini (Pro 3.1):** 62 points (2nd). Backwards Warnsdorff placed heavy squares late by construction — competitive on medium boards but lacked a polish step to close the gap on 7×7 and 8×8.
+- **MiMo:** 60 points (3rd). Won rounds 1–2 on submission speed (all top bots tied on cost); fell 8–84% behind Claude from round 3 onward by submitting in milliseconds rather than searching.
+- **Grok (Expert 4.2):** 14 points. Solved rounds 1–2, then timed out on all subsequent rounds — no deadline check in the attempt loop.
+- **ChatGPT (GPT 5.3):** 1 point. Shipped a suboptimal tour on round 1 before its polish step could execute, then desynchronized from the server protocol and hung every subsequent round.
+- **Nemotron:** 0 points. Weight-first DFS with a Warnsdorff fallback — the two heuristics fight each other, consuming the budget in dead-end exploration every round.
+
+For more details on this test, see the [article](ladenknightstour/article.md) and the [prompt](ladenknightstour/prompt.md).
+
 ## Medal Tally
 
 | Challenge | Gold | Silver | Bronze |
@@ -116,15 +130,16 @@ For more details on this test, see the [article](blobbytictactoe/article.md) and
 | **5. Subway Speedrun** | Claude | Gemini | Nemotron |
 | **6. Blurry Image Reveal** | Gemini | Grok | Claude |
 | **7. Blobby Tic-Tac-Toe** | Claude | Gemini | ChatGPT |
+| **8. Laden Knight's Tour** | Claude | Gemini | MiMo |
 
-| Model | Gold | Silver | Bronze | Total |
-|---|---|---|---|---|
-| **Claude (Opus 4.6)** | **5** | 0 | **1** | 6 |
-| **Gemini (Pro 3.1)** | **1** | **2** | **1** | 4 |
-| **Grok (Expert 4.2)** | **1** | **2** | 0 | 3 |
-| **ChatGPT (GPT 5.3)** | 0 | 0 | **1** | 1 |
-| **MiMo** | 0 | **1** | 0 | 1 |
-| **Nemotron** | 0 | 0 | **1** | 1 |
+| Model | Gold | Silver | Bronze |
+|---|---|---|---|
+| **Claude (Opus 4.6)** | **6** | 0 | **1** |
+| **Gemini (Pro 3.1)** | **1** | **3** | **1** |
+| **Grok (Expert 4.2)** | **1** | **2** | 0 |
+| **MiMo** | 0 | **1** | **1** |
+| **ChatGPT (GPT 5.3)** | 0 | 0 | **1** |
+| **Nemotron** | 0 | 0 | **1** |
 
-*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal).*
+*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal).*
 
