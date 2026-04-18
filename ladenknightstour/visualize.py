@@ -10,13 +10,16 @@ Usage:
 Requires Pillow (PIL). MP4 output requires ffmpeg on $PATH.
 """
 import argparse
+import io
 import json
 import os
 import re
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
+import zlib
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -275,6 +278,81 @@ def render_frame(step, data, claude_states, gemini_states):
     return img
 
 
+def _png_chunk(ctype, data):
+    crc = zlib.crc32(ctype + data) & 0xFFFFFFFF
+    return struct.pack(">I", len(data)) + ctype + data + struct.pack(">I", crc)
+
+
+def _extract_idat(png_bytes):
+    """Return concatenated IDAT data from a single-image PNG."""
+    if png_bytes[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError("not a PNG")
+    idat = bytearray()
+    p = 8
+    while p < len(png_bytes):
+        length = struct.unpack(">I", png_bytes[p:p + 4])[0]
+        ctype = png_bytes[p + 4:p + 8]
+        payload = png_bytes[p + 8:p + 8 + length]
+        if ctype == b"IDAT":
+            idat.extend(payload)
+        p += 8 + length + 4
+        if ctype == b"IEND":
+            break
+    return bytes(idat)
+
+
+def write_apng_full_frames(out_path, frames, durations_ms):
+    """Write an APNG where every fcTL declares the full canvas (no bbox crop)."""
+    w, h = frames[0].size
+    for fr in frames:
+        if fr.size != (w, h):
+            raise ValueError("all frames must be the same size")
+
+    out = open(out_path, "wb")
+    try:
+        out.write(b"\x89PNG\r\n\x1a\n")
+
+        # IHDR: 8-bit truecolor RGB
+        ihdr = struct.pack(">IIBBBBB", w, h, 8, 2, 0, 0, 0)
+        out.write(_png_chunk(b"IHDR", ihdr))
+
+        # acTL: total frames, 0 loops = infinite
+        actl = struct.pack(">II", len(frames), 0)
+        out.write(_png_chunk(b"acTL", actl))
+
+        seq = 0
+        for idx, (frame, dur_ms) in enumerate(zip(frames, durations_ms)):
+            delay_num = dur_ms
+            delay_den = 1000
+
+            fctl = struct.pack(
+                ">IIIIIHHBB",
+                seq,
+                w, h,
+                0, 0,            # x_offset, y_offset
+                delay_num, delay_den,
+                0,               # dispose_op: NONE (frame is overwritten by next)
+                0,               # blend_op: SOURCE (overwrite, don't alpha-blend)
+            )
+            out.write(_png_chunk(b"fcTL", fctl))
+            seq += 1
+
+            buf = io.BytesIO()
+            frame.convert("RGB").save(buf, format="PNG", optimize=False, compress_level=6)
+            idat_data = _extract_idat(buf.getvalue())
+
+            if idx == 0:
+                out.write(_png_chunk(b"IDAT", idat_data))
+            else:
+                fdat = struct.pack(">I", seq) + idat_data
+                out.write(_png_chunk(b"fdAT", fdat))
+                seq += 1
+
+        out.write(_png_chunk(b"IEND", b""))
+    finally:
+        out.close()
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--log', default='results.log')
@@ -294,22 +372,16 @@ def main():
 
     n_frames = total + HOLD_FINAL_FRAMES
 
-    # APNG path: render in-memory, save directly with PIL.
+    # APNG path: write manually with full-canvas frames (PIL's built-in APNG
+    # writer crops each frame to its delta bounding box, which some viewers
+    # mishandle).
     if args.out.lower().endswith(".png") and not args.frames_dir:
         frames = []
         for f in range(n_frames):
             step = min(f, total - 1)
             frames.append(render_frame(step, data, claude_states, gemini_states))
-        # duration per frame in ms; hold last frame longer
-        durations = [int(1000 / FPS)] * total + [int(1500 / FPS)] * HOLD_FINAL_FRAMES
-        frames[0].save(
-            args.out,
-            save_all=True,
-            append_images=frames[1:],
-            duration=durations,
-            loop=0,
-            disposal=2,
-        )
+        durations_ms = [int(1000 / FPS)] * total + [int(1500 / FPS)] * HOLD_FINAL_FRAMES
+        write_apng_full_frames(args.out, frames, durations_ms)
         print(f"Wrote {args.out}")
         return
 

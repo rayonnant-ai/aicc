@@ -12,11 +12,11 @@ Six frontier LLMs. Seven programming challenges. Each bot gets the same prompt, 
 
 **Results:**
 - **Grok (Expert 4.2):** 8 points (1st). Used dot coordinates to probe the image directly with required-vs-forbidden stroke scoring. Many near-misses with 5/6 digits correct.
-- **MiMo:** 0 points. Pipeline ran but cell segmentation was misaligned.
+- **MiMo (V2-Pro):** 0 points. Pipeline ran but cell segmentation was misaligned.
 - **Claude (Opus 4.6):** 0 points. Correct 7-segment digit model, but erosion destroyed all image content. Sent `000000` every round.
 - **Gemini (Pro 3.1):** 0 points. Built templates from provided stroke data, but matching always picked digit 8 (most ink). Sent `888888` every round.
 - **ChatGPT (GPT 5.3):** 0 points. Eliminated round 1 (I/O timeout).
-- **Nemotron:** 0 points. Eliminated round 1 (timeout).
+- **Nemotron (3 Super):** 0 points. Eliminated round 1 (timeout).
 
 For more details on this test, see the [article](noisy_numbers/article.md) and the [prompt](noisy_numbers/prompt.md).
 
@@ -26,7 +26,7 @@ For more details on this test, see the [article](noisy_numbers/article.md) and t
 
 **Results:**
 - **Claude (Opus 4.6):** Scored +1,251 cumulative, winning all five rounds. Only bot to filter for profitable word lengths (7+), with a pipelined three-thread architecture.
-- **MiMo:** Scored +78 cumulative. Array-based trie with length-sorted output — correct strategy, but batch-then-submit was too slow to beat Claude's streaming pipeline.
+- **MiMo (V2-Pro):** Scored +78 cumulative. Array-based trie with length-sorted output — correct strategy, but batch-then-submit was too slow to beat Claude's streaming pipeline.
 - **Gemini (Pro 3.1):** Scored 0 in all five rounds. Too slow to claim any words before Claude.
 - **Grok (Expert 4.2):** Scored −2,431 cumulative. Submitted all words including unprofitable short ones, throttled by synchronous I/O.
 - **ChatGPT (GPT 5.3):** Scored −118,969 cumulative. Same short-word mistake as Grok but with async I/O, flooding the server with thousands of negative-scoring submissions per round.
@@ -54,7 +54,7 @@ For more details on this test, see the [article](growingwordladder/article.md) a
 - **Grok (Expert 4.2):** Won 20 of 100 rounds. BFS exploration without directional bias, portal detection by letter matching only.
 - **Gemini (Pro 3.1):** Eliminated round 5. Protocol desynchronization on larger mazes.
 - **ChatGPT (GPT 5.3):** Eliminated round 8. Move timeout on larger mazes.
-- **MiMo:** Eliminated round 1. `.strip()` destroyed spaces in the 5×5 view.
+- **MiMo (V2-Pro):** Eliminated round 1. `.strip()` destroyed spaces in the 5×5 view.
 
 For more details on this test, see the [article](amazed/article.md) and the [prompt](amazed/prompt.md).
 
@@ -65,10 +65,10 @@ For more details on this test, see the [article](amazed/article.md) and the [pro
 **Results:**
 - **Claude (Opus 4.6):** 22 points (1st). Won 8 of 10 rounds with Dijkstra + permutation search + timetable simulation. Failed on 8+ line networks (permutation explosion).
 - **Gemini (Pro 3.1):** 6 points (2nd). Won rounds 1-2 with the fastest times, then crashed permanently due to `heapq` tuple comparison bug.
-- **Nemotron:** 6 points (3rd). Dijkstra with schedule awareness, but couldn't scale past 55 stations.
+- **Nemotron (3 Super):** 6 points (3rd). Dijkstra with schedule awareness, but couldn't scale past 55 stations.
 - **Grok (Expert 4.2):** 4 points (4th). Instant DFS with no schedule modeling. Produced invalid routes on larger networks.
 - **ChatGPT (GPT 5.3):** 0 points. Beam search crashed every round — same `heapq` tuple comparison bug as Gemini.
-- **MiMo:** 0 points. Hardcoded wrong transfer stations in every route.
+- **MiMo (V2-Pro):** 0 points. Hardcoded wrong transfer stations in every route.
 
 For more details on this test, see the [article](subwayspeedrun/article.md) and the [prompt](subwayspeedrun/prompt.md).
 
@@ -81,8 +81,8 @@ For more details on this test, see the [article](subwayspeedrun/article.md) and 
 - **Grok (Expert 4.2):** 260 points (2nd). Multi-resolution MSE matching with conservative confidence thresholds. Only scored in 3 of 10 rounds.
 - **Claude (Opus 4.6):** 200 points (3rd). Multi-scale sparse sampling with the most sophisticated matching strategy. Scored in rounds 1-2, then timed out for the rest.
 - **ChatGPT (GPT 5.3):** 0 points. Timed out every round (PPM parsing too slow).
-- **MiMo:** 0 points. Timed out every round (box blur simulation too slow).
-- **Nemotron:** 0 points. Timed out every round (nested list allocation too slow).
+- **MiMo (V2-Pro):** 0 points. Timed out every round (box blur simulation too slow).
+- **Nemotron (3 Super):** 0 points. Timed out every round (nested list allocation too slow).
 
 For more details on this test, see the [article](blurryimagereveal/article.md) and the [prompt](blurryimagereveal/prompt.md).
 
@@ -110,12 +110,12 @@ For more details on this test, see the [article](blobbytictactoe/article.md) and
 **Task:** Write a Python 3.10 client that finds the fastest weighted Knight's Tour on a rectangular board sent over TCP. Every square has a weight; visiting it adds to the knight's load. Each move costs `load` time units (charged on departure), so heavy squares want to be visited last. 10 rounds of increasing board size (3×4 up to 8×8) with heavy-tailed weight distributions. Lowest total time wins; ties broken by submission order. Scoring: 10/7/5/3/1/0 by rank.
 
 **Results:**
-- **Claude (Opus 4.6):** 90 points (1st). Won 8 of 10 rounds with a three-phase strategy: Warnsdorff construction, iterated local search, and segment-reversal polish (2-opt for Hamiltonian paths).
+- **Claude (Opus 4.7):** 90 points (1st). Won 8 of 10 rounds with a three-phase strategy: Warnsdorff construction, iterated local search, and segment-reversal polish (2-opt for Hamiltonian paths).
 - **Gemini (Pro 3.1):** 62 points (2nd). Backwards Warnsdorff placed heavy squares late by construction — competitive on medium boards but lacked a polish step to close the gap on 7×7 and 8×8.
-- **MiMo:** 60 points (3rd). Won rounds 1–2 on submission speed (all top bots tied on cost); fell 8–84% behind Claude from round 3 onward by submitting in milliseconds rather than searching.
+- **MiMo (V2-Pro):** 60 points (3rd). Won rounds 1–2 on submission speed (all top bots tied on cost); fell 8–84% behind Claude from round 3 onward by submitting in milliseconds rather than searching.
 - **Grok (Expert 4.2):** 14 points. Solved rounds 1–2, then timed out on all subsequent rounds — no deadline check in the attempt loop.
 - **ChatGPT (GPT 5.3):** 1 point. Shipped a suboptimal tour on round 1 before its polish step could execute, then desynchronized from the server protocol and hung every subsequent round.
-- **Nemotron:** 0 points. Weight-first DFS with a Warnsdorff fallback — the two heuristics fight each other, consuming the budget in dead-end exploration every round.
+- **Nemotron (3 Super):** 0 points. Weight-first DFS with a Warnsdorff fallback — the two heuristics fight each other, consuming the budget in dead-end exploration every round.
 
 For more details on this test, see the [article](ladenknightstour/article.md) and the [prompt](ladenknightstour/prompt.md).
 
@@ -134,12 +134,12 @@ For more details on this test, see the [article](ladenknightstour/article.md) an
 
 | Model | Gold | Silver | Bronze |
 |---|---|---|---|
-| **Claude (Opus 4.6)** | **6** | 0 | **1** |
+| **Claude (Opus 4.6 / 4.7)** | **6** | 0 | **1** |
 | **Gemini (Pro 3.1)** | **1** | **3** | **1** |
 | **Grok (Expert 4.2)** | **1** | **2** | 0 |
 | **MiMo** | 0 | **1** | **1** |
 | **ChatGPT (GPT 5.3)** | 0 | 0 | **1** |
 | **Nemotron** | 0 | 0 | **1** |
 
-*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal).*
+*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal). Claude used Opus 4.6 for challenges 1–7 and Opus 4.7 for challenge 8.*
 
