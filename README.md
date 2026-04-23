@@ -119,6 +119,22 @@ For more details on this test, see the [article](blobbytictactoe/article.md) and
 
 For more details on this test, see the [article](ladenknightstour/article.md) and the [prompt](ladenknightstour/prompt.md).
 
+### 9. Towers of Annoy (`towersofannoy/`)
+
+**Task:** Write a Python 3.10 client that plays a two-player adversarial variant of the Towers of Hanoi. Hero moves a disk; Villain must immediately move that same disk to an adjacent tower (or pass if no legal move). Hero's budget is `2^m + 1` moves — barely more than the `2^m - 1` solo optimum, so almost any wasted move loses. Round-robin tournament with penalty-shootout matchups: up to 5 rounds (+ sudden death), 2 simultaneous games per round with hero/villain roles swapped. Round configs grow from 4 towers / 3 disks up to 12 towers / 7 disks. First tournament with 8 bots (GLM 5.1 and Kimi K2.6 joining).
+
+**Results:**
+- **Gemini (Pro 3.1):** 15 points (1st). Won all 5 matchups undefeated. The only bot to implement adversarial search: minimax with alpha-beta, iterative deepening, and cycle detection. Only bot to win hero games against a functioning villain.
+- **Kimi (K2.6):** 10 points (shared 2nd). One-ply lookahead with villain-pass bonus. Beat the non-responsive bottom half but never solved a hero game against a functioning villain; all its hero wins were forfeits.
+- **Grok (Expert 4.2):** 10 points (shared 2nd). Identical record to Kimi (3W/1L/1D, 39% hero, 87% villain). Same one-ply lookahead design, different heuristic.
+- **ChatGPT (GPT 5.3):** 4 points. Bug: `break` on any `MATCHUP` message exited the main loop after the first matchup, forfeiting the remaining four.
+- **Nemotron (3 Super):** 2 points. Defined a full `make_move()` method with hero and villain strategies — but the main loop never called it. Zero moves sent all tournament.
+- **GLM (5.1):** 1 point. Crashed on the first server message (`ROUND {n}` only has 2 tokens, but the handler read `parts[2]`/`parts[3]`). Its 1 point came from a 10-10 forfeit draw with Nemotron.
+- **Claude (Opus 4.7):** DNF. Work fragmented across multiple `Continue`-required subsessions; `claude.py` ended the day empty.
+- **MiMo (V2-Pro):** DNF. Same failure mode; `mimo.py` empty.
+
+51% of all 136 games in the tournament were decided at zero hero moves, forfeit-out before a single move was played. For more details on this test, see the [article](towersofannoy/article.md) and the [prompt](towersofannoy/prompt.md).
+
 ## Medal Tally
 
 | Challenge | Gold | Silver | Bronze |
@@ -131,15 +147,18 @@ For more details on this test, see the [article](ladenknightstour/article.md) an
 | **6. Blurry Image Reveal** | Gemini | Grok | Claude |
 | **7. Blobby Tic-Tac-Toe** | Claude | Gemini | ChatGPT |
 | **8. Laden Knight's Tour** | Claude | Gemini | MiMo |
+| **9. Towers of Annoy** | Gemini | Grok / Kimi (tied) | — |
 
 | Model | Gold | Silver | Bronze |
 |---|---|---|---|
 | **Claude (Opus 4.6 / 4.7)** | **6** | 0 | **1** |
-| **Gemini (Pro 3.1)** | **1** | **3** | **1** |
-| **Grok (Expert 4.2)** | **1** | **2** | 0 |
+| **Gemini (Pro 3.1)** | **2** | **3** | **1** |
+| **Grok (Expert 4.2)** | **1** | **3** | 0 |
 | **MiMo (V2-Pro)** | 0 | **1** | **1** |
+| **Kimi (K2.6)** | 0 | **1** | 0 |
 | **ChatGPT (GPT 5.3)** | 0 | 0 | **1** |
 | **Nemotron (3 Super)** | 0 | 0 | **1** |
+| **GLM (5.1)** | 0 | 0 | 0 |
 
-*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal). Claude used Opus 4.6 for challenges 1–7 and Opus 4.7 for challenge 8.*
+*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal). Towers of Annoy: Grok and Kimi tied on 10 points and share silver; Claude and MiMo DNFed (runaway chain-of-thought, no code produced); GLM and Kimi joined the tournament for this challenge. Claude used Opus 4.6 for challenges 1–7 and Opus 4.7 for challenges 8+.*
 
