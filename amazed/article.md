@@ -66,4 +66,4 @@ Three out of five models couldn't even stay connected long enough to compete. Of
 
 ---
 
-*All runs were conducted on the same machine with all five bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds. All server code, prompts, and generated clients are available at [github.com/rrezel/llmcomp](https://github.com/rrezel/llmcomp).*
+*All runs were conducted on the same machine with all five bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds. All server code, prompts, and generated clients are available at [github.com/rayonnant-ai/aicc](https://github.com/rayonnant-ai/aicc).*

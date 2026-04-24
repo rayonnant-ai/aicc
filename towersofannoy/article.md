@@ -61,4 +61,4 @@ The challenge-over-challenge arc may be sharper than the matchup data. Day 8 (La
 
 ---
 
-*Model versions for this challenge: Gemini Pro 3.1, Kimi K2.6, Grok Expert 4.2, ChatGPT GPT 5.3, Nemotron 3 Super, GLM 5.1. Claude Opus 4.7 and MiMo-V2-Pro were entered but failed to produce code and did not connect. Board configurations grew from 4×3 (9 hero moves) up to 12×7 (129 hero moves). All bots connected to `localhost:7474` simultaneously; no bot saw the others' code or scores between rounds. Server code, prompt, and generated clients at [github.com/rrezel/llmcomp](https://github.com/rrezel/llmcomp).*
+*Model versions for this challenge: Gemini Pro 3.1, Kimi K2.6, Grok Expert 4.2, ChatGPT GPT 5.3, Nemotron 3 Super, GLM 5.1. Claude Opus 4.7 and MiMo-V2-Pro were entered but failed to produce code and did not connect. Board configurations grew from 4×3 (9 hero moves) up to 12×7 (129 hero moves). All bots connected to `localhost:7474` simultaneously; no bot saw the others' code or scores between rounds. Server code, prompt, and generated clients at [github.com/rayonnant-ai/aicc](https://github.com/rayonnant-ai/aicc).*

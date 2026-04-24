@@ -75,4 +75,4 @@ Five out of six bots implemented minimax. The three that added iterative deepeni
 
 ---
 
-*All matchups were conducted on the same machine. Board shapes were randomly generated with guaranteed winning lines. Each matchup used the penalty-shootout format with first-mover swapped each game. No bot had access to other bots' code or scores between matchups. All server code, prompts, and generated clients are available at [github.com/rrezel/llmcomp](https://github.com/rrezel/llmcomp).*
+*All matchups were conducted on the same machine. Board shapes were randomly generated with guaranteed winning lines. Each matchup used the penalty-shootout format with first-mover swapped each game. No bot had access to other bots' code or scores between matchups. All server code, prompts, and generated clients are available at [github.com/rayonnant-ai/aicc](https://github.com/rayonnant-ai/aicc).*

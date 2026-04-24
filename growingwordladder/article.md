@@ -67,4 +67,4 @@ A neighbor cache, a frontier size heuristic, and a `frozenset`. That's the margi
 
 ---
 
-*The server code, prompt, and all four generated clients are available in the [repository](https://github.com/rrezel/llmcomp). All 100 rounds were conducted on the same machine with all four bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds.*
+*The server code, prompt, and all four generated clients are available in the [repository](https://github.com/rayonnant-ai/aicc). All 100 rounds were conducted on the same machine with all four bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds.*

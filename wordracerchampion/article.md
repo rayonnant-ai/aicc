@@ -2,7 +2,7 @@
 
 I pitted four frontier AI models against each other in a perfectly fair and completely objective coding competition: same prompt, same constraints, same ten-second clock. No human review, no subjective grading. Just a TCP server, a dictionary, and a scoreboard.
 
-I designed a "Robot Word Racer" tournament. I gave Claude, Gemini, ChatGPT, and Grok the same [prompt](https://github.com/rrezel/llmcomp/blob/main/wordracerchampion/prompt.md) and asked each to write a complete Python 3.10 client using only the standard library. The four generated bots then connect simultaneously to a TCP server, receive a 15×15 letter grid, and compete to find and submit valid words before each other. Words must be traced adjacently on the grid (horizontally, vertically, or diagonally). No tile reused per word. Minimum three letters. Scoring is `letters − 6`, so short words cost you points and long ones pay off. The catch: submitting a word that isn't in the dictionary or isn't traceable on the grid results in instant disqualification. The entire round lasts ten seconds.
+I designed a "Robot Word Racer" tournament. I gave Claude, Gemini, ChatGPT, and Grok the same [prompt](https://github.com/rayonnant-ai/aicc/blob/main/wordracerchampion/prompt.md) and asked each to write a complete Python 3.10 client using only the standard library. The four generated bots then connect simultaneously to a TCP server, receive a 15×15 letter grid, and compete to find and submit valid words before each other. Words must be traced adjacently on the grid (horizontally, vertically, or diagonally). No tile reused per word. Minimum three letters. Scoring is `letters − 6`, so short words cost you points and long ones pay off. The catch: submitting a word that isn't in the dictionary or isn't traceable on the grid results in instant disqualification. The entire round lasts ten seconds.
 
 I ran the server three times with all four bots competing simultaneously. Here's what happened.
 
@@ -107,4 +107,4 @@ The posts in my feed will keep going up. "I asked AI to build me an app and it w
 
 ---
 
-*The server code, prompt, and all four generated clients are available in the repository [here](https://github.com/rrezel/llmcomp/tree/main). All runs were conducted on the same machine with all four bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds.*
+*The server code, prompt, and all four generated clients are available in the repository [here](https://github.com/rayonnant-ai/aicc/tree/main). All runs were conducted on the same machine with all four bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds.*

@@ -25,15 +25,22 @@ Claude posted a perfect 100 points, winning every round. Gemini matched Claude's
 
 Look at Claude's and Gemini's counts more carefully: **18, 24, 30, 36, 42, 48, 54, 60, 66, 72** for `n = 3..12`. That's exactly `6n`.
 
-The minimum knight-move distance between A1 and H8 is 6 (they're both dark squares, and a knight must change colour every move — parity forces an even distance, 6 being the shortest). Any disk that ends up on H8 must have traveled at least 6 knight-moves total. For `n` disks that gives a hard lower bound of `6n` total moves, achievable only if **every disk makes the journey exactly once** — no disk ever gets picked back up and re-parked.
+The minimum knight-move distance between A1 and H8 is 6 (they're both dark squares, and a knight must change colour every move — parity forces an even distance, 6 being the shortest). Any disk that ends up on H8 must have traveled at least 6 knight-moves total. For `n` disks that gives a hard lower bound of `6n` total moves. And because each disk needs at least 6, hitting `6n` exactly forces every disk to travel exactly 6 moves — no slack for one disk to cover for another.
 
-Claude and Gemini both found this floor and hit it every round from n=3 to n=12. The trick is choreographing `n` disk-trips along the A1→H8 knight graph so that none of them blocks another (Hanoi placement has to hold at every intermediate step). Classical Hanoi's `2^n − 1` bound doesn't apply here because the board has 62 helper squares, not 1.
+That doesn't mean each disk makes a single uninterrupted trip. Both winning strategies do park disks on intermediate squares and pick them up again. What they avoid is any wasted hop: the sum of each disk's knight-move count is exactly 6, never 7, never 8. No disk backtracks, no disk detours around a collision. Claude and Gemini both choreograph `n` disk-journeys along the knight graph such that no disk's route forces another disk off its own 6-move trajectory, while Hanoi placement holds at every intermediate step. Classical Hanoi's `2^n − 1` bound doesn't bind here because 62 helper squares give enough parking room to schedule the disks in pipeline rather than serialize them through a single buffer peg.
 
 ## Claude: offline-tuned peg set plus Frame-Stewart
 
-Claude's 249-line bot selects a fixed set of 8 "peg" squares — `{A1, B3, C6, D4, E5, F7, D3, H8}` — and runs a Frame-Stewart recursion over just those pegs. For every ordered pair of pegs `(u, v)`, it precomputes a shortest knight path `u → v` that avoids every *other* peg in the set. Intermediate squares on that path are therefore always empty during normal operation, so the Hanoi placement rule holds move-by-move for free.
+Claude's 249-line bot picks a peg set whose *size* scales with the disk count: 3 pegs for `n ≤ 2`, 4 for `n = 3`, 5 for `n ∈ {4, 5}`, 6 for `n = 6`, 7 for `n = 7`, and 8 pegs — `{A1, B3, C6, D4, E5, F7, D3, H8}` — for `n ≥ 8`. It then runs a Frame-Stewart recursion over the chosen set. For every ordered pair of pegs `(u, v)`, it precomputes a shortest knight path `u → v` that avoids every *other* peg in the set, so the intermediate squares on any peg-to-peg path are non-peg squares and stay empty during normal operation. The Hanoi placement rule therefore holds on every single knight hop without extra checks.
 
-The peg set itself was tuned by offline search against a 72-moves-for-n=12 target (documented in Claude's own source docstring). The DP is memoized on `(n, src, dst, aux_set)` with `aux_set` as a frozenset, so order-independent subproblems collapse.
+The peg sets were tuned by offline greedy search against a 72-moves-for-n=12 target, which Claude documents in its own module docstring:
+
+```
+Peg set tuned via offline greedy search:
+  {A1, H8, B3, C6, D4, E5, F7, D3}  -> 72 moves for n=12.
+```
+
+The DP is memoized on `(n, src, dst, aux_set)` with `aux_set` as a frozenset, so order-independent subproblems collapse.
 
 Claude was also the fastest to submit — 706ms for n=12 versus Gemini's 1609ms — which is why every tie went Claude's way.
 
@@ -47,7 +54,7 @@ It always reached 72 moves for n=12. The submission-time gap to Claude grew roug
 
 Kimi (197 lines) runs a standard recursive Hanoi where at each level it tries up to 5 candidate parking pegs scored by path-length sums. There's no global optimization over the peg *set*, so it commits to local choices that compound. At n=12 it emits 7340 moves against the 72-move floor — a 102× penalty.
 
-Grok (114 lines) is simpler still: recursive divide-and-conquer with naive row-major parking-square selection (first available square that isn't on the A1→H8 path). 10956 moves at n=12, 152× the floor.
+Grok (114 lines) is simpler still: recursive divide-and-conquer that picks a parking square per sub-problem by scanning row-major for the first square that isn't on the current sub-problem's A→B shortest path. The blocking set shifts with every recursive call rather than tracking a global peg set, so the choreography collapses into a pile of local decisions. 10956 moves at n=12, 152× the floor.
 
 Both scale exponentially in move count; the floor-finders scale linearly. That's the signal from this challenge — move count as `n` grows separates "found the structural insight" (6n) from "brute-forced a tree" (roughly `2^n`).
 
@@ -55,7 +62,7 @@ Both scale exponentially in move count; the floor-finders scale linearly. That's
 
 **GLM (5.1, 175 lines)** also runs Frame-Stewart, on a 10-peg set `{A1, B3, C2, D4, E3, F5, G6, F7, H6, H8}` that includes most of Claude's pegs plus extras. The DP is correct. The bug is in move expansion: GLM computes shortest knight paths between peg pairs *without* blocking the other pegs as forbidden intermediates. So on round 1 (n=3) move 3, it tries to place disk 3 directly onto a peg where disk 1 is already parked. `INVALID: cannot place disk 3 on smaller disk 1 at B3`. Same error on every round — the peg interference is structural, not data-dependent.
 
-**Nemotron (3 Super, 179 lines)** uses a two-phase greedy: unstack all disks to arbitrary empty squares, then gather to H8. Its BFS pathfinder rejects any hop that would violate Hanoi at the destination. For disk 1 (the smallest), the BFS returns `None` when no safe parking square is reachable under those constraints. That raises, Nemotron's `except` block catches it, and sends a literal empty newline. Server: `INVALID: empty response`. Every round.
+**Nemotron (3 Super, 179 lines)** uses a two-phase greedy: unstack all disks to arbitrary empty squares, then gather to H8. Its BFS pathfinder rejects any hop that would violate Hanoi at the destination, and when no reachable destination passes the check the BFS returns `None`. That raises, and a broad `except Exception` in the main loop catches the `RuntimeError`, discards the in-progress solution, and sends a literal empty newline. The failure isn't specific to any one disk — any unstack or gather step whose BFS can't find a Hanoi-legal landing triggers it. Server: `INVALID: empty response`. Every round.
 
 **ChatGPT (GPT 5.5, 233 lines)** — the upgrade from GPT 5.3 — has a far simpler bug: `socket.create_connection((HOST, PORT), timeout=5)`. That sets the socket's read timeout to 5 seconds. The server's registration window is 10 seconds; between registering and the first `ROUND` message, the bot waits ~8 seconds idle. Its socket raises `socket.timeout` at the 5-second mark, the exception propagates, Python exits. The server sees EOF on every round read. `TIMEOUT: no response`. The precomputed tables and Frame-Stewart solver are never exercised.
 
@@ -77,4 +84,4 @@ MiMo's second DNF in two challenges is the real story in the DNF column. Whateve
 
 ---
 
-*Model versions for this challenge: Claude Opus 4.7, Gemini Pro 3.1, Kimi K2.6, Grok Expert 4.2, ChatGPT GPT 5.5 (upgraded from 5.3), GLM 5.1, Nemotron 3 Super. MiMo-V2-Pro was entered but its authoring session looped indefinitely and no `mimo.py` was produced. Claude and Kimi also looped during authoring but were recovered with manual intervention. Board is a standard 8×8 chessboard with disks always starting at A1 and ending at H8; no randomness. Server code, prompt, and generated clients at [github.com/rrezel/llmcomp](https://github.com/rrezel/llmcomp).*
+*Model versions for this challenge: Claude Opus 4.7, Gemini Pro 3.1, Kimi K2.6, Grok Expert 4.2, ChatGPT GPT 5.5 (upgraded from 5.3), GLM 5.1, Nemotron 3 Super. MiMo-V2-Pro was entered but its authoring session looped indefinitely and no `mimo.py` was produced. Claude and Kimi also looped during authoring but were recovered with manual intervention. Board is a standard 8×8 chessboard with disks always starting at A1 and ending at H8; no randomness. Server code, prompt, and generated clients at [github.com/rayonnant-ai/aicc](https://github.com/rayonnant-ai/aicc).*

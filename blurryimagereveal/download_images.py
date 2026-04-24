@@ -23,7 +23,7 @@ def api_query(**params):
     params['format'] = 'json'
     url = API_URL + '?' + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'LLMCompImageDownloader/1.0 (https://github.com/rrezel/llmcomp)'
+        'User-Agent': 'LLMCompImageDownloader/1.0 (https://github.com/rayonnant-ai/aicc)'
     })
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode())
@@ -104,7 +104,7 @@ def get_image_info(filename):
 def download_image(url, path):
     """Download an image to a local path."""
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'LLMCompImageDownloader/1.0 (https://github.com/rrezel/llmcomp)'
+        'User-Agent': 'LLMCompImageDownloader/1.0 (https://github.com/rayonnant-ai/aicc)'
     })
     with urllib.request.urlopen(req) as resp:
         with open(path, 'wb') as f:

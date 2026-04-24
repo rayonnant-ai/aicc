@@ -105,4 +105,4 @@ The "frontier models" in 2026 couldn't even solve a problem that the Soviets had
 
 ### Code
 
-All the code for this article can be found [here](https://github.com/rrezel/llmcomp)
+All the code for this article can be found [here](https://github.com/rayonnant-ai/aicc)

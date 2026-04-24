@@ -46,4 +46,4 @@ But "better than Claude" it is not. In Word Racer, Claude outscored MiMo 16 to 1
 
 ---
 
-*All runs were conducted on the same machine with all five bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds. MiMo was given the exact same prompt as the other four models. All server code, prompts, and generated clients are available at [github.com/rrezel/llmcomp](https://github.com/rrezel/llmcomp).*
+*All runs were conducted on the same machine with all five bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds. MiMo was given the exact same prompt as the other four models. All server code, prompts, and generated clients are available at [github.com/rayonnant-ai/aicc](https://github.com/rayonnant-ai/aicc).*

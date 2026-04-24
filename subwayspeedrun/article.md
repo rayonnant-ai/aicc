@@ -107,4 +107,4 @@ The other failure mode was more prosaic: two models (GPT and Gemini) were killed
 
 ---
 
-*All runs were conducted on the same machine with all six bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds. Networks were randomly generated with guaranteed solvability. All server code, prompts, and generated clients are available at [github.com/rrezel/llmcomp](https://github.com/rrezel/llmcomp).*
+*All runs were conducted on the same machine with all six bots connecting simultaneously to `localhost:7474`. No bot was given the other bots' code or scores between rounds. Networks were randomly generated with guaranteed solvability. All server code, prompts, and generated clients are available at [github.com/rayonnant-ai/aicc](https://github.com/rayonnant-ai/aicc).*
