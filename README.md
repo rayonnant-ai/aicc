@@ -16,19 +16,23 @@ Frontier LLMs take part in real time programming challenges. Each bot gets the s
 | **8. Laden Knight's Tour** | Claude | Gemini | MiMo |
 | **9. Towers of Annoy** | Gemini | Grok / Kimi (tied) | — |
 | **10. Knights of Hanoi** | Claude | Gemini | Kimi |
+| **11. StackMaxxing** | Claude | Gemini | MiMo |
+| **12. Word Gem Puzzle** | Kimi | MiMo | ChatGPT |
 
 | Model | Gold | Silver | Bronze |
 |---|---|---|---|
-| **Claude (Opus 4.6 / 4.7)** | **7** | 0 | **1** |
-| **Gemini (Pro 3.1)** | **2** | **4** | **1** |
+| **Claude (Opus 4.6 / 4.7)** | **8** | 0 | **1** |
+| **Gemini (Pro 3.1)** | **2** | **5** | **1** |
 | **Grok (Expert 4.2)** | **1** | **3** | 0 |
-| **MiMo (V2-Pro)** | 0 | **1** | **1** |
-| **Kimi (K2.6)** | 0 | **1** | **1** |
-| **ChatGPT (GPT 5.3 / 5.5)** | 0 | 0 | **1** |
+| **Kimi (K2.6)** | **1** | **1** | **1** |
+| **MiMo (V2-Pro)** | 0 | **2** | **2** |
+| **ChatGPT (GPT 5.3 / 5.5)** | 0 | 0 | **2** |
 | **Nemotron (3 Super)** | 0 | 0 | **1** |
 | **GLM (5.1)** | 0 | 0 | 0 |
+| **Muse (Spark)** | 0 | 0 | 0 |
+| **DeepSeek (V4)** | 0 | 0 | 0 |
 
-*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal). Towers of Annoy: Grok and Kimi tied on 10 points and share silver; Claude and MiMo DNFed (runaway chain-of-thought, no code produced); GLM and Kimi joined the tournament for this challenge. Knights of Hanoi: Claude and Kimi looped during authoring but were rescued with manual intervention; MiMo DNFed for the second consecutive challenge; GPT upgraded to 5.5 but timed out every round via a 5s-socket-timeout bug on a 10s registration window. Claude used Opus 4.6 for challenges 1–7 and Opus 4.7 for challenges 8+; ChatGPT used GPT 5.3 for challenges 1–9 and GPT 5.5 for challenge 10.*
+*Postcodes: Grok scored 8/100, all others scored 0 (no silver/bronze). Subway: Gemini and Nemotron tied on 6pts, Gemini took silver (2 round wins vs 0). Maze: Gemini, GPT, MiMo eliminated early (no medal). Blurry Image: GPT, MiMo, Nemotron timed out every round (no medal). Laden Knight's Tour: Grok, ChatGPT, Nemotron all timed out on most rounds (no medal). Towers of Annoy: Grok and Kimi tied on 10 points and share silver; Claude and MiMo DNFed (runaway chain-of-thought, no code produced); GLM and Kimi joined the tournament for this challenge. Knights of Hanoi: Claude and Kimi looped during authoring but were rescued with manual intervention; MiMo DNFed for the second consecutive challenge; GPT upgraded to 5.5 but timed out every round via a 5s-socket-timeout bug on a 10s registration window. StackMaxxing: Muse Spark (Meta) and DeepSeek V4 joined the tournament for this challenge; ChatGPT timed out every round; GLM and Kimi sent malformed responses every round after R1. Word Gem Puzzle: round-robin of 1v1 matches replaces the all-vs-all format; Nemotron DNP (syntax error in main loop, file never parses); DeepSeek malformed every round; Muse claimed every dictionary word ≥ 3 letters and finished at −15,309 cumulative. Claude used Opus 4.6 for challenges 1–7 and Opus 4.7 for challenges 8+; ChatGPT used GPT 5.3 for challenges 1–9 and GPT 5.5 for challenge 10+.*
 
 ## Challenges
 
@@ -178,4 +182,40 @@ For more details on this test, see the [article](ladenknightstour/article.md) an
 - **MiMo (V2-Pro):** DNF. Second consecutive DNF via runaway chain-of-thought loop — no `mimo.py` produced. Claude and Kimi also looped during authoring but were rescued with manual intervention.
 
 First challenge in the series where two models independently found the theoretical optimum. For more details on this test, see the [article](knightsofhanoi/article.md) and the [prompt](knightsofhanoi/prompt.md).
+
+### 11. StackMaxxing (`stackmaxxing/`)
+
+**Task:** Write a Python 3.10 client that drops polyomino shapes into a rectangular tank, Tetris-style rigid gravity, no line clearing. Bots pick rotation + column for each piece; the server runs the drop and validates. A round ends when the bot can't fit the next piece. 10 rounds with tank dimensions growing from 6×8 (R1) to 18×20 (R10). Pieces are pentominoes drawn from a weighted catalog of six one-sided shapes: X (the cross/plus) at 5/12, F and F' at 2/12 each, W/U/T at 1/12 each. 10-second cumulative wait-time budget per bot per round. Two new entries this challenge: **Meta Muse Spark** and **DeepSeek V4**.
+
+**Results:**
+- **Claude (Opus 4.7):** 69 points (1st). Beam search width 8–16 over 3-piece lookahead with a 7-feature Dellacherie-style heuristic. Won R4, R8, R10 outright; top-2 in 9 of 10 rounds.
+- **Gemini (Pro 3.1):** 58 points (2nd). 1- or 2-ply search depending on time pressure with a `−(5×max_height + 10×holes + 1×bumpiness)` evaluation. Won R2, R7, R9.
+- **MiMo (V2-Pro):** 45 points (3rd). 12-wide beam, 3-piece lookahead, harder height penalty than Claude. Won R5 (tied with Muse, tiebreaker to MiMo).
+- **Muse (Spark):** 30 points (4th). Beam search 3-piece lookahead. Competitive through R6 (won R6 at 31 pieces). Timed out at R7 then INV for the rest.
+- **DeepSeek (V4):** 21 points (5th). 1-ply recursive search weighting holes ×1000 and bumpiness ×5. Stable across all 10 rounds; the 1-ply look just can't keep up with the X-pentomino stream.
+- **Grok (Expert 4.2):** 15 points (6th). 1-ply heuristic, 4–9 pieces behind the leader on every round.
+- **GLM (5.1):** 10 points (7th). Played R1 cleanly, then buffer-management bug corrupted reads from R2 onward. INV every round after.
+- **Kimi (K2.6):** 7 points (8th). Same buffer-management failure pattern as GLM.
+- **Nemotron (3 Super):** 5 points (9th). Functional but no lookahead and no rotation evaluation beyond rotation 0; gap to leader grows steadily round by round.
+- **ChatGPT (GPT 5.5):** 0 points. Slow set-based simulation in `choose_move()` exceeded the 10-second budget on round 1; no deadline check. Timed out every round.
+
+For more details on this test, see the [article](stackmaxxing/article.md) and the [prompt](stackmaxxing/prompt.md).
+
+### 12. Word Gem Puzzle (`wordgempuzzle/`)
+
+**Task:** Write a Python 3.10 client that plays a sliding letter puzzle. Each round both bots receive an identical `w × h` grid containing `w·h − 1` lowercase letter tiles plus one blank slot. Bots can slide tiles into the blank (4-directional) and claim words formatted as straight horizontal (across) or vertical (down) runs of letter tiles on their private grid. Score per word = `len(word) − 6`. Format change from prior tournaments: round-robin of 1v1 matches. Each match is 5 rounds at grid sizes 10×10, 15×15, 20×20, 25×25, 30×30. Each unique word in a round can only be scored by one of the two paired bots; the other gets `TAKEN`. Match win = 3 tournament points, draw = 1, loss = 0. 10-second wall-clock per round.
+
+**Results:**
+- **Kimi (K2.6):** 22 match points, 7-1-0 (1st). Greedy 1-step slide loop with alphabetical fallback. Dominated 30×30 (5.88 avg) and 25×25 (2.88 avg). Most of its 290,914 slides are wasted oscillating against board edges, but the productive ones clear the rest of the field.
+- **MiMo (V2-Pro):** 20 match points, 6-2-0 (2nd). Static-scan-only with a single `sendall()` and `TCP_NODELAY`. Slide loop exists but its `best_value > 0` gate never fires across 40 rounds. Never beats Kimi or ChatGPT but never loses to anyone either.
+- **ChatGPT (GPT 5.5):** 16 match points, 5-1-2 (3rd). Tightest slide cap among scoring bots (4,800 total). Outlier 15×15 average (1.75) and strong 30×30 (5.38).
+- **GLM (5.1):** 15 match points, 5-0-3. Heaviest slider (824,855 slides) without a fallback. Slide loop stalls when the greedy step goes flat.
+- **Claude (Opus 4.7):** 12 match points, 4-0-4. Docstring reads "Read each round's grid; do not slide." 0 slides on a sliding-puzzle challenge.
+- **Gemini (Pro 3.1):** 9 match points, 3-0-5. 29K slides, no peak grid, no targeted strategy.
+- **Grok (Expert 4.2):** 9 match points, 3-0-5. 0 slides; the bot file has no `S` command anywhere.
+- **DeepSeek (V4):** 3 match points, 1-0-7. Sent malformed bytes on every round, never executed a single valid command across 40 rounds. Single match win on M16 vs Muse (Muse self-destructed harder on the rounds they both stayed alive).
+- **Muse (Spark):** 0 match points, 0-0-8. Structurally complete strategy but Phase 1 claims every word of length ≥ 3 including 3-letter (−3) and 4-letter (−2) words. Cumulative score across 40 rounds: −15,309.
+- **Nemotron (3 Super):** DNP. Syntax error in main loop (`elif line.startswith('TOURNAMENT_END':` missing closing paren); file never parses, bot never connects.
+
+For more details on this test, see the [article](wordgempuzzle/article.md) and the [prompt](wordgempuzzle/prompt.md).
 
