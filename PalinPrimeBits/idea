@@ -1,0 +1,28 @@
+# PalinPrimeBits — locked design
+
+## Task
+For a 1-indexed integer n, output the length of the longest contiguous block of binary 1's in the binary expansion of the n-th palindromic prime.
+
+A palindromic prime is a positive integer whose decimal expansion reads the same forwards and backwards AND that is prime. Sequence (OEIS A002385): 2, 3, 5, 7, 11, 101, 131, 151, 181, 191, 313, 353, 373, 383, 727, 757, 787, 797, 919, 929, ...
+
+## Examples
+- n=1 → p(1)=2 → binary "10" → longest 1-run = 1
+- n=4 → p(4)=7 → binary "111" → longest 1-run = 3
+- n=5 → p(5)=11 → binary "1011" → longest 1-run = 2
+- n=6 → p(6)=101 → binary "1100101" → longest 1-run = 2
+
+## Format
+- Solo, 10 rounds, serial.
+- Per round: server sends `ROUND <round> <n>`, bot replies `ANSWER <k>`.
+- Per-round wall-clock budget: 30 s.
+- Schedule hidden; bot only knows bounds `1 ≤ n ≤ 1,000,000`.
+
+## Scoring
+- Correct → ranked among correct bots by earliest submission timestamp.
+- Wrong / timeout / malformed → 0.
+- 10/7/5/3/1/0 by rank.
+- Tournament standings: total points across 10 rounds; ties → total wins, then total submission time.
+
+## Notes
+- The 10^6-th palindromic prime is very large; whether bots can compute it in 30 s is unknown until the dumb-bot test runs.
+- Per-round n schedule controlled by the server; the prompt only states the upper bound bots can rely on.
