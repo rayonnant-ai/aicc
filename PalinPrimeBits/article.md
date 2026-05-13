@@ -1,14 +1,14 @@
-# AI coding contest day 17: PalinPrimeBits. DeepSeek wins on a streaming sieve, two strong bots get stuck at the registration gate.
+# AI coding contest day 17: PalinPrimeBits. DeepSeek wins on a streaming sieve, two strong bots DNP on a prompt-vs-server documentation gap.
 
 The seventeenth challenge is a number-theory race. The server picks a 1-indexed integer `n` and the bot must report the length of the longest contiguous block of `1` bits in the binary expansion of `p(n)`, the n-th palindromic prime. The sequence starts 2, 3, 5, 7, 11, 101, 131, 151, 181, 191, ... (OEIS A002385); the n-th element is fixed, so every round has exactly one correct answer.
 
 The format is 10 solo rounds played serially. Per-round `n` ranges from 5,000 to 1,000,000. Bots are not told the schedule in advance. Per-round ranking gives 10/7/5/3/1/0 points among correct submissions, tied by earliest submission timestamp. Wrong / timeout / malformed responses score zero. Per-round wall-clock budget: 30 seconds.
 
-The dominant strategy choice is whether to enumerate palprimes lazily (start a background thread, answer rounds as the list grows) or eagerly (compute the whole list of 1,000,000 palprimes before submitting anything). The eager approach has a hidden hazard: the server opens registration for 10 seconds, and a bot that spends 30 minutes precomputing before its first `sock.connect()` never registers at all.
+The dominant strategy choice is whether to enumerate palprimes lazily (start a background thread, answer rounds as the list grows) or eagerly (compute the whole list of 1,000,000 palprimes before submitting anything). `prompt.md §9` permits eager precomputation before the first `ROUND` line, written with light amortization in mind: register first, then warm a cache while idle. Seven of the nine bots in the field read it that way. Two read it maximally — as a license to bypass the 30-second per-round wall-clock by deferring `sock.connect()` until after a full precompute. Those two run into `server.py: REGISTRATION_WINDOW = 10.0`, a 10-second window for sending the BOTNAME line, and never register.
 
 **MiMo (V2.5-Pro) is DNF.** Three consecutive generation attempts terminated with `finish_reason=length`, 65,532 to 65,540 reasoning tokens, zero output tokens. This is MiMo's fourth straight challenge as a generation DNF.
 
-**ChatGPT (GPT 5.5) and Grok (Expert 4.20) score zero.** Both bots compile fine, implement correct algorithms, and were launched at the start of the race, but each precomputes the full palindromic-prime list before opening a TCP connection. The precompute runs longer than the 10-second registration window, so the server has already closed the door when the bot finally calls `sock.connect()`. Both bots ran for the full tournament without ever submitting a single answer.
+**ChatGPT (GPT 5.5) and Grok (Expert 4.20) are DNP.** Both bots compile fine and implement correct algorithms. Each defers `sock.connect()` until after a full precompute of 1,000,000 palindromic primes, reading `prompt.md §9` ("the bot may take any approach … including pre-computation before the first `ROUND` line arrives. The 30 s clock only starts at each `ROUND` line.") maximally — as license to bypass the per-round wall-clock entirely. ChatGPT's source comment names the intent: `# Precompute before connecting so no ROUND clock is running yet.` The server's 10-second registration window, undocumented in the prompt but enforced in `server.py`, catches both bots inside that precompute. Neither ever registers, and they don't appear in the tournament log.
 
 ## The results
 
@@ -21,11 +21,11 @@ The dominant strategy choice is whether to enumerate palprimes lazily (start a b
 | **#5** | **Gemini (Pro 3.1)** | 20 | 0 | 8/10 | 50.4 s |
 | **#6** | **Kimi (K2.6)** | 18 | 1 | 4/10 | 15.3 s |
 | **#7** | **Nemotron (3 Super)** | 5 | 0 | 8/10 | 67.4 s |
-| #8 | ChatGPT (GPT 5.5) | 0 | 0 | 0/10 | (missed registration) |
-| #9 | Grok (Expert 4.20) | 0 | 0 | 0/10 | (missed registration) |
+| DNP | ChatGPT (GPT 5.5) | — | — | — | — |
+| DNP | Grok (Expert 4.20) | — | — | — | — |
 | DNF | MiMo (V2.5-Pro) | — | — | — | — |
 
-*(Total t is summed only over rounds the bot answered correctly. DNP: did not play. DNF: did not finish.)*
+*(Total t is summed only over rounds the bot answered correctly. DNP: did not play. DNF: did not finish. Per-round timings are taken from the server's `results.log` file, which is kept local-only by repo policy; the relevant excerpts are inlined in the per-round positions table below and the bot-specific sections that follow.)*
 
 ## Per-round positions
 
@@ -44,11 +44,11 @@ The dominant strategy choice is whether to enumerate palprimes lazily (start a b
 
 Round 10 has a single correct submission. Kimi answered in 43 ms; every other bot that played R10 either timed out or, in GLM's case, submitted its `ANSWER 1` fallback after its precompute deadline expired.
 
-## The registration-window trap (ChatGPT and Grok at 0 points)
+## The registration-window gap (ChatGPT and Grok DNP)
 
-ChatGPT and Grok both wrote correct, working bots. ChatGPT (~250 lines) uses a `multiprocessing` pool to sieve palindromes in parallel and store the longest-1-run for each in a typed `array`. Grok (~130 lines) uses trial division through a generator. Both implementations would have produced correct answers in time once they completed the precomputation.
+ChatGPT and Grok both wrote correct, working bots. ChatGPT (~250 lines) uses a `multiprocessing` pool to sieve palindromes in parallel and store the longest-1-run for each in a typed `array`. Grok (~130 lines) uses trial division through a generator. Both implementations would have produced correct answers in time once the precomputation finished.
 
-The fatal lines are identical in spirit:
+The structural choice that cost them the tournament:
 
 ```python
 # ChatGPT
@@ -56,7 +56,7 @@ def main():
     botname = os.environ.get("BOTNAME")
     ...
     # Precompute before connecting so no ROUND clock is running yet.
-    answers = precompute_answers(MAX_N)             # ← takes 5+ minutes
+    answers = precompute_answers(MAX_N)             # ← takes minutes
     with socket.create_connection((HOST, PORT)) as sock:
         sock.sendall(f"{botname}\n".encode("ascii"))
         ...
@@ -71,9 +71,13 @@ def main():
         sock.sendall(f"{botname}\n".encode('ascii'))
 ```
 
-The server's registration window is 10 seconds. Both bots are still computing when the server stops accepting new connections, and the tournament starts with neither registered. The log records 7 bots, not 9.
+ChatGPT's own comment, `# Precompute before connecting so no ROUND clock is running yet`, names the intent directly: bypass the 30-second per-round budget by doing the entire enumeration in unmeasured time before any networking. Grok's structure is the same shape, just with no comment. The prompt's §9 Notes do permit precomputation before the first `ROUND` line (`The bot may take any approach to compute p(n) … including pre-computation before the first ROUND line arrives. The 30 s clock only starts at each ROUND line.`), and the maximal reading is that the entire algorithm can go there. Seven other bots read §9 more conservatively — register first, then precompute on a background thread while idle — and stayed in the tournament.
 
-The bots' authors were thinking about the wrong clock. The 30-second per-round wall-clock applies after the bot has registered and a `ROUND` line has arrived; the bot author optimised for that deadline, didn't notice the registration window, and lost everything. Connect first, compute in the background, is the only viable shape.
+The 10-second registration window in `server.py` was almost certainly there for a different reason. `REGISTRATION_WINDOW = 10.0` is the "wait for all racers to be at the line, then fire the gun" mechanism: a tournament can't proceed until the field is set, and 10 seconds is enough for normal bots to handshake. It was not designed as an anti-arbitrage check against the §9 clock-bypass strategy. But after the window closes, the server's listening socket stays bound while the server runs rounds, and `accept()` is never called again. Late connects complete the kernel-level TCP handshake but never register with the application.
+
+In execution: both bots are still in their precompute when the server's registration loop exits at t=10 s. The server logs `7 bots registered.` and runs all 10 rounds. When ChatGPT eventually finishes its multiprocessing precompute, it calls `socket.create_connection((HOST, PORT))`. The kernel handshake succeeds, but the server has no `accept()` pending; the connection sits in the listen backlog unread. ChatGPT then blocks reading for a `ROUND` line that will never come. When the tournament ends and the server closes the listening socket, ChatGPT's read returns empty and the process exits. Grok's trial-division precompute is much slower (single-threaded testing through palindromes up to ~10^14); it never finishes before the server is gone, eventually hits `ConnectionRefusedError`, and dies.
+
+Both bots are recorded as DNP. They were launched, ran the full tournament length, tried to game the per-round clock by deferring `sock.connect()`, and got caught by an unrelated check.
 
 ## DeepSeek and Claude: connect first, fill in the background
 
@@ -160,7 +164,7 @@ All three time out on R10 (n = 1,000,000) with their palprime list still buildin
 
 ## Kimi: an off-by-15 bug, two coincidences, and a 10-point R10
 
-Kimi (K2.6) is the strangest bot in the field. It uses `multiprocessing.Pool` to sieve palindromes in parallel across CPU cores while answering rounds from a shared list, the same connect-first shape as DeepSeek and Claude but with parallel computation. The architecture is correct.
+Kimi (K2.6) is the strangest bot in the field. It uses `multiprocessing.Pool` to sieve palindromes in parallel across CPU cores while answering rounds from a shared list. Strictly speaking it is not purely connect-first: `main()` calls `build_small(answers, TARGET)` before opening the socket, which handles the small palprimes (lengths 1, 2, 5, 7, 9, 11) synchronously. That pre-connect phase finishes inside the 10-second registration window in practice, so Kimi registers in time. The heavy lifting (lengths 13 and 15, via the multiprocess pool) happens after the connect, in parallel with rounds. The same general shape as DeepSeek and Claude — connect, then fill in the background — with the seed phase done up front and the bulk work parallelised.
 
 The bug is in `build_small`, which seeds the small-n entries before the multiprocess pool starts up:
 
@@ -254,7 +258,7 @@ synchronously sieve small palindromes while polling the socket (GLM)
 on each ROUND: block until cache reaches n, never fall back to a wrong value (DeepSeek)
 ```
 
-That bot would have won every round outright: small-n on GLM's populated-cache speed, mid-n on DeepSeek's clean blocking behaviour, R10 on Kimi's parallel reach. None of the bots in the field combined all three pieces. Kimi came closest in spirit, the seed bug aside; GLM came closest on the registration-window utilisation; DeepSeek's blocking handler is the right shape for failure cases.
+That bot would plausibly win most rounds: small-n on GLM-like populated-cache speed, mid-n on DeepSeek-style clean blocking behaviour, R10 on Kimi's parallel reach. No bot in the field combined all three pieces, and the composite is a sketch from the scoreboard, not a prototype that's been benchmarked. Kimi came closest in spirit, the seed bug aside; GLM came closest on the registration-window utilisation; DeepSeek's blocking handler is the right shape for failure cases.
 
 ## The verdict
 
@@ -264,7 +268,7 @@ GLM lands 3rd on 40 points by being fastest in the first half and then collapsin
 
 The challenge differentiated cleanly: tournament shape varied with the size of the cache each bot could amortise. DeepSeek's small overhead per palprime turned into a sustained lead from R5 onward. Kimi's parallel compute would have beaten everyone on R10 timing even with a correct seed phase, but the bug means most of its rounds were wrong despite the strong infrastructure.
 
-Two registration-window timeouts are the most reproducible category error in the field so far: the prompt clearly says the 30-second budget starts when `ROUND` arrives, the registration window is 10 seconds, and bots that try to amortise compute upfront have to either fit inside the registration window or move the compute behind the connect.
+Two bots (ChatGPT, Grok) DNP on a clock-arbitrage attempt that backfired. The organiser wrote `prompt.md §9` ("the bot may take any approach to compute `p(n)` … including pre-computation before the first `ROUND` line arrives") with narrow intent: small seed tables, an idle cache fill while waiting for `ROUND 1`. The 7-of-9 readership confirms this intent — every other bot in the field registers first and then precomputes, exactly as §9 was meant to allow. ChatGPT and Grok read §9 maximally — as a green light to convert the entire problem into untracked pre-tournament compute followed by ten zero-cost lookups, sidestepping the 30-second per-round budget altogether. ChatGPT's source comment makes the intent explicit: `# Precompute before connecting so no ROUND clock is running yet`. The 10-second registration window in `server.py` was almost certainly there for a different reason — make sure all entrants are connected before the gun fires — but it incidentally trips the clock-arbitrage strategy. Both bots were trying to game the clock; the unrelated tripwire caught them. The DNP classification is honest: they did not play. The prompt template gets a §4 disclosure of the registration window going forward; PalinPrimeBits is past spec-lock so its prompt can't be retroactively fixed.
 
 ---
 
