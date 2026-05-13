@@ -1,4 +1,4 @@
-# AI coding contest day 17: PalinPrimeBits. DeepSeek wins on a streaming sieve, two strong bots DNP on a prompt-vs-server documentation gap.
+# AI coding contest day 17: PalinPrimeBits. DeepSeek wins on background enumeration; two strong bots DNP on a prompt-vs-server documentation gap.
 
 The seventeenth challenge is a number-theory race. The server picks a 1-indexed integer `n` and the bot must report the length of the longest contiguous block of `1` bits in the binary expansion of `p(n)`, the n-th palindromic prime. The sequence starts 2, 3, 5, 7, 11, 101, 131, 151, 181, 191, ... (OEIS A002385); the n-th element is fixed, so every round has exactly one correct answer.
 
@@ -46,7 +46,7 @@ Round 10 has a single correct submission. Kimi answered in 43 ms; every other bo
 
 ## The registration-window gap (ChatGPT and Grok DNP)
 
-ChatGPT and Grok both wrote correct, working bots. ChatGPT (~250 lines) uses a `multiprocessing` pool to sieve palindromes in parallel and store the longest-1-run for each in a typed `array`. Grok (~130 lines) uses trial division through a generator. Both implementations would have produced correct answers in time once the precomputation finished.
+ChatGPT and Grok both wrote correct, working bots. Both use the same algorithm class: enumerate decimal palindromes by their left half (the only palprime construction that matters past 11, since every even-length palindrome ≥ 100 is divisible by 11), then test each candidate with deterministic Miller-Rabin. ChatGPT (~250 lines) parallelises the enumeration across a `multiprocessing` pool and stores the longest-1-run for each palprime in a typed `array`. Grok (~130 lines) runs single-threaded, using a small-trial-division filter (primes up to 97) before a 9-witness Miller-Rabin (`witnesses = [2, 3, 5, 7, 11, 13, 17, 19, 23]`). Both implementations are correct and produce the full 1,000,000-palprime list in roughly 100 seconds on a typical core — fast enough to finish before the tournament ends, far too slow to fit inside the 10-second registration window.
 
 The structural choice that cost them the tournament:
 
@@ -56,7 +56,7 @@ def main():
     botname = os.environ.get("BOTNAME")
     ...
     # Precompute before connecting so no ROUND clock is running yet.
-    answers = precompute_answers(MAX_N)             # ← takes minutes
+    answers = precompute_answers(MAX_N)             # ← ~100 s
     with socket.create_connection((HOST, PORT)) as sock:
         sock.sendall(f"{botname}\n".encode("ascii"))
         ...
@@ -65,7 +65,7 @@ def main():
 def main():
     botname = os.environ.get('BOTNAME')
     ...
-    pal_primes = generate_palindromic_primes(1000000)   # ← takes hours
+    pal_primes = generate_palindromic_primes(1000000)   # ← ~100 s, single-threaded
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((HOST, PORT))
         sock.sendall(f"{botname}\n".encode('ascii'))
@@ -75,7 +75,7 @@ ChatGPT's own comment, `# Precompute before connecting so no ROUND clock is runn
 
 The 10-second registration window in `server.py` was almost certainly there for a different reason. `REGISTRATION_WINDOW = 10.0` is the "wait for all racers to be at the line, then fire the gun" mechanism: a tournament can't proceed until the field is set, and 10 seconds is enough for normal bots to handshake. It was not designed as an anti-arbitrage check against the §9 clock-bypass strategy. But after the window closes, the server's listening socket stays bound while the server runs rounds, and `accept()` is never called again. Late connects complete the kernel-level TCP handshake but never register with the application.
 
-In execution: both bots are still in their precompute when the server's registration loop exits at t=10 s. The server logs `7 bots registered.` and runs all 10 rounds. When ChatGPT eventually finishes its multiprocessing precompute, it calls `socket.create_connection((HOST, PORT))`. The kernel handshake succeeds, but the server has no `accept()` pending; the connection sits in the listen backlog unread. ChatGPT then blocks reading for a `ROUND` line that will never come. When the tournament ends and the server closes the listening socket, ChatGPT's read returns empty and the process exits. Grok's trial-division precompute is much slower (single-threaded testing through palindromes up to ~10^14); it never finishes before the server is gone, eventually hits `ConnectionRefusedError`, and dies.
+In execution: both bots are still in their precompute when the server's registration loop exits at t=10 s. The server logs `7 bots registered.` and runs all 10 rounds. When ChatGPT eventually finishes its multiprocessing precompute (under a minute on a multi-core box), it calls `socket.create_connection((HOST, PORT))`. The kernel handshake succeeds, but the server has no `accept()` pending; the connection sits in the listen backlog unread. ChatGPT then blocks reading for a `ROUND` line that will never come. When the tournament ends and the server closes the listening socket, ChatGPT's read returns empty and the process exits. Grok's single-threaded enumeration is slower (~100 s); it may or may not finish before the tournament's ~250 s end, but in either case its `sock.connect()` lands after the registration window. It hits the same dead-listen-socket condition as ChatGPT.
 
 Both bots are recorded as DNP. They were launched, ran the full tournament length, tried to game the per-round clock by deferring `sock.connect()`, and got caught by an unrelated check.
 
@@ -164,7 +164,7 @@ All three time out on R10 (n = 1,000,000) with their palprime list still buildin
 
 ## Kimi: an off-by-15 bug, two coincidences, and a 10-point R10
 
-Kimi (K2.6) is the strangest bot in the field. It uses `multiprocessing.Pool` to sieve palindromes in parallel across CPU cores while answering rounds from a shared list. Strictly speaking it is not purely connect-first: `main()` calls `build_small(answers, TARGET)` before opening the socket, which handles the small palprimes (lengths 1, 2, 5, 7, 9, 11) synchronously. That pre-connect phase finishes inside the 10-second registration window in practice, so Kimi registers in time. The heavy lifting (lengths 13 and 15, via the multiprocess pool) happens after the connect, in parallel with rounds. The same general shape as DeepSeek and Claude — connect, then fill in the background — with the seed phase done up front and the bulk work parallelised.
+Kimi (K2.6) is the strangest bot in the field. It uses `multiprocessing.Pool` to enumerate palindromes and test primality across CPU cores in parallel, while answering rounds from a shared list. Strictly speaking it is not purely connect-first: `main()` calls `build_small(answers, TARGET)` before opening the socket, which handles the small palprimes (lengths 1, 2, 5, 7, 9, 11) synchronously. That pre-connect phase finishes inside the 10-second registration window in practice, so Kimi registers in time. The heavy lifting (lengths 13 and 15, via the multiprocess pool) happens after the connect, in parallel with rounds. The same general shape as DeepSeek and Claude — connect, then fill in the background — with the seed phase done up front and the bulk work parallelised.
 
 The bug is in `build_small`, which seeds the small-n entries before the multiprocess pool starts up:
 
@@ -254,7 +254,7 @@ The composite optimum:
 ```
 connect immediately
 spawn multiprocessing.Pool over the heavy digit lengths (Kimi)
-synchronously sieve small palindromes while polling the socket (GLM)
+synchronously enumerate small palindromes while polling the socket (GLM)
 on each ROUND: block until cache reaches n, never fall back to a wrong value (DeepSeek)
 ```
 
