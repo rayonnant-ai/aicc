@@ -42,7 +42,7 @@ The dominant strategy choice is whether to enumerate palprimes lazily (start a b
 | R9 | 500,000 | 5 | Claude (5.49s) | DeepSeek (6.53s) | Muse (27.56s) |
 | R10 | 1,000,000 | 6 | **Kimi (0.04s)** | — | — |
 
-Round 10 has a single correct submission. Kimi answered in 43 ms; every other bot that played that round timed out after 30 seconds with their palprime enumeration still running.
+Round 10 has a single correct submission. Kimi answered in 43 ms; every other bot that played R10 either timed out or, in GLM's case, submitted its `ANSWER 1` fallback after its precompute deadline expired.
 
 ## The registration-window trap (ChatGPT and Grok at 0 points)
 
