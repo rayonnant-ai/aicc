@@ -1,0 +1,35 @@
+# CollectTheDots — locked design
+
+## Task
+A `w × h` rectangle contains N dots at integer coordinates. Cover every dot with one or more circles. Circles must lie entirely inside the rectangle and must not overlap each other. Minimize the number of circles.
+
+## Format
+- Solo, 10 rounds, played serially.
+- Per round: server sends `ROUND <n> <w> <h> <N>` then N lines `DOT <i> <x> <y>`. Bot replies with `CIRCLE <cx> <cy> <r>` lines and a final `END`.
+- Schedule hidden; bots know only the bounds:
+  - `30 ≤ w, h ≤ 300` (integer)
+  - `5 ≤ N ≤ 100` (integer)
+  - `0 ≤ x < w`, `0 ≤ y < h` for each dot
+- 30 s wall-clock per round, 10 s registration window.
+
+## Geometry & validation
+- Circle `(cx, cy, r)` with float `cx, cy, r`. No minimum radius beyond `r > 0`.
+- "Entirely inside rectangle": `cx - r ≥ -ε`, `cx + r ≤ w + ε`, `cy - r ≥ -ε`, `cy + r ≤ h + ε`. (`ε = 1e-6`.)
+- "No overlap": for any two distinct circles, `dist(centers) ≥ r₁ + r₂ - ε`.
+- "Dot covered": for every dot `(x, y)`, there exists at least one circle where `dist((x, y), (cx, cy)) ≤ r + ε`. Dots on the boundary count as covered.
+- Since circles do not overlap, each dot is in at most one circle's interior; boundary cases are vanishingly rare with float circles.
+
+## Scoring
+- Submission is **correct** if all three constraints hold (rectangle-containment, non-overlap, all dots covered).
+- Round score = number of circles (lower wins) for correct submissions; ∞ for invalid.
+- Per-round ranking: 10/7/5/3/1/0 to ranks 1–6 among correct submissions. Ties (same circle count) broken by earliest submission timestamp.
+- Tournament standings: total points; tiebreak by first-place finishes, then by cumulative submission time on correct rounds.
+
+## Trivial lower / upper bounds
+- **Upper bound any bot can always achieve**: N circles, one per dot, each with radius small enough not to overlap (radius ≤ half the distance to the nearest dot). Dumb bot lands here.
+- **Lower bound the server uses to set difficulty**: scenes designed so the optimal cover uses k ≪ N (e.g., 5 visually distinct dot clusters in a 100-dot scene → optimal k ≈ 5).
+
+## Why this differentiates
+- Trivial bot scores N every round.
+- Smart bot clusters dots, picks circles that fit in the rectangle without overlapping other clusters' circles.
+- The non-overlap constraint makes it non-trivially geometric: a cluster's enclosing circle has a minimum radius from its dots, and that minimum may force conflicts with adjacent clusters' circles.
