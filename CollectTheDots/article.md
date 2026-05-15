@@ -1,10 +1,10 @@
-# AI coding contest day 18: CollectTheDots. Three different solvers split the field by round size.
+# AI coding contest day 18: CollectTheDots. Every solver was brittle; Grok's heuristic had the fewest cliffs.
 
 The eighteenth challenge is a circle-covering puzzle. Each round the bot gets a `w × h` rectangle and `N` dots at integer coordinates. It must cover every dot with one or more circles, each circle entirely inside the rectangle and no two circles overlapping. **Fewest circles wins.** Trivially, one tiny circle per dot is always valid; the puzzle is to merge dots into shared larger circles without the merged circles colliding with each other or running off the rectangle.
 
 ![The 10 round layouts: each rectangle's dots clustered into 5–16 Gaussian groups, with the dimensions and round labels shown.](/media/collect-the-dots/og_image.png)
 
-The format is 10 solo rounds played serially. Rectangles range from `120 × 80` (small, wide) to `220 × 300` (large, tall) with `N = 50` to `N = 100` dots. Server-side dot generation draws integer points around 5 to 16 Gaussian cluster centres with growing standard deviation; the cluster count gives the lower bound a perfect-clusterer could reach. Per-round ranking is `10/7/5/3/1/0` to ranks 1–6 among valid submissions, with ties on circle count broken by earliest submission timestamp. 30-second wall-clock per round; 10-second registration window.
+The format is 10 solo rounds played serially. Rectangles range from `120 × 80` (small, wide) to `220 × 300` (large, tall) with `N = 50` to `N = 100` dots. Server-side dot generation draws integer points around 5 to 16 Gaussian cluster centres with growing standard deviation; the cluster count is the rough latent target the dots are drawn from, but it doesn't directly translate to a minimum-circles bound (some rounds are coverable with fewer circles than there are clusters, others need more — explained below). Per-round ranking is `10/7/5/3/1/0` to ranks 1–6 among valid submissions, with ties on circle count broken by earliest submission timestamp. 30-second wall-clock per round; 10-second registration window.
 
 ## The results
 
@@ -38,16 +38,17 @@ The format is 10 solo rounds played serially. Rectangles range from `120 × 80` 
 | R9 | 290 × 200 | 100 | 14 | Kimi (10) | Grok (11) | ChatGPT (13) | **10** |
 | R10 | 220 × 300 | 100 | 16 | Kimi (10) | Claude (10) | Grok (12) | **10** |
 
-`k` is the server-side cluster count (the lower bound a perfect clusterer could reach). The minimum observed circle count tracks `k` only loosely; on most rounds even the best bot ends up using more circles than there are clusters, because two adjacent clusters' minimum enclosing circles often overlap and force a split into a third circle.
+`k` is the server-side cluster-centre count used to generate the dots, not a mathematical lower bound on the minimum number of valid circles. The observed minimum is sometimes below `k` (R1: k=5, min=2; R3: k=7, min=3; R7: k=11, min=3) because adjacent server-side clusters whose dots fall close enough can be covered by one larger circle that still fits the rectangle and doesn't overlap other circles. The reverse also happens: when two server-side clusters' minimum enclosing circles would overlap each other, the bot has to split at least one cluster into smaller circles, pushing the observed minimum above `k` (R6, R8, R9 all show this). The relationship between `k` and the round's true optimum is not monotone; it depends on the specific dot placement.
 
-The standings tell a clear story: **DeepSeek owns R1–R4 and R6** (the small-N rounds where instant submission carries the day), **Grok wins R5 and R7** (mid-N rounds where finding a tight 3- or 4-dot circle matters), and **Kimi wins R8, R9, R10** (the largest N where finding the genuine 12–16 cluster structure beats everything else). Three solvers, three regimes; the totals are within 4 points of each other.
+The first-place finishes split roughly by `N`: DeepSeek takes R1–R4 (N=50 to 80) plus R6 (N=90); Grok takes R5 (N=85) and R7 (N=95); Kimi takes R8–R10 (N=100). The split isn't quite clean — DeepSeek wins R6 (N=90, k=10) while losing R5 (N=85, k=9) and R7 (N=95, k=11), and the rounds it loses on don't have an obvious common feature beyond "Grok or Kimi found a smaller cover." But the broad pattern is that DeepSeek dominates while the cluster pattern fits its grid resolution, Kimi takes over when N approaches 100 and the cluster structure needs iterative discovery, and Grok lands in between. Points totals (64, 63, 60) put the three approaches within 4 points of each other.
 
 ## Grok: enumerate every pair and every triple, then greedy
 
-Grok (Expert 4.20, 152 lines) takes the most direct approach in the field: build *every* candidate circle that could plausibly cover a non-trivial subset of dots, then greedy-pick.
+Grok (Expert 4.20, 152 lines) takes the most direct approach in the field: build every candidate circle that could plausibly cover a non-trivial subset of dots, then greedy-pick.
 
 ```python
 def get_circles(points, w, h):
+    N = len(points)
     circles = []
     # All pairs (diameter circles)
     for i in range(N):
@@ -76,9 +77,9 @@ def get_circles(points, w, h):
 
 For `N = 100`, that's `C(100, 2) + C(100, 3) = 4,950 + 161,700 ≈ 166K` candidate circles enumerated, filtered for rectangle-containment, ranked by coverage, and greedy-selected with overlap checks. Python evaluates that in roughly 1–3 seconds per round, comfortably inside the budget. Grok's per-round times average 1.2 s; the longest is 2.4 s on R9.
 
-Grok wins R5 (4 circles) and R7 (3 circles) outright. Its real value is consistency: 2nd or 3rd on every other round, never below 4th when valid, and valid on every submission. That's how 2 first-place finishes become 64 points: ten high-rank finishes outweigh a 5-wins-then-collapses arc.
+Two first-place finishes (R5 at 4 circles, R7 at 3 circles), eight 2nd-to-5th finishes, valid on every round. The points scale (10/7/5/3/1) rewards ranking, not margin of victory, so steady top-5 placement totals more than a few wins plus some bad rounds. 64 points overall.
 
-The triple-circumcircle layer is the key over a pair-only enumeration. Three-dot clusters where the minimum enclosing circle is determined by all three (not by the farthest pair) appear in 7 of the 10 rounds, and Grok's enumeration captures them; bots that only try pairs miss the optimal candidate and use one more circle to cover the third dot.
+The triple-circumcircle layer is the structural advantage over a pair-only enumeration. When the minimum enclosing circle of a 3-dot cluster is determined by all three points (rather than the farthest pair), pair-only enumeration produces a strictly larger candidate, which the greedy then can't fit alongside an adjacent cluster's circle. The brute-force enumeration is genuinely a brute-force; the value-add over the next-tier bots is in *which* candidates are in the search space, not in any algorithmic cleverness about how to search through them.
 
 ## DeepSeek: grid-search candidate centres, greedy fill
 
@@ -107,7 +108,7 @@ while uncovered:
 
 The radius at each candidate is constrained to whichever is smallest: distance to nearest rectangle edge, distance to the nearest *already-placed* circle. So DeepSeek places circles one at a time, each as large as it can be without overlapping anything that already exists. Greedy on coverage count.
 
-DeepSeek's first-half performance is exceptional: instant submission (0.05 s typical) and **5 first-place finishes** on R1–R4 and R6. R5–R7 it stays in the top 5 (1st, 5th, 2nd). Then on R8 (190 × 280, N=100, k=12) it submits 16 circles — 8 more than Kimi's 8, dropping to 6th place (0 points). R9 and R10 it lands 5th. The collapse isn't a code bug; it's that the greedy candidate set, with a `step ≈ min(w,h)/10` grid, doesn't have enough resolution to find the tight clusters on the larger rectangles where dots are spread over 50,000 px² with 12–16 clusters. The first big circle the greedy picks is often suboptimal for the rest of the dot layout.
+DeepSeek's first-half performance is exceptional: instant submission (0.05 s typical) and **5 first-place finishes** on R1–R4 and R6. R5–R7 it stays in the top 5 (1st, 5th, 2nd). On R8 (190 × 280, N=100, k=12) it submits 16 circles — 8 more than Kimi's 8, dropping to 6th place (0 points). R9 and R10 it lands 5th. The article does not run ablations, but two plausible mechanisms for the late-round drop both point at the candidate set: with `step ≈ min(w,h)/10` the grid has roughly 100 candidate centres on R8's 190×280 board, which probably underresolves 12 cluster centres; and the one-pass greedy never reconsiders earlier placements, so a first-pick large circle that splits a cluster awkwardly locks the rest of the layout. A finer grid or a randomized restart pass would be a small change to test.
 
 The trade-off is stark: instant first-half wins, the lowest cumulative correct-rounds time in the field (0.49 s vs Grok's 12 s vs Kimi's 256 s), but no late-round resilience. 60 points, 5 first-place finishes, 3rd overall.
 
@@ -127,13 +128,13 @@ The cost is steep on small rounds. On R1 Kimi finds the 2-circle optimum that De
 
 63 points, 3 first-place finishes, 2nd overall. A faster small-N path would have caught Grok for 1st.
 
-## ChatGPT: pair-only enumeration
+## ChatGPT: pairwise agglomerative merging with MEC
 
-ChatGPT (GPT 5.5, 432 lines) is the most balanced bot among those with no first-place finishes. It enumerates pair-diameter circles only (no triples), greedy-selects with overlap checks, and uses smallest-enclosing-disk computation for clusters formed by the greedy. Total correct-round time 13.5 s, similar to Grok.
+ChatGPT (GPT 5.5, 432 lines) uses a different strategy than Grok's enumerate-and-greedy. It starts with one singleton cluster per dot, computes the **minimum enclosing circle** (MEC) for each cluster's point set via randomized incremental MEC (the standard Welzl-style algorithm, with `circle_from_three` for the boundary case), and then iteratively tries pairwise cluster merges: for each pair of current clusters, compute the MEC of the union, and merge if the merged MEC fits the rectangle and doesn't overlap any other cluster's MEC. Repeat until no compatible merge exists. Total correct-round time 13.5 s.
 
-ChatGPT lands 2nd or 3rd on the late rounds (R6, R8, R9, R10) where pair-only enumeration is enough because the tight clusters are dominated by their farthest-pair diameter. On the small-N rounds where Grok's triple-circles find a smaller circle than ChatGPT's pair-only set, ChatGPT places 3rd or 5th. 43 points overall, 0 first-place finishes.
+ChatGPT lands 2nd or 3rd on the late rounds (R6, R8, R9, R10) where its agglomerative merging recovers most of the cluster structure. On the small-N rounds it places 3rd or 5th, behind DeepSeek's faster grid-search and Grok's broader candidate set. 43 points overall, 0 first-place finishes.
 
-The gap between Grok (64 pts) and ChatGPT (43 pts) is essentially the triple-circumcircle layer: Grok's R5 (4 circles, 1st) and R7 (3 circles, 1st) wins both come from triple-circles that ChatGPT can't enumerate.
+What ChatGPT does not do is **triple-cluster merging** (try merging three current clusters at once, computing the MEC of their union). Kimi adds that layer; ChatGPT stops at pairwise. Triple merges find groups of three clusters where pairwise merges are individually blocked by overlap with a third cluster's MEC, but a simultaneous three-way merge yields a single circle that does fit. On the hard rounds (R8–R10) this is the main thing separating ChatGPT (11, 13, 12 circles) from Kimi (8, 10, 10). The gap between Grok (64 pts) and ChatGPT (43 pts) is harder to attribute to a single component — the two solvers take fundamentally different shapes (enumerate vs. agglomerate), and Grok's triple-circumcircle candidates are not directly comparable to ChatGPT's pairwise-merge MECs.
 
 ## Claude: pair-only with deep local search, full budget every round
 
@@ -143,9 +144,17 @@ Claude's most interesting result is R10 (220 × 300, N=100, k=16): it finds a 10
 
 On the small-N rounds Claude lands 4th or 5th: its solver finds *a* valid cover, but the local-search refinement doesn't iterate enough times within the 26-second budget to discover that better candidate circles exist. 28 points, 5th overall.
 
-## MiniMax M2.7 debut: 4 of 10 valid, geometry bug on non-square rectangles
+## MiniMax M2.7 debut: 4 of 10 valid, radius-inflation bug
 
-MiniMax M2.7 (166 lines) is new to the field this challenge. The solver goes 4/10 valid (R1, R2, R5, R8) and INVALID on the other six rounds, all with `out_of_bounds_<i>` reasons. The pattern: when the rectangle's longer dimension is much larger than the shorter, MiniMax places circles whose extent goes outside the shorter axis. The bot is calculating rectangle containment with respect to a square's symmetry. Wins zero rounds (its 4 valid submissions land 4th, 5th, 6th, 5th — outside the points zone). 2 points, 6th place.
+MiniMax M2.7 (166 lines) is new to the field this challenge. The solver goes 4/10 valid (R1, R2, R5, R8) and INVALID on the other six rounds, all with `out_of_bounds_<i>` reasons.
+
+The bug is on line 42:
+
+```python
+r_edge = min(cx, w - cx, cy, h - cy) + EPS    # EPS = 1e-6
+```
+
+The maximum radius before hitting a rectangle edge is `min(cx, w-cx, cy, h-cy)`. MiniMax adds `EPS = 1e-6` on top of that, so its circle extends past the edge by exactly 1e-6. The server applies the same `1e-6` tolerance on the other side (`cx - r >= -EPS`), and the two cushions cancel out — so the circle should land exactly at the validation boundary. Float drift then decides whether the check passes or fails on any given dot. For boundary-adjacent dot positions where the math is tight, the `+ EPS` flips the result. Wins zero rounds (its 4 valid submissions land 4th, 5th, 6th, 5th — outside the points zone). 2 points, 6th place.
 
 ## The bottom: Muse, GLM, Gemini, Nemotron
 
@@ -153,39 +162,43 @@ MiniMax M2.7 (166 lines) is new to the field this challenge. The solver goes 4/1
 
 **GLM (5.1, 205 lines)** completes R1–R4 with valid submissions (7, 8, 15, 11 circles), then times out every subsequent round. The solver's complexity grows superlinearly with N, and the 30-second budget runs out for `N ≥ 85`. 0 points despite getting 4 rounds correct (4th–6th place on each).
 
-**Gemini (Pro 3.1, 299 lines)** times out every round. R1 disconnects in 0.096 s, then R2–R10 register as immediate EOF (0.001 s) because the socket is already closed. The solver code looks reasonable on inspection but throws somewhere inside `solve_round` on the first ROUND line, killing the process before any submission. 0/10, 0 points.
+**Gemini (Pro 3.1, 299 lines)** disconnects on R1 at t=0.096 s; R2–R10 register as immediate EOF (0.001 s) because the socket is already closed. The bot file is a randomized agglomerative solver with what looks like a complete protocol layer; the cause of the R1 exit isn't visible from reading the source alone, and the bot exits on any uncaught exception without stderr (`try/except: sys.exit(1)`) so the in-tournament traceback wasn't captured. 0/10, 0 points.
 
-**Nemotron (3 Super, 72 lines)** has an off-by-one indexing bug in its `DOT` parser:
+**Nemotron (3 Super, 72 lines)** has an off-by-one in its `DOT` parser:
 
 ```python
 # Nemotron's dot parser, line 50–51:
-x = float(dparts[1])    # ← dparts[1] is the dot INDEX, not x
-y = float(dparts[2])    # ← dparts[2] is x, not y
+x = float(dparts[1])
+y = float(dparts[2])
 ```
 
-The DOT line format is `DOT <idx> <x> <y>`, so `dparts[1]` is the dot's index and `dparts[2..3]` are its coordinates. Nemotron reads the index as x and reads x as y, leaving y unset (or reading the dot index `0..N-1` as a coordinate). Every round it gets `out_of_bounds_<i>` or `uncovered_dot_<idx>` failures because its circles land at the wrong points. 0/10, 0 points.
+The DOT line format is `DOT <idx> <x> <y>`, so `dparts[1]` is the dot's index and `dparts[2..3]` are the coordinates. Nemotron uses the index as the x coordinate and the actual x as the y coordinate. Every round either fails `out_of_bounds_<i>` (coordinates outside the rectangle because the index is small but treated as a position) or `uncovered_dot_<idx>` (no circle near the real dot positions). 0/10, 0 points.
 
-## What the three top solvers each get right
+## What separates the top three from the next tier
 
-Three populations among the top tier, defined by what their candidate set is:
+The three top solvers differ in their candidate set:
 
-- **DeepSeek**: candidate set is a fixed grid plus the dot positions. Finds the optimum instantly when the grid aligns with the cluster centres, which is true for the small-N rounds. Fails when N=100 spread over 50,000 px² needs finer resolution.
-- **Grok**: candidate set is every dot-pair circle plus every triple-circumcircle. ~166K candidates at N=100. Always contains the optimal small-cluster circles, but the greedy can't backtrack so it sometimes locks in a suboptimal first pick.
-- **Kimi**: candidate set is the result of iterative merging from one-cluster-per-dot. Searches across the merge tree using full budget and multiple random seeds. Slow but converges on the true cluster structure when N is large.
+- **DeepSeek**: a fixed grid plus the dot positions. Finds the optimum instantly when the grid aligns with the cluster centres, which is true for the small-N rounds. Loses resolution at N=100 with dots spread over 50,000 px².
+- **Grok**: every dot-pair diameter circle and every triple-circumcircle. ~166K candidates at N=100. Always contains the optimal small-cluster circles; the greedy can't backtrack, so on harder rounds it sometimes locks in a suboptimal first pick.
+- **Kimi**: the result of iterative merging from one-cluster-per-dot, searched across the merge tree using the full budget and multiple random seeds. Slow but converges on the true cluster structure when N is large.
 
-The hard rounds (R8–R10) require recovering the genuine 12–16 cluster structure from 100 noisy points. Only Kimi's iterative merge does that. The easy rounds (R1–R4) just need to find 2–4 circles around obvious cluster centres, which a fast grid-search nails first. Grok sits in between: candidates from pairs and triples include both regimes' optima, and the speed (1–3 s) doesn't lose the timestamp tiebreak to DeepSeek on small rounds.
+The hard rounds (R8–R10) need to recover the genuine 12–16 cluster structure from 100 noisy points; only Kimi's iterative merge does that. The easy rounds (R1–R4) just need 2–4 circles around obvious cluster centres, which a fast grid-search nails first. Grok sits in between: pair and triple candidates cover both regimes' optima, and 1–3 second submission times don't lose the timestamp tiebreak to DeepSeek on the small rounds.
+
+ChatGPT (43 pts) and Claude (28 pts) finish off the podium for the same reason: pair-only enumeration. No triple-circumcircles like Grok, no iterative merge like Kimi. The two structural omissions each cost about 20 points across the 10 rounds; ChatGPT's Grok delta and Claude's Kimi delta are both roughly that size.
 
 ## The verdict
 
-Three different solvers, three different shapes of the rank-points curve:
+Every solver in the field had a brittle regime where its heuristic broke down. The differences in points came from how deep each bot's cliff was, not from any solver finding a generally robust approach.
 
-- **Grok wins on consistency.** Two firsts, eight 2nd-or-3rds, never below 5th place. 64 points.
-- **Kimi wins on late-round dominance.** Three firsts (R8, R9, R10) plus consistent middle placements when its 25-second computation produces the same answer as faster bots. 63 points. The deficit is entirely the timestamp tiebreak on early rounds where Kimi found the optimum but submitted too late.
-- **DeepSeek wins on first-half speed.** Five firsts (R1–R4, R6) at 0.05 s submission, then a sharp drop on R8–R10 when the grid resolution can't recover the tight clusters. 60 points.
+- **DeepSeek's cliff** is at R8: with `step ≈ min(w,h)/10`, the grid candidate set is ~100 centres on the 190×280 board, which underresolves 12 cluster centres. The greedy commits to a large first pick that locks the rest of the layout, and circle count jumps from 4 (R7) to 16 (R8) in one round. Five wins evaporate into a 6th-place 0-pointer at R8; R9 and R10 also drop to 5th. Catastrophic but isolated to the largest-N rounds.
+- **Kimi's cliff** is the small-N submission timestamp. On R1–R4 it finds the same circle count as DeepSeek but submits 25 seconds later, losing every tiebreak. A smooth fade rather than a single-round collapse — Kimi still scores 3 to 7 points on the rounds it loses — but it adds up to a 1-point gap behind Grok overall.
+- **Grok's cliff is the shallowest**: greedy lock-in on a suboptimal first pick gives a 4th- or 5th-place finish rather than a 1st-place. R6 at 13 circles (vs the leaders' 11) is the worst. Never invalid, never below 5th. The 1–3 second runtime is fast enough to keep timestamp tiebreaks alive on small rounds, and the pair-plus-triple candidate set is broad enough that the greedy has a reasonable pick available even when the optimal first pick is missed.
 
-The 4-point gap between #1 and #3 is the smallest top-of-podium spread of any challenge in the contest so far. The challenge differentiates clearly between candidate-set quality (Grok > ChatGPT, Kimi > Claude, DeepSeek > MiniMax), but among bots with adequate candidate sets, the ranking comes down to time-budget allocation.
+Below the top three, every other bot's cliff is fatal. ChatGPT (43 pts) and Claude (28 pts) miss the triple-cluster-merge layer on R8–R10, costing 2–3 extra circles on the hardest rounds. MiniMax (2 pts) has a radius-inflation bug that invalidates 6 of 10 submissions. GLM, Gemini, Nemotron, and Muse score zero for different code-level reasons that all bottom out: timeout, disconnect, parser bug, trivial cover.
 
-ChatGPT and Claude both finish off the podium for the same reason: pair-only enumeration on small rounds, no equivalent of Grok's triple-circles or Kimi's iterative merge. 43 and 28 points respectively. The Grok–ChatGPT delta and the Kimi–Claude delta are both about 20 points, which is roughly the cost of missing one structural search component.
+The points scale rewards rank-occupancy across all 10 rounds. Grok occupied points-scoring ranks more times than any other bot because its brittleness produced 4th- or 5th-place results rather than 6th-or-below. That's the 1-point margin over Kimi and the 4-point margin over DeepSeek: not a deeper algorithm, just a shallower failure mode.
+
+The relationship between the server-side cluster count `k` and the optimum number of circles is not monotone in either direction. Adjacent clusters can sometimes merge into one larger circle (R1, R3, R7 — observed minima below `k`), and they can sometimes force splits (R6, R8, R9 — observed minima above `k`). The bots' rankings sort by how well their candidate sets and search strategies handle both of those decisions, and by how their search strategy degrades when the decision lands outside the regime they're tuned for.
 
 ---
 
